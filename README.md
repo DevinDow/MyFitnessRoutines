@@ -28,19 +28,19 @@ Android app to guide you through fitness routines.
     - category
     - tasks
     - getDuration()
-## Task
+### Task
     - move
     - moveSeconds
     - restSeconds
-## Move (MoveWithPose, LadderMove, SoccerMove)
+### Move (MoveWithPose, LadderMove, SoccerMove)
     - name
     - description
     - category
     - twoSides
     - getBitmap()
-### MoveWithPose : Move
+#### MoveWithPose : Move
     - pose
-#### Pose
+##### Pose
     - torso
     - rLeg
     - lLeg
@@ -58,17 +58,16 @@ Android app to guide you through fitness routines.
 ##### TwoPointLadderStep
     - left
     - right
-### SoccerMove : Move
+#### SoccerMove : Move
     - ball
     - motions
-#### Motion (SoccerTouch, SoccerStep)
+##### Motion (SoccerTouch, SoccerStep)
     - draw()
-##### SoccerTouch : Motion
+###### SoccerTouch : Motion
     - arrow
-##### SoccerStep : Motion
+###### SoccerStep : Motion
     - step
-## Log
-    - Session
-        - Date
-        - Routine Name
-        - Duration
+###- Session
+    - Date
+    - Routine Name
+    - Duration
