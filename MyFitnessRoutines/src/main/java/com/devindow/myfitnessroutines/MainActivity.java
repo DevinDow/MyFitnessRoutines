@@ -47,13 +47,18 @@ public class MainActivity extends OptionsMenuActivity {
 		// lstRoutines
 		lstRoutines = findViewById(R.id.lstRoutines);
 		lstRoutines.setAdapter(new RoutineAdapter(this, R.layout.routine_row, sampleRoutines));
+		final Context context = this;
 		lstRoutines.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 				Routine routine = (Routine) lstRoutines.getItemAtPosition(position);
-				Intent intent = new Intent(view.getContext(), PlayRoutineActivity.class);
-				intent.putExtra("routine", routine);
-				startActivity(intent);
+				if (routine.isFree || BuildConfig.FLAVOR.equals("paid")) {
+					Intent intent = new Intent(view.getContext(), PlayRoutineActivity.class);
+					intent.putExtra("routine", routine);
+					startActivity(intent);
+				} else {
+					MessageDialog.show(context, "Please purchase the paid version in the app store to access these Routines.");
+				}
 			}
 		});
 

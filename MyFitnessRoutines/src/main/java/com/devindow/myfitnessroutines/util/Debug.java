@@ -11,7 +11,7 @@ public final class Debug {
 	// Public Static Constants
 	static final int logLevel = Log.INFO; // ERROR = 6, WARN = 5, INFO = 4, DEBUG = 3, VERBOSE = 2
 
-	public static final boolean on = false; // Set to false to allow compiler to identify and eliminate unreachable code.
+	public static final boolean on = true; // Set to false to allow compiler to identify and eliminate unreachable code.
 
 	public static final String TAG_ERROR = " **** ERROR **** ";
 	public static final String TAG_ENTER = " ** ";

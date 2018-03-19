@@ -321,7 +321,7 @@ public class SampleRoutines {
 	}
 
 	private static Routine generateTestRoutine() {
-		Routine routine = new Routine("Test Routine");
+		Routine routine = new Routine("Test Routine", Category.NONE, "", true);
 
 		routine.tasks.add(new Task(MoveLibrary.SHOULDER_PRESS, 15, "Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.PLOW,10, "Breathe."));

@@ -1,23 +1,16 @@
 TODO
 ----
 
-- Play Chime when TTS is not available.
+- Play Chime when TTS is not available or not on.
 
-- Free Version
-  - Grey other routines but respond to click?
+- Flavors
+  - how to choose which to debug
+  - different resources to hide btnCreateRoutine
+  - need different app title/icon
 
 ----------------------------------------------------------------------------------------------------
 
 - Poses
-
-----------------------------------------------------------------------------------------------------
-
-* App Store
-  - Free version only has "7 min" and can see other Routines and direct user to paid.
-  - Paid app for adding new Routine?
-  - Paid & Free versions
-    - https://developer.android.com/studio/build/index.html  #The Module-level Build File  #productFlavors=free/paid  use different applicationId to exist in Play Store/Device simultaneously
-    - Multiple free apps and consolidated paid app?  My Yoga, My Agility Ladder, My Soccer Touches
 
 ----------------------------------------------------------------------------------------------------
 
