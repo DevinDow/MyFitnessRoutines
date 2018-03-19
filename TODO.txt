@@ -4,9 +4,33 @@ TODO
 - Play Chime when TTS is not available or not on.
 
 - Flavors
-  - how to choose which to debug
   - different resources to hide btnCreateRoutine
-  - need different app title/icon
+  - need different app title/icon (use resource string?)
+  - My Fitness Routines Free
+    - 7 min
+  - My Fitness Routines
+    - Add/Edit Routine
+  - My Soccer Routines
+    - Soccer Touches
+    - Agility Ladder
+    - Pre-Activation
+    - Warmup
+    - Morning Yoga
+    - 7 min
+  - My Yoga Routines
+    - Morning Yoga
+    - Sun Salutation
+
+
+- Analytics
+    - https://analytics.google.com/analytics/web/?authuser=0#management/Settings/a116050036w172372997p171904749/%3Fm.page%3DTrackingCode/
+    - Tracking ID = UA-116050036-1
+    - Getting Started: https://developers.google.com/analytics/devguides/collection/android/v4/
+    - Track:
+        - Routines
+        - Time/Play/Pause
+        - New Routine button
+        - Exceptions
 
 ----------------------------------------------------------------------------------------------------
 
