@@ -76,11 +76,13 @@ android {
             dimension "mode"
             applicationIdSuffix ".free"
             versionNameSuffix "-free"
+            resValue "string", "app_name", "My Fitness Routines - FREE"
         }
         paid {
             dimension "mode"
             applicationIdSuffix ".paid"
             versionNameSuffix "-paid"
+            resValue "string", "app_name", "My Fitness Routines"
         }
     }
 }
