@@ -94,7 +94,8 @@ public class MoveLibrary {
 	public static final String PUSH_UPS = "Push-Ups";
 	public static final String HANDS_PLANK = "Hands Plank";
 	public static final String ELBOWS_PLANK = "Elbows Plank";
-	public static final String LUNGE = "Lunge";
+	public static final String PRONE_LUNGE = "Prone Lunge";
+	public static final String CHATURANGA = "Chaturanga";
 	public static final String COBRA = "Cobra";
 	public static final String PUSH_UP_ROTATE = "Push-Up & Rotate";
 	public static final String SIDE_PLANK = "Side Plank";
@@ -133,7 +134,6 @@ public class MoveLibrary {
 	public static final String SOCCER_HAT_DANCE = "Hat Dance";
 	public static final String SOCCER_HAT_DANCE_CIRCLE = "Hat Dance Circle";
 	public static final String SOCCER_2_TOUCHES_THEN_ACROSS = "2 touches then across";
-	public static final String CHATURANGA = "Chaturanga";
 
 
 	// Public Static Fields
@@ -1365,7 +1365,7 @@ public class MoveLibrary {
 
 		// Lunge
 		{
-			MoveWithPose move = new MoveWithPose(LUNGE, Category.YOGA);
+			MoveWithPose move = new MoveWithPose(PRONE_LUNGE, Category.YOGA);
 			move.pose = new Pose();
 
 			move.pose.lLeg = new Leg(Angle.W.add(30), Angle.W.add(3));

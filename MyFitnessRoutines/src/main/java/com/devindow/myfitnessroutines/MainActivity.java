@@ -13,21 +13,22 @@ import android.widget.ListView;
 
 import com.devindow.myfitnessroutines.db.AppDatabase;
 import com.devindow.myfitnessroutines.routine.*;
+import com.devindow.myfitnessroutines.util.Debug;
 import com.devindow.myfitnessroutines.util.MessageDialog;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends OptionsMenuActivity {
 
 	// Fields
-	private ArrayList<Routine> sampleRoutines;
 	private ListView lstRoutines;
 
 
 	// Overrides
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		Debug.d(Debug.TAG_ENTER, "MainActivity.onCreate()");
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
@@ -36,17 +37,13 @@ public class MainActivity extends OptionsMenuActivity {
 		setSupportActionBar(toolbar);
 
 
-		// MoveLibrary
-		MoveLibrary.generateMoves();
-
-
-		// sampleRoutines
-		sampleRoutines = SampleRoutines.generateSampleRoutines();
+		// generate Moves & Routines
+		RoutineLibrary.generate();
 
 
 		// lstRoutines
 		lstRoutines = findViewById(R.id.lstRoutines);
-		lstRoutines.setAdapter(new RoutineAdapter(this, R.layout.routine_row, sampleRoutines));
+		lstRoutines.setAdapter(new RoutineAdapter(this, R.layout.routine_row, RoutineLibrary.routines));
 		final Context context = this;
 		lstRoutines.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
@@ -72,6 +69,8 @@ public class MainActivity extends OptionsMenuActivity {
 						.setAction("Action", null).show();
 			}
 		});
+
+		Debug.d(Debug.TAG_EXIT, "MainActivity.onCreate()");
 	}
 
 	@Override
@@ -82,9 +81,14 @@ public class MainActivity extends OptionsMenuActivity {
 
 	@Override
 	protected void onResume() { // becoming interactive or returning from another Activity
+		Debug.d(Debug.TAG_ENTER, "MainActivity.onResume()");
+
 		super.onResume();
 
-		new GetSessionsTask().execute(this);
+		// query DB for Sessions run recently then update Routine.ranRecently
+		new GetRecentSessionsAsyncTask().execute(this);
+
+		Debug.d(Debug.TAG_EXIT, "MainActivity.onResume()");
 	}
 
 	@Override
@@ -112,32 +116,36 @@ public class MainActivity extends OptionsMenuActivity {
 	}
 
 
-	// GetSessionsTask class
-	private class GetSessionsTask extends AsyncTask<Context, Void, Void> {
+	// GetRecentSessionsAsyncTask class
+	private class GetRecentSessionsAsyncTask extends AsyncTask<Context, Void, Void> {
 
 		private Context context;
 		private List<Session> sessions;
 
 		@Override
 		protected Void doInBackground(Context... context) {
+			Debug.d(Debug.TAG_ENTER, "GetRecentSessionsAsyncTask.doInBackground()");
 			this.context = context[0];
 
 			sessions = AppDatabase.getSessionsInLast24HoursAsync();
+			Debug.d(Debug.TAG_EXIT, "GetRecentSessionsAsyncTask.doInBackground()");
 			return null;
 		}
 
 		@Override
 		protected void onPostExecute(Void result) {
-			for (Routine routine : sampleRoutines) {
-				routine.ranToday = false;
+			Debug.d(Debug.TAG_ENTER, "GetRecentSessionsAsyncTask.onPostExecute()");
+			for (Routine routine : RoutineLibrary.routines) {
+				routine.ranRecently = false;
 				for (Session session : sessions) {
 					if (routine.name.equals(session.getRoutineName())) {
-						routine.ranToday = true;
+						routine.ranRecently = true;
 					}
 				}
 			}
 
-			lstRoutines.setAdapter(new RoutineAdapter(context, R.layout.routine_row, sampleRoutines));
+			lstRoutines.setAdapter(new RoutineAdapter(context, R.layout.routine_row, RoutineLibrary.routines));
+			Debug.d(Debug.TAG_EXIT, "GetRecentSessionsAsyncTask.onPostExecute()");
 		}
 
 	}

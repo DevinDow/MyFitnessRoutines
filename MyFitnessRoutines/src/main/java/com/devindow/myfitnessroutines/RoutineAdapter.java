@@ -49,7 +49,7 @@ public class RoutineAdapter extends ArrayAdapter<Routine> {
 		}
 
 		// GREEN background for Routines completed today
-		if (routine.ranToday) {
+		if (routine.ranRecently) {
 			convertView.setBackgroundColor(Color.GREEN);
 		}
 

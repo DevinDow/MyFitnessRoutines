@@ -1,12 +1,20 @@
 TODO
 ----
 
+* DEBUG_EXIT should show duration
+
+- Generate Samples
+  + MainActivity calls generates Poses & Routines every time it runs.
+    - App.onCreate() should call MoveLibrary.generateMoves() & SampleRoutines.generateSampleRoutines();
+    - MainActivity.onCreate() can call it when debugging.
+
 - Different "Done!" by Category
   - Done
   - Namaste (Prayer)
   - Soccer Done with ball (use for app icon)
 
 - Flavors
+  * Different Sample Routines based on flavor
   * btnCreateRoutine requires PAID or hidden with different resources
   * Different icon resources
   - My Fitness Routines Free
@@ -34,11 +42,6 @@ TODO
         - Time/Play/Pause
         - New Routine button
         - Exceptions
-
-- Startup
-  + MainActivity calls generates Poses & Routines every time it runs.
-    - App.onCreate() should call MoveLibrary.generateMoves() & SampleRoutines.generateSampleRoutines();
-    - MainActivity.onCreate() can call it when debugging.
 
 - Handle TTS not available
 

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class SampleRoutines {
 
-	// Default Routines
+	// Public Static Methods
 	public static ArrayList<Routine> generateSampleRoutines() {
 		Debug.d(Debug.TAG_ENTER, "generateSampleRoutines()");
 
@@ -117,12 +117,12 @@ public class SampleRoutines {
 			routine.tasks.add(new Task(MoveLibrary.PRAYER, breathSeconds * 2, "Breathe"));
 			routine.tasks.add(new Task(MoveLibrary.BACK_BEND, breathSeconds, "Inhale, reach up and back"));
 			routine.tasks.add(new Task(MoveLibrary.TOUCH_TOES, breathSeconds, "Exhale, fold forward"));
-			routine.tasks.add(new Task(MoveLibrary.LUNGE, breathSeconds, "Inhale, step back to lunge"));
+			routine.tasks.add(new Task(MoveLibrary.PRONE_LUNGE, breathSeconds, "Inhale, step back to lunge"));
 			routine.tasks.add(new Task(MoveLibrary.HANDS_PLANK, breathSeconds, "Retain, step back to plank"));
 			routine.tasks.add(new Task(MoveLibrary.CHATURANGA, breathSeconds, "Exhale, Chaturanga parallel to ground"));
 			routine.tasks.add(new Task(MoveLibrary.COBRA, breathSeconds, "Inhale, up to Cobra"));
 			routine.tasks.add(new Task(MoveLibrary.DOWN_DOG, breathSeconds * 5, "Exhale up to Downward Dog, stay for 5 breaths"));
-			routine.tasks.add(new Task(MoveLibrary.LUNGE, breathSeconds, "Inhale, step forward to lunge"));
+			routine.tasks.add(new Task(MoveLibrary.PRONE_LUNGE, breathSeconds, "Inhale, step forward to lunge"));
 			routine.tasks.add(new Task(MoveLibrary.TOUCH_TOES, breathSeconds, "Exhale, fold forward"));
 			routine.tasks.add(new Task(MoveLibrary.BACK_BEND, breathSeconds, "Inhale, roll spine up, reach up and back"));
 		}
