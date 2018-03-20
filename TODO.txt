@@ -1,11 +1,11 @@
 TODO
 ----
 
-- Play Chime when TTS is not available or not on.
+- Different "Done!" by Category
 
 - Flavors
-  - different resources to hide btnCreateRoutine
-  - need different app title/icon (use resource string?)
+  * btnCreateRoutine requires PAID or hidden with different resources
+  * Different icon resources
   - My Fitness Routines Free
     - 7 min
   - My Fitness Routines
@@ -20,7 +20,7 @@ TODO
   - My Yoga Routines
     - Morning Yoga
     - Sun Salutation
-
+  - Link to PAID app in App Store
 
 - Analytics
     - https://analytics.google.com/analytics/web/?authuser=0#management/Settings/a116050036w172372997p171904749/%3Fm.page%3DTrackingCode/
@@ -31,6 +31,8 @@ TODO
         - Time/Play/Pause
         - New Routine button
         - Exceptions
+
+- Handle TTS not available
 
 ----------------------------------------------------------------------------------------------------
 

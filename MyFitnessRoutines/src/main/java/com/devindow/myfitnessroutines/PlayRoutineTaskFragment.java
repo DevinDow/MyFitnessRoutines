@@ -6,8 +6,6 @@ package com.devindow.myfitnessroutines;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.media.AudioManager;
-import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 
@@ -353,13 +351,6 @@ public class PlayRoutineTaskFragment extends Fragment {
 				next();
 			}
 		}.start();
-	}
-
-
-	// Private Methods
-	private void playChime() {
-		ToneGenerator toneGenerator = new ToneGenerator(AudioManager.STREAM_NOTIFICATION,100);
-		toneGenerator.startTone(AudioManager.STREAM_NOTIFICATION,100);
 	}
 
 }

@@ -3,8 +3,9 @@ package com.devindow.myfitnessroutines;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.AudioManager;
+import android.media.ToneGenerator;
 import android.speech.tts.TextToSpeech;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -27,8 +28,9 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 	// Private Fields
 	private PlayRoutineTaskFragment taskFragment;
 	private TextToSpeech speech;
-	private boolean speechInitialized = false;
-	private String textToSpeak;
+	// If we need to speak before TTS is initialized (isSpeechInitialized), we'll have to wait, so store it where speech initialization can play it (textToSpeakAfterInitialized).
+	private boolean isSpeechInitialized = false;
+	private String textToSpeakAfterInitialized;
 
 
 	// Lifecycle Overrides
@@ -50,11 +52,14 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 				if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
 					Debug.e(Debug.TAG_ERROR, "This Language is not supported");
 				}
-				speechInitialized = true;
-				if (textToSpeak != null) {
-					speech.speak(textToSpeak, TextToSpeech.QUEUE_FLUSH, null);
-					textToSpeak = null;
+				isSpeechInitialized = true;
+
+				// Play stored textToSpeakAfterInitialized now that speech is running.
+				if (textToSpeakAfterInitialized != null) {
+					speech.speak(textToSpeakAfterInitialized, TextToSpeech.QUEUE_FLUSH, null);
+					textToSpeakAfterInitialized = null;
 				}
+
 				Debug.d(Debug.TAG_EXIT, "TextToSpeech.onInit()");
 			}
 		});
@@ -177,19 +182,24 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 	public void speak(String moveName, String moveInstructions) {
 		Debug.d(Debug.TAG_ENTER, "PlayRoutineActivity.speak()");
 
-		if (Preferences.getSpeakMoveNames()) {
+		if (Preferences.getSpeakMoveNames()) { // speak
 			String text = moveName;
 			if (moveInstructions != null && Preferences.getSpeakMoveInstructions()) {
 				text += ". " + moveInstructions;
 			}
 
-			if (speechInitialized) {
+			if (isSpeechInitialized) {
 				speech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-				textToSpeak = null;
+				textToSpeakAfterInitialized = null;
 			} else {
-				textToSpeak = text;
+				textToSpeakAfterInitialized = text;
 			}
+
+		} else { // play chime
+			ToneGenerator toneGenerator = new ToneGenerator(AudioManager.STREAM_NOTIFICATION,100);
+			toneGenerator.startTone(ToneGenerator.TONE_CDMA_ABBR_INTERCEPT,500);
 		}
+
 	}
 
 
