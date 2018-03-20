@@ -127,7 +127,8 @@ public class MainActivity extends OptionsMenuActivity {
 			Debug.d(Debug.TAG_ENTER, "GetRecentSessionsAsyncTask.doInBackground()");
 			this.context = context[0];
 
-			sessions = AppDatabase.getSessionsInLast24HoursAsync();
+			// Query for list of recent Sessions
+			sessions = AppDatabase.getRecentSessionsAsync();
 			Debug.d(Debug.TAG_EXIT, "GetRecentSessionsAsyncTask.doInBackground()");
 			return null;
 		}

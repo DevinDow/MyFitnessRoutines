@@ -1,9 +1,12 @@
 TODO
 ----
 
-* DEBUG_EXIT should show duration
+* DEBUG
+  * DEBUG_EXIT should show duration
+  * TAG
+  * ENTER & EXIT improvements
 
-- Generate Samples
+* Generate Samples
   + MainActivity calls generates Poses & Routines every time it runs.
     - App.onCreate() should call MoveLibrary.generateMoves() & SampleRoutines.generateSampleRoutines();
     - MainActivity.onCreate() can call it when debugging.
@@ -46,6 +49,8 @@ TODO
 - Handle TTS not available
 
 ----------------------------------------------------------------------------------------------------
+
+- Sessions Log activity
 
 - Poses
 
