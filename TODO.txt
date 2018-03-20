@@ -2,6 +2,9 @@ TODO
 ----
 
 - Different "Done!" by Category
+  - Done
+  - Namaste (Prayer)
+  - Soccer Done with ball (use for app icon)
 
 - Flavors
   * btnCreateRoutine requires PAID or hidden with different resources
@@ -32,6 +35,11 @@ TODO
         - New Routine button
         - Exceptions
 
+- Startup
+  + MainActivity calls generates Poses & Routines every time it runs.
+    - App.onCreate() should call MoveLibrary.generateMoves() & SampleRoutines.generateSampleRoutines();
+    - MainActivity.onCreate() can call it when debugging.
+
 - Handle TTS not available
 
 ----------------------------------------------------------------------------------------------------
@@ -53,15 +61,8 @@ TODO
   - Main activity
     - dropdown for Routine Category / All
 
-- Startup
-  + MainActivity calls generatePoses() every time it runs;
-    - Derive a class from Application that overrides onCreate() calling super.onCreate().
-
 - Headset
     - Bluetooth Headset button pauses?
-
-- Log Activity
-  - Saving to Google Doc or persistent storage
 
 - Coaching Marks
 
