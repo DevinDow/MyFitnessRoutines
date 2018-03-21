@@ -1,5 +1,7 @@
 package com.devindow.myfitnessroutines.routine;
 
+import com.devindow.myfitnessroutines.util.MethodLogger;
+
 import java.util.ArrayList;
 
 /**
@@ -14,12 +16,12 @@ public class RoutineLibrary {
 
 	// Public Methods
 	public static void generate() {
+		new MethodLogger();
 
 		MoveLibrary.generateMoves();
 
-		ArrayList<Routine> sampleRoutines = SampleRoutines.generateSampleRoutines();
-
-		routines = sampleRoutines;
+		routines = new ArrayList<>();
+		SampleRoutines.generateSampleRoutines();
 	}
 
 }

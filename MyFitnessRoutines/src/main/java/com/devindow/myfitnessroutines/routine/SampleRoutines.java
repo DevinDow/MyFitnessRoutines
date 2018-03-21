@@ -13,49 +13,35 @@ import java.util.ArrayList;
 public class SampleRoutines {
 
 	// Public Static Methods
-	public static ArrayList<Routine> generateSampleRoutines() {
+	public static void generateSampleRoutines() {
 		MethodLogger methodLogger = new MethodLogger();
 
-		ArrayList<Routine> defaultRoutines = new ArrayList<>();
-
 		if (Debug.on) {
-			defaultRoutines.add(generateTestRoutine());
-
-/*
-			defaultRoutines.add(generateStretchRoutine());
-
-			defaultRoutines.add(generateLiftRoutine());
-
-			defaultRoutines.add(generateCardioRoutine());
-
-			defaultRoutines.add(generateRileyRoutine());
-*/
+			RoutineLibrary.routines.add(generateTestRoutine());
 		}
 
-		defaultRoutines.add(generate7MinuteWorkout());
+		RoutineLibrary.routines.add(generate7MinuteWorkout());
 
-		defaultRoutines.add(generateMorningYogaRoutine());
-		defaultRoutines.add(generateSunSalutation());
+		RoutineLibrary.routines.add(generateMorningYogaRoutine());
+		RoutineLibrary.routines.add(generateSunSalutation());
 
-		defaultRoutines.add(generateWarmupRoutine());
+		RoutineLibrary.routines.add(generateWarmupRoutine());
 
-		defaultRoutines.add(generatePreActivationRoutine());
+		RoutineLibrary.routines.add(generatePreActivationRoutine());
 
-		defaultRoutines.add(generateLowerAbs());
-		defaultRoutines.add(generateObliqueAbs());
-		defaultRoutines.add(generateUpperAbs());
-		defaultRoutines.add(generateMixedAbs());
+		RoutineLibrary.routines.add(generateLowerAbs());
+		RoutineLibrary.routines.add(generateObliqueAbs());
+		RoutineLibrary.routines.add(generateUpperAbs());
+		RoutineLibrary.routines.add(generateMixedAbs());
 
-		defaultRoutines.add(generate5MinMeditation());
-		defaultRoutines.add(generate10MinMeditation());
-		defaultRoutines.add(generate15MinMeditation());
+		RoutineLibrary.routines.add(generate5MinMeditation());
+		RoutineLibrary.routines.add(generate10MinMeditation());
+		RoutineLibrary.routines.add(generate15MinMeditation());
 
-		defaultRoutines.add(generateLadderDrills());
-		defaultRoutines.add(generateSoccerTouches());
+		RoutineLibrary.routines.add(generateLadderDrills());
+		RoutineLibrary.routines.add(generateSoccerTouches());
 
 		methodLogger.end();
-
-		return defaultRoutines;
 	}
 
 
@@ -285,40 +271,6 @@ public class SampleRoutines {
 		routine.tasks.add(new Task(MoveLibrary.SOCCER_HAT_DANCE, 30, 5));
 		routine.tasks.add(new Task(MoveLibrary.SOCCER_HAT_DANCE_CIRCLE, 30, 5));
 		routine.tasks.add(new Task(MoveLibrary.SOCCER_2_TOUCHES_THEN_ACROSS, 30, 5));
-
-		return routine;
-	}
-
-	private static Routine generateStretchRoutine() {
-		Routine routine = new Routine("Stretch Routine");
-
-		routine.tasks.add(new Task(MoveLibrary.TOUCH_TOES, 30, 5));
-		routine.tasks.add(new Task(MoveLibrary.WIDE_LEG_BEND, 30, "Breathe."));
-
-		return routine;
-	}
-
-	private static Routine generateLiftRoutine() {
-		Routine routine = new Routine("Lift Routine", Category.STRENGTH);
-
-		routine.tasks.add(new Task(MoveLibrary.PUSH_UPS, 30));
-
-		return routine;
-	}
-
-	private static Routine generateCardioRoutine() {
-		Routine routine = new Routine("Cardio Routine", Category.CARDIO);
-
-		routine.tasks.add(new Task(MoveLibrary.JUMPING_JACKS, 30));
-		routine.tasks.add(new Task(MoveLibrary.PUSH_UPS, 30));
-
-		return routine;
-	}
-
-	private static Routine generateRileyRoutine() {
-		Routine routine = new Routine("Riley Routine");
-
-		routine.tasks.add(new Task(MoveLibrary.BEHIND_THE_BACK_GRAB, 30));
 
 		return routine;
 	}

@@ -37,8 +37,10 @@ public class MainActivity extends OptionsMenuActivity {
 		setSupportActionBar(toolbar);
 
 
-		// generate Moves & Routines
-		RoutineLibrary.generate();
+		// When debugging, regenerate Moves & Routines every time MainActivity is created.
+		if (BuildConfig.DEBUG) {
+			RoutineLibrary.generate();
+		}
 
 
 		// lstRoutines

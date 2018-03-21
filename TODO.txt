@@ -3,11 +3,6 @@ TODO
 
 CURRENT FEATURE BRANCH = Flavors
 
-* Generate Samples
-  + MainActivity calls generates Poses & Routines every time it runs.
-    - App.onCreate() should call MoveLibrary.generateMoves() & SampleRoutines.generateSampleRoutines();
-    - MainActivity.onCreate() can call it when debugging.
-
 - Different "Done!" by Category
   - Done
   - Namaste (Prayer)
