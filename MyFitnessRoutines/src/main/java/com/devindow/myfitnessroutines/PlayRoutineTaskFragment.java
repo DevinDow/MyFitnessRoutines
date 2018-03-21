@@ -140,7 +140,17 @@ public class PlayRoutineTaskFragment extends Fragment {
 	public void setMove() {
 		Task currentTask = getCurrentTask();
 		if (currentTask == null) {
-			move = MoveLibrary.moves.get(MoveLibrary.DONE);
+			switch (routine.category) {
+				case YOGA:
+					move = MoveLibrary.moves.get(MoveLibrary.NAMASTE);
+					break;
+				case SOCCER:
+					move = MoveLibrary.moves.get(MoveLibrary.CHAMP);
+					break;
+				default:
+					move = MoveLibrary.moves.get(MoveLibrary.DONE);
+					break;
+			}
 			pause();
 
 			// insertSession Session in DB
@@ -148,8 +158,9 @@ public class PlayRoutineTaskFragment extends Fragment {
             AppDatabase.insertSession(session);
 		} else {
 			move = MoveLibrary.moves.get(currentTask.moveName);
-			resetSecondsRemaining();
 		}
+
+		resetSecondsRemaining();
 
 		if (playRoutineActivity != null) {
 			playRoutineActivity.displayTask();

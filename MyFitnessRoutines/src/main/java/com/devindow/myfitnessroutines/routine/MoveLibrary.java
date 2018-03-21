@@ -19,6 +19,8 @@ public class MoveLibrary {
 	// Standing Frontal Poses
 	public static final String MOUNTAIN_POSE = "Mountain Pose";
 	public static final String DONE = "Done!";
+	public static final String CHAMP = "Done! Go get 'em champ!";
+	public static final String NAMASTE = "Done. Namaste.";
 	public static final String REACH_BACK = "Reach Back";
 	public static final String JUMPING_JACKS = "Jumping Jacks";
 	public static final String STANDING_SIDE_BEND = "Standing Side Bend";
@@ -192,6 +194,44 @@ public class MoveLibrary {
 
 			Angle armProximalAngle = Angle.W.add(-30);
 			Angle armDistalAngle = Angle.N.add(10);
+			move.pose.rArm = new Arm(armProximalAngle, armDistalAngle);
+			move.pose.lArm = new Arm(armProximalAngle.mirror(), armDistalAngle.mirror());
+
+			moves.put(move.name, move);
+		}
+
+		// Soccer Champ
+		{
+			MoveWithPose move = new MoveWithPose(CHAMP, Category.SOCCER);
+			move.pose = new Pose();
+
+			move.pose.lLeg = new Leg(Angle.S);
+			move.pose.rLeg = new Leg(Angle.SW.add(6), .65f, Angle.S);
+
+			move.pose.torso = new Torso(move.pose.lLeg.getHeight() + Leg.thickness / 2);
+
+			move.pose.rArm = new Arm(Angle.SW, Angle.SE);
+			move.pose.lArm = new Arm(Angle.SE, Angle.SW);
+
+			move.pose.prop = new Ball(move.pose.rLeg.getDistalPointX(move.pose.torso.rHip.x), Ball.diameter/2);
+
+			moves.put(move.name, move);
+		}
+
+		// Namaste
+		{
+			MoveWithPose move = new MoveWithPose(NAMASTE, Category.YOGA);
+			move.pose = new Pose();
+
+			Angle legAngle = Angle.S.add(3);
+			move.pose.lLeg = new Leg(legAngle);
+			move.pose.rLeg = new Leg(legAngle.mirror());
+
+			move.pose.torso = new Torso(move.pose.lLeg.getHeight() + Leg.thickness / 2);
+			move.pose.torso.head.shift(0, -2);
+
+			Angle armProximalAngle = Angle.S.add(-10);
+			Angle armDistalAngle = Angle.NE.add(-5);
 			move.pose.rArm = new Arm(armProximalAngle, armDistalAngle);
 			move.pose.lArm = new Arm(armProximalAngle.mirror(), armDistalAngle.mirror());
 

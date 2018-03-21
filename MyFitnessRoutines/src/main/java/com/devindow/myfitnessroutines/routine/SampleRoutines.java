@@ -93,7 +93,7 @@ public class SampleRoutines {
 		routine.tasks.add(new Task(MoveLibrary.HIP_STRETCH, 40, "Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.SAGE_POSE, 10, "Sit Tall. Legs together. Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.TWISTED_SAGE_POSE, 30, "Sit Tall. Pretzel. Breathe."));
-		routine.tasks.add(new Task(MoveLibrary.LOTUS, 60, "Meditate & Breathe. Namaste."));
+		routine.tasks.add(new Task(MoveLibrary.LOTUS, 60, "Meditate & Breathe."));
 
 		return routine;
 	}
@@ -116,7 +116,7 @@ public class SampleRoutines {
 			routine.tasks.add(new Task(MoveLibrary.BACK_BEND, breathSeconds, "Inhale, roll spine up, reach up and back"));
 		}
 
-		routine.tasks.add(new Task(MoveLibrary.PRAYER, breathSeconds * 3, "Breathe. Namaste"));
+		routine.tasks.add(new Task(MoveLibrary.PRAYER, breathSeconds * 3, "Breathe."));
 
 		return routine;
 	}
@@ -278,7 +278,8 @@ public class SampleRoutines {
 	private static Routine generateTestRoutine() {
 		Routine routine = new Routine("Test Routine", Category.NONE, "", true);
 
-		routine.tasks.add(new Task(MoveLibrary.SHOULDER_PRESS, 15, "Breathe."));
+		routine.tasks.add(new Task(MoveLibrary.CHAMP, 15));
+		routine.tasks.add(new Task(MoveLibrary.NAMASTE, 15));
 		routine.tasks.add(new Task(MoveLibrary.PLOW,10, "Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.CHAIR_POSE,5));
 		routine.tasks.add(new Task(MoveLibrary.WARRIOR_1,5, Side.RIGHT));

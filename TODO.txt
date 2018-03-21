@@ -4,9 +4,7 @@ TODO
 CURRENT FEATURE BRANCH = Flavors
 
 - Different "Done!" by Category
-  - Done
-  - Namaste (Prayer)
-  - Soccer Done with ball (use for app icon)
+  - Soccer Done with ball (use for app icon) "Go get 'em champ!"
 
 - Flavors
   * Different Sample Routines based on flavor
