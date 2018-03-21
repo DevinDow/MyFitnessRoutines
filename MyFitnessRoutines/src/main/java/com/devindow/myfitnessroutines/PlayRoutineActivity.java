@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.devindow.myfitnessroutines.pose.MoveWithPose;
 import com.devindow.myfitnessroutines.routine.*;
-import com.devindow.myfitnessroutines.util.Debug;
+import com.devindow.myfitnessroutines.util.MethodLogger;
 
 import java.util.Locale;
 
@@ -36,21 +36,21 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 	// Lifecycle Overrides
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineActivity.onCreate()");
+		MethodLogger methodLogger = new MethodLogger();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_play_routine);
 
 		speech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
 			@Override
 			public void onInit(int status) {
-				Debug.d(Debug.TAG_ENTER, "TextToSpeech.onInit()");
+				MethodLogger methodLogger = new MethodLogger();
 				if (status != TextToSpeech.SUCCESS) {
-					Debug.e(Debug.TAG_ERROR, "TTS Initialization Failed");
+					methodLogger.e("TextToSpeech initialization failed");
 					return;
 				}
 				int result = speech.setLanguage(Locale.US);
 				if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-					Debug.e(Debug.TAG_ERROR, "This Language is not supported");
+					methodLogger.e("TextToSpeech language not supported");
 				}
 				isSpeechInitialized = true;
 
@@ -60,7 +60,7 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 					textToSpeakAfterInitialized = null;
 				}
 
-				Debug.d(Debug.TAG_EXIT, "TextToSpeech.onInit()");
+				methodLogger.end();
 			}
 		});
 
@@ -88,11 +88,11 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 		// update btnPlay in case it is running
 		updatePlayButton();
 
-		Debug.d(Debug.TAG_EXIT, "PlayRoutineActivity.onCreate()");
+		methodLogger.end();
 	}
 
 	@Override protected void onDestroy() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineActivity.onDestroy()");
+		MethodLogger methodLogger = new MethodLogger();
 		super.onDestroy();
 
 		speech.shutdown();
@@ -102,7 +102,7 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 	// PlayRoutineCallbacks implementation
 	@Override
 	public void displayTask() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineActivity.displayTask()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		clearInstructions();
 		clearNextMoveName();
@@ -119,12 +119,12 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 
 		displayTasksRemaining();
 
-		Debug.d(Debug.TAG_EXIT, "PlayRoutineActivity.displayTask()");
+		methodLogger.end();
 	}
 
 	@Override
 	public void displayMove() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineActivity.displayMove()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		final TextView txtMoveName = findViewById(R.id.txtMoveName);
 		final ImageView imgMove = findViewById(R.id.imgMove);
@@ -154,24 +154,24 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 			txtMoveName.setText(moveName);
 			imgMove.setImageBitmap(taskFragment.move.getBitmap(mirrored));
 		}
-		Debug.d(Debug.TAG_EXIT, "PlayRoutineActivity.displayMove()");
+		methodLogger.end();
 	}
 
 	@Override
 	public void updateTimer(int secondsRemaining) { // pass in secondsRemaining because otherwise it would show Rest Time instead of 0 at the end of Move
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineActivity.updateTimer()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		TextView txtTimer = findViewById(R.id.txtTimer);
 		if (txtTimer != null) {
 			String timeRemaining = String.format("%d:%02d", secondsRemaining / 60, secondsRemaining % 60);
-			Debug.d(Debug.TAG_TIME, timeRemaining);
+			methodLogger.d(timeRemaining);
 			txtTimer.setText(timeRemaining);
 		}
 	}
 
 	@Override
 	public void clearInstructions() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineActivity.clearInstructions()");
+		MethodLogger methodLogger = new MethodLogger();
 		final TextView txtInstructions = findViewById(R.id.txtInstructions);
 		if (txtInstructions != null) {
 			txtInstructions.setText("");
@@ -180,10 +180,12 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 
 	@Override
 	public void speak(String moveName, String moveInstructions) {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineActivity.speak()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		if (Preferences.getSpeakMoveNames()) { // speak
 			String text = moveName;
+
+			// concatenate Instructions
 			if (moveInstructions != null && Preferences.getSpeakMoveInstructions()) {
 				text += ". " + moveInstructions;
 			}
@@ -192,6 +194,7 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 				speech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
 				textToSpeakAfterInitialized = null;
 			} else {
+				// Cache textToSpeakAfterInitialized so it will be played after TTS is initialized (isSpeechInitialized).
 				textToSpeakAfterInitialized = text;
 			}
 
@@ -205,7 +208,7 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 
 	// Private Methods
 	private void displayInstructions() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineActivity.displayInstructions()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		final TextView txtInstructions = findViewById(R.id.txtInstructions);
 		if (txtInstructions != null) {
@@ -214,7 +217,7 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 	}
 
 	private void clearNextMoveName() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineActivity.clearNextMoveName()");
+		MethodLogger methodLogger = new MethodLogger();
 		final TextView txtNextTask = findViewById(R.id.txtNextTask);
 		if (txtNextTask != null) {
 			txtNextTask.setText("");
@@ -222,7 +225,7 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 	}
 
 	private void displayNextMoveName() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineActivity.displayNextMoveName()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		final TextView txtNextTask = findViewById(R.id.txtNextTask);
 		if (txtNextTask != null) {
@@ -236,7 +239,7 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 	}
 
 	private void displayTasksRemaining() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineActivity.displayTasksRemaining()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		final TextView txtRemaining = findViewById(R.id.txtRemaining);
 		if (txtRemaining != null) {
@@ -245,7 +248,7 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 	}
 
 	private void updatePlayButton() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineActivity.updatePlayButton()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		ImageButton btnPlay = findViewById(R.id.btnPlay);
 
@@ -259,7 +262,7 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 
 	// Event Handlers
 	public void onScreenClick(View v) {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineActivity.onScreenClick()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		if (!taskFragment.isPaused()) {
 			taskFragment.pause();
@@ -271,7 +274,7 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 	}
 
 	public void onPlayClick(View v) {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineActivity.onPlayClick()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		if (!taskFragment.isPaused()) {
 			taskFragment.pause();
@@ -283,13 +286,13 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 	}
 
 	public void onNextClick(View v) {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineActivity.onNextClick()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		taskFragment.next();
 	}
 
 	public void onPrevClick(View v) {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineActivity.onPrevClick()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		taskFragment.prev();
 	}

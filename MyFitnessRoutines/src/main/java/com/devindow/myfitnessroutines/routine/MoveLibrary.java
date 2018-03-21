@@ -142,6 +142,8 @@ public class MoveLibrary {
 
 	// Public Static Methods
 	public static void generateMoves() {
+		MethodLogger methodLogger = new MethodLogger();
+
 		generateStandingFrontalMoves();
 		generateStandingProfileMoves();
 		generateSquattingMoves();
@@ -153,6 +155,8 @@ public class MoveLibrary {
 
 		generateLadderMoves();
 		generateSoccerMoves();
+
+		methodLogger.end();
 	}
 
 	private static void generateStandingFrontalMoves() {

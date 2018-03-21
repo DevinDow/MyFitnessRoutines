@@ -13,8 +13,8 @@ import android.widget.ListView;
 
 import com.devindow.myfitnessroutines.db.AppDatabase;
 import com.devindow.myfitnessroutines.routine.*;
-import com.devindow.myfitnessroutines.util.Debug;
 import com.devindow.myfitnessroutines.util.MessageDialog;
+import com.devindow.myfitnessroutines.util.MethodLogger;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class MainActivity extends OptionsMenuActivity {
 	// Overrides
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		Debug.d(Debug.TAG_ENTER, "MainActivity.onCreate()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
@@ -70,7 +70,7 @@ public class MainActivity extends OptionsMenuActivity {
 			}
 		});
 
-		Debug.d(Debug.TAG_EXIT, "MainActivity.onCreate()");
+		methodLogger.end();
 	}
 
 	@Override
@@ -81,14 +81,14 @@ public class MainActivity extends OptionsMenuActivity {
 
 	@Override
 	protected void onResume() { // becoming interactive or returning from another Activity
-		Debug.d(Debug.TAG_ENTER, "MainActivity.onResume()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		super.onResume();
 
 		// query DB for Sessions run recently then update Routine.ranRecently
 		new GetRecentSessionsAsyncTask().execute(this);
 
-		Debug.d(Debug.TAG_EXIT, "MainActivity.onResume()");
+		methodLogger.end();
 	}
 
 	@Override
@@ -124,18 +124,19 @@ public class MainActivity extends OptionsMenuActivity {
 
 		@Override
 		protected Void doInBackground(Context... context) {
-			Debug.d(Debug.TAG_ENTER, "GetRecentSessionsAsyncTask.doInBackground()");
+			MethodLogger methodLogger = new MethodLogger();
 			this.context = context[0];
 
 			// Query for list of recent Sessions
 			sessions = AppDatabase.getRecentSessionsAsync();
-			Debug.d(Debug.TAG_EXIT, "GetRecentSessionsAsyncTask.doInBackground()");
+
+			methodLogger.end();
 			return null;
 		}
 
 		@Override
 		protected void onPostExecute(Void result) {
-			Debug.d(Debug.TAG_ENTER, "GetRecentSessionsAsyncTask.onPostExecute()");
+			MethodLogger methodLogger = new MethodLogger();
 			for (Routine routine : RoutineLibrary.routines) {
 				routine.ranRecently = false;
 				for (Session session : sessions) {
@@ -146,7 +147,7 @@ public class MainActivity extends OptionsMenuActivity {
 			}
 
 			lstRoutines.setAdapter(new RoutineAdapter(context, R.layout.routine_row, RoutineLibrary.routines));
-			Debug.d(Debug.TAG_EXIT, "GetRecentSessionsAsyncTask.onPostExecute()");
+			methodLogger.end();
 		}
 
 	}

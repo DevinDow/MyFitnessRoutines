@@ -1,10 +1,7 @@
 TODO
 ----
 
-* DEBUG
-  * DEBUG_EXIT should show duration
-  * TAG
-  * ENTER & EXIT improvements
+CURRENT FEATURE BRANCH = Flavors
 
 * Generate Samples
   + MainActivity calls generates Poses & Routines every time it runs.

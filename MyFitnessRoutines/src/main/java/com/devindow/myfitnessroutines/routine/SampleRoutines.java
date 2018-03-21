@@ -1,6 +1,7 @@
 package com.devindow.myfitnessroutines.routine;
 
 import com.devindow.myfitnessroutines.util.Debug;
+import com.devindow.myfitnessroutines.util.MethodLogger;
 import com.devindow.myfitnessroutines.util.Side;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class SampleRoutines {
 
 	// Public Static Methods
 	public static ArrayList<Routine> generateSampleRoutines() {
-		Debug.d(Debug.TAG_ENTER, "generateSampleRoutines()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		ArrayList<Routine> defaultRoutines = new ArrayList<>();
 
@@ -51,6 +52,8 @@ public class SampleRoutines {
 
 		defaultRoutines.add(generateLadderDrills());
 		defaultRoutines.add(generateSoccerTouches());
+
+		methodLogger.end();
 
 		return defaultRoutines;
 	}

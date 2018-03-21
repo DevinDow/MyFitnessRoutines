@@ -7,7 +7,6 @@ Android app to guide you through fitness routines.
     - **TODO.txt** up to date
     - Commit these on *master*:
         - Debug in **Debug.java**
-            - *Debug.logLevel = LOG.INFO;*
             - *Debug.on = false;*
         - Version in Module's **build.gradle**
             - *versionCode* incremented (every App Store submission must be higher)
