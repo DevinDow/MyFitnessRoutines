@@ -7,23 +7,11 @@ CURRENT FEATURE BRANCH = Flavors
   * Different Sample Routines based on flavor
   * btnCreateRoutine requires PAID or hidden with different resources
   * Different icon resources
-  - My Fitness Routines Free OR My 7 Minute Routine
-    - 7 min
-  - My Fitness Routines
-    - Add/Edit Routine
-  - My Soccer Routines
-    - Soccer Touches
-    - Agility Ladder
-    - Pre-Activation
-    - Warmup
-    - Morning Yoga
-    - 7 min
-  - My Yoga Routines
-    - Morning Yoga
-    - Sun Salutation
-  - My Ab Routines OR Core
+    - Free
+    - Soccer
     - Abs
-    - Plank
+  - Full, Yoga
+    - Add/Edit Routine
   - Link to PAID app in App Store
 
 - Analytics

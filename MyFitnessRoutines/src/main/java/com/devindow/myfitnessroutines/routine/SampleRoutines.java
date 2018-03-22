@@ -1,5 +1,6 @@
 package com.devindow.myfitnessroutines.routine;
 
+import com.devindow.myfitnessroutines.BuildConfig;
 import com.devindow.myfitnessroutines.util.Debug;
 import com.devindow.myfitnessroutines.util.MethodLogger;
 import com.devindow.myfitnessroutines.util.Side;
@@ -18,27 +19,55 @@ public class SampleRoutines {
 			generateTestRoutine();
 		}
 
-		generate7MinuteWorkout();
+		switch (BuildConfig.FLAVOR) {
+			case "free":
+			case "full":
+			default:
+				generate7MinuteWorkout();
 
-		generateMorningYoga();
-		generateSunSalutation();
+				generateMorningYoga();
+				generateSunSalutation();
 
-		generateWarmup();
+				generateWarmup();
 
-		generatePreActivation();
+				generatePreActivation();
 
-		generateLowerAbs();
-		generateObliqueAbs();
-		generateUpperAbs();
-		generateMixedAbs();
-		generatePlanks();
+				generateLowerAbs();
+				generateObliqueAbs();
+				generateUpperAbs();
+				generateMixedAbs();
+				generatePlanks();
 
-		generate5MinMeditation();
-		generate10MinMeditation();
-		generate15MinMeditation();
+				generate5MinMeditation();
+				generate10MinMeditation();
+				generate15MinMeditation();
 
-		generateLadderDrills();
-		generateSoccerTouches();
+				generateLadderDrills();
+				generateSoccerTouches();
+				break;
+
+			case "yoga":
+				generateMorningYoga();
+				generateSunSalutation();
+				break;
+
+			case "abs":
+				generateLowerAbs();
+				generateObliqueAbs();
+				generateUpperAbs();
+				generateMixedAbs();
+				generatePlanks();
+				break;
+
+			case "soccer":
+				generateMorningYoga();
+				generateWarmup();
+				generatePreActivation();
+				generateLadderDrills();
+				generateSoccerTouches();
+				generate7MinuteWorkout();
+				break;
+		}
 
 		methodLogger.end();
 	}

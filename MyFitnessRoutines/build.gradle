@@ -78,11 +78,29 @@ android {
             versionNameSuffix "-free"
             resValue "string", "app_name", "My Fitness Routines - FREE"
         }
-        paid {
+        full {
             dimension "mode"
-            applicationIdSuffix ".paid"
-            versionNameSuffix "-paid"
+            applicationIdSuffix ".full"
+            versionNameSuffix "-full"
             resValue "string", "app_name", "My Fitness Routines"
+        }
+        yoga {
+            dimension "mode"
+            applicationIdSuffix ".yoga"
+            versionNameSuffix "-yoga"
+            resValue "string", "app_name", "My Yoga Routines"
+        }
+        abs {
+            dimension "mode"
+            applicationIdSuffix ".core"
+            versionNameSuffix "-core"
+            resValue "string", "app_name", "My Abs Routines"
+        }
+        soccer {
+            dimension "mode"
+            applicationIdSuffix ".soccer"
+            versionNameSuffix "-soccer"
+            resValue "string", "app_name", "My Soccer Routines"
         }
     }
 }

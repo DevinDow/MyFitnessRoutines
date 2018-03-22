@@ -51,12 +51,12 @@ public class MainActivity extends OptionsMenuActivity {
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 				Routine routine = (Routine) lstRoutines.getItemAtPosition(position);
-				if (routine.isFree || BuildConfig.FLAVOR.equals("paid")) {
+				if (BuildConfig.FLAVOR.equals("free") && !routine.isFree) {
+					MessageDialog.show(context, "Please purchase the paid version in the app store to access these Routines.");
+				} else {
 					Intent intent = new Intent(view.getContext(), PlayRoutineActivity.class);
 					intent.putExtra("routine", routine);
 					startActivity(intent);
-				} else {
-					MessageDialog.show(context, "Please purchase the paid version in the app store to access these Routines.");
 				}
 			}
 		});
