@@ -20,7 +20,7 @@ public class RoutineLibrary {
 
 		MoveLibrary.generate();
 
-		routines = new ArrayList<>();
+		routines = new ArrayList<>(); // new array since this could be a re-run
 		SampleRoutines.generate();
 	}
 

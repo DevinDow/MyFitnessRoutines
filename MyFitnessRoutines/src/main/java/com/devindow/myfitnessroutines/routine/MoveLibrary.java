@@ -150,12 +150,14 @@ public class MoveLibrary {
 
 
 	// Public Static Fields
-	public static Dictionary<String, Move> moves = new Hashtable<>();
+	public static Dictionary<String, Move> moves;
 
 
 	// Public Static Methods
 	public static void generate() {
 		MethodLogger methodLogger = new MethodLogger();
+
+		moves = new Hashtable<>(); // new hashtable since this could be a re-run
 
 		generateStandingFrontalMoves();
 		generateStandingProfileMoves();
