@@ -211,7 +211,7 @@ public class SampleRoutines {
 
 
 	private static void generateLowerAbs() {
-		Routine routine = new Routine("Lower Abs", Category.STRENGTH);
+		Routine routine = new Routine("Lower Abs", Category.STRENGTH, "Focus on lower part of the abdominal muscles");
 
 		routine.tasks.add(new Task(MoveLibrary.HIP_RAISES, 30));
 		routine.tasks.add(new Task(MoveLibrary.REVERSE_CRUNCHES, 30, 10));
@@ -226,7 +226,7 @@ public class SampleRoutines {
 	}
 
 	private static void generateObliqueAbs() {
-		Routine routine = new Routine("Oblique Abs", Category.STRENGTH);
+		Routine routine = new Routine("Oblique Abs", Category.STRENGTH, "Focus on the oblique abdominal muscles");
 
 		routine.tasks.add(new Task(MoveLibrary.CROSSOVER_CRUNCHES, 60, 10));
 
@@ -238,7 +238,7 @@ public class SampleRoutines {
 	}
 
 	private static void generateUpperAbs() {
-		Routine routine = new Routine("Upper Abs", Category.STRENGTH);
+		Routine routine = new Routine("Upper Abs", Category.STRENGTH, "Focus on upper part of the abdominal muscles");
 
 		routine.tasks.add(new Task(MoveLibrary.LEG_UP_CRUNCHES, 30));
 		routine.tasks.add(new Task(MoveLibrary.KNEE_UP_CRUNCHES, 30, 10));
@@ -253,7 +253,7 @@ public class SampleRoutines {
 	}
 
 	private static void generateMixedAbs() {
-		Routine routine = new Routine("Mixed Abs", Category.STRENGTH, "A mixture of different abs groups", true);
+		Routine routine = new Routine("Mixed Abs", Category.STRENGTH, "A mixture of different abdominal areas", true);
 
 		routine.tasks.add(new Task(MoveLibrary.KNEE_UP_CRUNCHES, 30, 10));
 		routine.tasks.add(new Task(MoveLibrary.HIP_RAISES, 30));
@@ -268,7 +268,7 @@ public class SampleRoutines {
 	}
 
 	private static void generatePlanks() {
-		Routine routine = new Routine("Planks", Category.STRENGTH);
+		Routine routine = new Routine("Planks", Category.STRENGTH, "Develop core strength with a variety of planks");
 
 		routine.tasks.add(new Task(MoveLibrary.HANDS_PLANK, 30));
 		routine.tasks.add(new Task(MoveLibrary.ELBOWS_PLANK, 30));
@@ -276,7 +276,7 @@ public class SampleRoutines {
 		routine.tasks.add(new Task(MoveLibrary.SIDE_PLANK, 60));
 
 		routine.tasks.add(new Task(MoveLibrary.HANDS_PLANK, 10));
-		routine.tasks.add(new Task(MoveLibrary.ELBOWS_PLANK, 10));
+		routine.tasks.add(new Task(MoveLibrary.CHATURANGA, 10));
 		routine.tasks.add(new Task(MoveLibrary.HANDS_PLANK, 10));
 		routine.tasks.add(new Task(MoveLibrary.ELBOWS_PLANK, 10));
 		routine.tasks.add(new Task(MoveLibrary.HANDS_PLANK, 10));

@@ -1379,7 +1379,7 @@ public class MoveLibrary {
 
 		// Hands Plank
 		{
-			MoveWithPose move = new MoveWithPose(HANDS_PLANK, Category.STRENGTH);
+			MoveWithPose move = new MoveWithPose(HANDS_PLANK, Category.STRENGTH, "Be as straight as a plank.");
 			move.pose = new Pose();
 
 			Angle angle = new Angle(25);
@@ -1399,7 +1399,7 @@ public class MoveLibrary {
 
 		// Elbows Plank
 		{
-			MoveWithPose move = new MoveWithPose(ELBOWS_PLANK, Category.STRENGTH);
+			MoveWithPose move = new MoveWithPose(ELBOWS_PLANK, Category.STRENGTH, "Be as straight as a plank.");
 			move.pose = new Pose();
 
 			Angle angle = new Angle(12);

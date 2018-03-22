@@ -4,15 +4,16 @@ TODO
 CURRENT FEATURE BRANCH = Flavors
 
 - Flavors
-  * Different Sample Routines based on flavor
-  * btnCreateRoutine requires PAID or hidden with different resources
   * Different icon resources
-    - Free
-    - Soccer
-    - Abs
-  - Full, Yoga
-    - Add/Edit Routine
+    - Free - "FREE"
+    - Soccer - Champ
+    - Abs - Crunches
+    - Yoga - Lotus
   - Link to PAID app in App Store
+  * btnCreateRoutine requires "full" or "yoga" or hidden with different resources
+    - Full, Yoga
+    - Add Routine
+    - Edit Routine
 
 - Analytics
     - https://analytics.google.com/analytics/web/?authuser=0#management/Settings/a116050036w172372997p171904749/%3Fm.page%3DTrackingCode/
