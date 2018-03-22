@@ -95,15 +95,15 @@ public class SampleRoutines {
 		routine.tasks.add(new Task(MoveLibrary.HEAD_TO_KNEES_TOPVIEW, 15, "Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.RECLINED_TWIST, 30, "Knees across body a few inches off the ground. Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.RECLINED_HAMSTRING_W_STRAP, 60, "Bend knee then straighten. Breathe."));
-		routine.tasks.add(new Task(MoveLibrary.BRIDGE_POSE, 20, "Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.COBBLER_POSE, 20, "Sit. Butterfly. Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.BOAT_POSE, 15, "Body & legs in a V. Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.SHOULDER_PRESS, 15, "Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.PLOW, 10, "Breathe."));
-		routine.tasks.add(new Task(MoveLibrary.ROTATE_ON_ALL_FOURS, 20, "Breathe."));
-		routine.tasks.add(new Task(MoveLibrary.CAT_POSE, 20, "Arch back, then bow back. Breathe."));
+		routine.tasks.add(new Task(MoveLibrary.BRIDGE_POSE, 20, "Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.LOCUST_POSE, 15, "On Belly. Lift legs & chest. Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.CHILD_POSE, 20, "Walk your fingers out. Breathe."));
+		routine.tasks.add(new Task(MoveLibrary.ROTATE_ON_ALL_FOURS, 20, "Breathe."));
+		routine.tasks.add(new Task(MoveLibrary.CAT_POSE, 20, "Arch back, then bow back. Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.DOWN_DOG_ALTERNATING_CALVES, 40, "Alternate calves. Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.WIDE_LEG_BEND, 30, "Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.MOUNTAIN_POSE, 15, "Roll up slowly. Stand tall. Breathe."));
@@ -231,8 +231,9 @@ public class SampleRoutines {
 
 		routine.tasks.add(new Task(MoveLibrary.CROSSOVER_CRUNCHES, 60, 10));
 
-		routine.tasks.add(new Task(MoveLibrary.REVERSE_CRUNCHES, 30));
+		routine.tasks.add(new Task(MoveLibrary.REVERSE_CRUNCHES, 15));
 		routine.tasks.add(new Task(MoveLibrary.CATCH_CRUNCHES, 30));
+		routine.tasks.add(new Task(MoveLibrary.BOAT_POSE, 15));
 
 		RoutineLibrary.routines.add(routine);
 	}
