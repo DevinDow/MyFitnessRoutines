@@ -3,14 +3,11 @@ TODO
 
 CURRENT FEATURE BRANCH = Flavors
 
-- Different "Done!" by Category
-  - Soccer Done with ball (use for app icon) "Go get 'em champ!"
-
 - Flavors
   * Different Sample Routines based on flavor
   * btnCreateRoutine requires PAID or hidden with different resources
   * Different icon resources
-  - My Fitness Routines Free
+  - My Fitness Routines Free OR My 7 Minute Routine
     - 7 min
   - My Fitness Routines
     - Add/Edit Routine
@@ -24,6 +21,13 @@ CURRENT FEATURE BRANCH = Flavors
   - My Yoga Routines
     - Morning Yoga
     - Sun Salutation
+  - My Ab Routines OR Core
+    - Abs
+    - Plank
+      - Arm Plank 30
+      - Elbow Plank 30
+      - Side Planks 60
+      - Step Planks
   - Link to PAID app in App Store
 
 - Analytics
