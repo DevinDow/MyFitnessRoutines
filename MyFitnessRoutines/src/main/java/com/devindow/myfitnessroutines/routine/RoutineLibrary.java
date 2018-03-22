@@ -18,10 +18,10 @@ public class RoutineLibrary {
 	public static void generate() {
 		new MethodLogger();
 
-		MoveLibrary.generateMoves();
+		MoveLibrary.generate();
 
 		routines = new ArrayList<>();
-		SampleRoutines.generateSampleRoutines();
+		SampleRoutines.generate();
 	}
 
 }

@@ -24,10 +24,6 @@ CURRENT FEATURE BRANCH = Flavors
   - My Ab Routines OR Core
     - Abs
     - Plank
-      - Arm Plank 30
-      - Elbow Plank 30
-      - Side Planks 60
-      - Step Planks
   - Link to PAID app in App Store
 
 - Analytics
