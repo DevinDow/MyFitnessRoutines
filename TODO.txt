@@ -1,11 +1,7 @@
 TODO
 ----
 
-CURRENT FEATURE BRANCH = Flavors
-
-- Flavors
-  - Tips by flavor
-  - Link to PAID app in App Store
+- Link to PAID app in App Store
 
 ----------------------------------------------------------------------------------------------------
 
