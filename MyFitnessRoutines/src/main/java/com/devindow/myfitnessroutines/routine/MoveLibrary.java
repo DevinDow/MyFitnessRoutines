@@ -5,6 +5,8 @@ import com.devindow.myfitnessroutines.ladder.*;
 import com.devindow.myfitnessroutines.soccer.*;
 import com.devindow.myfitnessroutines.util.*;
 
+import junit.framework.Assert;
+
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
@@ -16,9 +18,13 @@ import java.util.Hashtable;
 public class MoveLibrary {
 
 	// Constants
+	// Move.name is used as Key in Hashtable, so all names must be unique.
+
 	// Standing Frontal Poses
 	public static final String MOUNTAIN_POSE = "Mountain Pose";
 	public static final String DONE = "Done!";
+	public static final String CHAMP = "Done! Go get 'em champ!";
+	public static final String NAMASTE = "Done. Namaste.";
 	public static final String REACH_BACK = "Reach Back";
 	public static final String JUMPING_JACKS = "Jumping Jacks";
 	public static final String STANDING_SIDE_BEND = "Standing Side Bend";
@@ -28,6 +34,7 @@ public class MoveLibrary {
 	public static final String ROMAN_LUNGES = "Roman Lunges";
 	public static final String WARRIOR_2 = "Warrior 2";
 	public static final String TRIANGLE = "Triangle";
+
 	// Standing Profile Poses
 	public static final String SAFETY_JACKS = "Safety Jacks";
 	public static final String PRAYER = "Prayer";
@@ -42,6 +49,7 @@ public class MoveLibrary {
 	public static final String WARRIOR_1 = "Warrior 1";
 	public static final String WARRIOR_3 = "Warrior 3";
 	public static final String CHAIR_POSE = "Chair Pose";
+
 	// Squatting Poses
 	public static final String WALL_SIT = "Wall Sit";
 	public static final String SQUATS = "Squats";
@@ -55,6 +63,7 @@ public class MoveLibrary {
 	public static final String STEP_UPS = "Step-Ups";
 	public static final String JUMPS_180 = "180° Jumps";
 	public static final String JUMPS_90_TO_1_FOOT_LANDING = "90° Jumps to 1 Foot Landing";
+
 	// Back-Lying Poses
 	public static final String KNEE_UP_CRUNCHES = "Knee-Up Crunches";
 	public static final String LEG_UP_CRUNCHES = "Leg-Up Crunches";
@@ -73,20 +82,23 @@ public class MoveLibrary {
 	public static final String SINGLE_LEG_BRIDGES = "Single-Leg Bridges";
 	public static final String SHOULDER_PRESS = "Shoulder Press";
 	public static final String PLOW = "Plow";
+
 	// Back-Lying Top View Poses
 	public static final String CORPSE_POSE = "Corpse Pose";
-	public static final String HEAD_TO_KNEES_TOPVIEW = "Head to Knees";
+	public static final String HEAD_TO_KNEES_TOPVIEW = "Head-to-Knees";
 	public static final String THORACIC_ROLL_OUTS = "Thoracic Roll-outs";
 	public static final String RECLINED_TWIST = "Reclined Twist";
 	public static final String KNEE_CROSS_OVER = "Knee Cross-Over";
 	public static final String HIP_OPEN = "Hip Open";
 	public static final String RECLINED_COBBLER_POSE = "Reclined Cobbler Pose";
+
 	// Bending Poses
 	public static final String TOUCH_TOES = "Touch Toes";
 	public static final String DOWN_DOG = "Down Dog";
 	public static final String DOWN_DOG_ALTERNATING_CALVES = "Down Dog Alternating Calves";
 	public static final String INCH_WORMS = "Inch Worms";
 	public static final String WIDE_LEG_BEND = "Wide Leg Bend";
+
 	// Prone Poses
 	public static final String ROTATE_ON_ALL_FOURS = "Rotate on all fours";
 	public static final String CAT_POSE = "Cat Pose";
@@ -94,13 +106,15 @@ public class MoveLibrary {
 	public static final String PUSH_UPS = "Push-Ups";
 	public static final String HANDS_PLANK = "Hands Plank";
 	public static final String ELBOWS_PLANK = "Elbows Plank";
-	public static final String LUNGE = "Lunge";
+	public static final String PRONE_LUNGE = "Prone Lunge";
+	public static final String CHATURANGA = "Chaturanga";
 	public static final String COBRA = "Cobra";
 	public static final String PUSH_UP_ROTATE = "Push-Up & Rotate";
 	public static final String SIDE_PLANK = "Side Plank";
 	public static final String FOAM_ROLLER = "Foam Roller";
 	public static final String SIDE_LYING_ABDUCTION_W_BAND = "Side-Lying Abduction w/ Band";
 	public static final String LOCUST_POSE = "Locust Pose";
+
 	// Sitting Poses
 	public static final String LOTUS = "Lotus";
 	public static final String REST = "Rest";
@@ -133,15 +147,18 @@ public class MoveLibrary {
 	public static final String SOCCER_HAT_DANCE = "Hat Dance";
 	public static final String SOCCER_HAT_DANCE_CIRCLE = "Hat Dance Circle";
 	public static final String SOCCER_2_TOUCHES_THEN_ACROSS = "2 touches then across";
-	public static final String CHATURANGA = "Chaturanga";
 
 
 	// Public Static Fields
-	public static Dictionary<String, Move> moves = new Hashtable<>();
+	public static Dictionary<String, Move> moves;
 
 
 	// Public Static Methods
-	public static void generateMoves() {
+	public static void generate() {
+		MethodLogger methodLogger = new MethodLogger();
+
+		moves = new Hashtable<>(); // new hashtable since this could be a re-run
+
 		generateStandingFrontalMoves();
 		generateStandingProfileMoves();
 		generateSquattingMoves();
@@ -153,6 +170,15 @@ public class MoveLibrary {
 
 		generateLadderMoves();
 		generateSoccerMoves();
+
+		methodLogger.end();
+	}
+
+
+	// Private Static Methods
+	private static void addMove(Move move) {
+		Assert.assertNull(moves.get(move.name)); // avoid multiple Moves with same Name/Key
+		moves.put(move.name, move);
 	}
 
 	private static void generateStandingFrontalMoves() {
@@ -170,7 +196,7 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(Angle.S.add(-2));
 			move.pose.lArm = new Arm(Angle.S.add(2));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Done
@@ -189,7 +215,45 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(armProximalAngle, armDistalAngle);
 			move.pose.lArm = new Arm(armProximalAngle.mirror(), armDistalAngle.mirror());
 
-			moves.put(move.name, move);
+			addMove(move);
+		}
+
+		// Soccer Champ
+		{
+			MoveWithPose move = new MoveWithPose(CHAMP, Category.SOCCER);
+			move.pose = new Pose();
+
+			move.pose.lLeg = new Leg(Angle.S);
+			move.pose.rLeg = new Leg(Angle.SW.add(6), .65f, Angle.S);
+
+			move.pose.torso = new Torso(move.pose.lLeg.getHeight() + Leg.thickness / 2);
+
+			move.pose.rArm = new Arm(Angle.SW, Angle.SE);
+			move.pose.lArm = new Arm(Angle.SE, Angle.SW);
+
+			move.pose.prop = new Ball(move.pose.rLeg.getDistalPointX(move.pose.torso.rHip.x), Ball.diameter/2);
+
+			addMove(move);
+		}
+
+		// Namaste
+		{
+			MoveWithPose move = new MoveWithPose(NAMASTE, Category.YOGA);
+			move.pose = new Pose();
+
+			Angle legAngle = Angle.S.add(3);
+			move.pose.lLeg = new Leg(legAngle);
+			move.pose.rLeg = new Leg(legAngle.mirror());
+
+			move.pose.torso = new Torso(move.pose.lLeg.getHeight() + Leg.thickness / 2);
+			move.pose.torso.head.shift(0, -2);
+
+			Angle armProximalAngle = Angle.S.add(-10);
+			Angle armDistalAngle = Angle.NE.add(-5);
+			move.pose.rArm = new Arm(armProximalAngle, armDistalAngle);
+			move.pose.lArm = new Arm(armProximalAngle.mirror(), armDistalAngle.mirror());
+
+			addMove(move);
 		}
 
 		// Reach Back
@@ -208,7 +272,7 @@ public class MoveLibrary {
 			move.pose.lArm = new Arm(armProximalAngle, armDistalAngle);
 			move.pose.rArm = new Arm(Angle.S.add(-45), Angle.S.add(45));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Jumping Jacks
@@ -228,7 +292,7 @@ public class MoveLibrary {
 			move.pose.lArm = new Arm(armProximalAngle, armDistalAngle);
 			move.pose.rArm = new Arm(armProximalAngle.mirror(), armDistalAngle.mirror());
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Standing Side Bend
@@ -246,7 +310,7 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(Angle.N.add(torsoAngle+5), Angle.N.add(torsoAngle-5));
 			move.pose.lArm = new Arm(Angle.S.add(torsoAngle+45), Angle.S.add(torsoAngle-45));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Jog Laterally
@@ -264,7 +328,7 @@ public class MoveLibrary {
 
 			move.pose.lArm = new Arm(Angle.S.add(30), Angle.W.add(30), 0.5f);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Skip
@@ -282,7 +346,7 @@ public class MoveLibrary {
 
 			move.pose.lArm = new Arm(Angle.S.add(30), Angle.W.add(30), 0.5f);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Leg Swings
@@ -300,7 +364,7 @@ public class MoveLibrary {
 
 			move.pose.lArm = new Arm(Angle.E.add(-15), Angle.E.add(-35));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Roman Lunges
@@ -316,7 +380,7 @@ public class MoveLibrary {
 			move.pose.lArm = new Arm(Angle.E);
 			move.pose.rArm = new Arm(Angle.W);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Warrior 2
@@ -331,7 +395,7 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(Angle.W);
 			move.pose.lArm = new Arm(Angle.E);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Triangle
@@ -346,7 +410,7 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(Angle.N);
 			move.pose.lArm = new Arm(Angle.S);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 	}
 
@@ -364,7 +428,7 @@ public class MoveLibrary {
 			move.pose.lArm = new Arm(Angle.E.add(7));
 			move.pose.rArm = new Arm(Angle.E.add(-8));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Prayer
@@ -379,7 +443,7 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(Angle.S, Angle.N.add(-45), .8f);
 			move.pose.lArm = new Arm(Angle.S, Angle.N.add(-45), .8f);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Arms Up
@@ -393,7 +457,7 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(Angle.N);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Back Bend
@@ -407,7 +471,7 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(Angle.N.add(30));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Behind the Back Grab
@@ -424,7 +488,7 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(Angle.N.add(proximalAngle), Angle.S.add(-distalAngle));
 			move.pose.lArm = new Arm(Angle.S.add(-proximalAngle), Angle.N.add(distalAngle));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Fast Feet
@@ -438,7 +502,7 @@ public class MoveLibrary {
 
 			move.pose.torso = new Torso(true);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// High Knees
@@ -452,7 +516,7 @@ public class MoveLibrary {
 
 			move.pose.torso = new Torso(true);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Standing Hurdles w/ Band
@@ -469,7 +533,7 @@ public class MoveLibrary {
 					new Point(move.pose.lLeg.getDistalPointX(move.pose.torso.lHip.x) - Band.thickness/2, move.pose.lLeg.getDistalPointY(move.pose.torso.lHip.y)),
 					new Point(move.pose.rLeg.getDistalPointX(move.pose.torso.rHip.x) + Band.thickness/2, move.pose.rLeg.getDistalPointY(move.pose.torso.rHip.y)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Lateral Walk w/ Band
@@ -486,7 +550,7 @@ public class MoveLibrary {
 					new Point(move.pose.lLeg.getDistalPointX(move.pose.torso.lHip.x) + Band.thickness/2, move.pose.lLeg.getDistalPointY(move.pose.torso.lHip.y)),
 					new Point(move.pose.rLeg.getDistalPointX(move.pose.torso.rHip.x) - Band.thickness/2, move.pose.rLeg.getDistalPointY(move.pose.torso.rHip.y)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Twist & Pivot
@@ -503,7 +567,7 @@ public class MoveLibrary {
 			move.pose.lArm = new Arm(Angle.W.add(20), .9f, Angle.W.add(-10), .9f);
 			move.pose.rArm = new Arm(Angle.W.add(-20), .9f, Angle.W.add(10), .9f);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Warrior 1
@@ -518,7 +582,7 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(Angle.N);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Warrior 3
@@ -533,12 +597,12 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(Angle.E.add(-20), Angle.E.add(10));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Chair Pose
 		{
-			MoveWithPose move = new MoveWithPose(CHAIR_POSE, Category.YOGA, "Palms together overhead, navel towards spine");
+			MoveWithPose move = new MoveWithPose(CHAIR_POSE, Category.YOGA, "Palms towards each other, navel towards spine");
 			move.pose = new Pose();
 
 			move.pose.rLeg = new Leg(Angle.SE.add(15), Angle.SW.add(15));
@@ -548,7 +612,7 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(torsoAngle);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 	}
 
@@ -564,7 +628,7 @@ public class MoveLibrary {
 
 			move.pose.prop = new Wall(-Torso.thickness / 2);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Squats
@@ -578,7 +642,7 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(Angle.E);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Squats w/ Band
@@ -596,7 +660,7 @@ public class MoveLibrary {
 					new Point(move.pose.rLeg.getProximalPointX(move.pose.torso.rHip.x) - Leg.thickness / 2, move.pose.rLeg.getProximalPointY(move.pose.torso.rHip.y) - Leg.thickness),
 					new Point(move.pose.rLeg.getProximalPointX(move.pose.torso.rHip.x) + Leg.thickness / 2, move.pose.rLeg.getProximalPointY(move.pose.torso.rHip.y) - Leg.thickness));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Chair Dips
@@ -614,7 +678,7 @@ public class MoveLibrary {
 			final float chairSize = move.pose.rArm.getDistalPointY(move.pose.torso.rShoulder.y) - Arm.thickness / 2;
 			move.pose.prop = new Ledge(chairX, chairX - chairSize, chairSize);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Lunges
@@ -627,7 +691,7 @@ public class MoveLibrary {
 
 			move.pose.torso = new Torso(move.pose.rLeg.getHeight() + Leg.thickness / 2, true);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Walking Backward Lunges
@@ -643,7 +707,7 @@ public class MoveLibrary {
 			move.pose.lArm = new Arm(Angle.S.add(30), 1.2f);
 			move.pose.rArm = new Arm(Angle.N.add(10));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Hip Stretch
@@ -657,7 +721,7 @@ public class MoveLibrary {
 
 			move.pose.lLeg = new Leg(Angle.S.add(-45), 1.1f, Angle.W);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Hip/Hamstring Stretch
@@ -671,7 +735,7 @@ public class MoveLibrary {
 
 			move.pose.lLeg = new Leg(Angle.S.add(-45), 1.1f, Angle.W);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		moves.put(HAMSTRING_STRETCH, new MoveWithPose(HAMSTRING_STRETCH, Category.STRETCH, true));
@@ -690,7 +754,7 @@ public class MoveLibrary {
 			float stepSize = move.pose.rLeg.getDistalPointY(move.pose.torso.rHip.y) - Leg.thickness / 2;
 			move.pose.prop = new Ledge(move.pose.rLeg.getDistalPointX(move.pose.torso.rHip.x) - Leg.thickness / 2, move.pose.rLeg.getDistalPointX(move.pose.torso.rHip.x) + stepSize, stepSize);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// 180° Jumps
@@ -704,7 +768,7 @@ public class MoveLibrary {
 
 			move.pose.lArm = new Arm(Angle.S.add(10), Angle.S.add(25));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// 90° Jumps to 1 Foot
@@ -719,25 +783,11 @@ public class MoveLibrary {
 
 			move.pose.lArm = new Arm(Angle.S.add(10), Angle.S.add(25));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 	}
 
 	private static void generateBackLyingMoves() {
-		// Knee-Up Crunches
-		{
-			MoveWithPose move = new MoveWithPose(KNEE_UP_CRUNCHES, Category.STRENGTH, "Crunches with ");
-			move.pose = new Pose();
-
-			move.pose.rLeg = new Leg(Angle.N, Angle.E);
-
-			move.pose.torso = new Torso(Torso.thickness / 2, Angle.W, true);
-
-			move.pose.rArm = new Arm(Angle.N.add(30), Angle.S.add(-30));
-
-			moves.put(move.name, move);
-		}
-
 		// Knee-Up Crunches
 		{
 			MoveWithPose move = new MoveWithPose(KNEE_UP_CRUNCHES, Category.STRENGTH, "Crunches with Knees up");
@@ -746,10 +796,11 @@ public class MoveLibrary {
 			move.pose.rLeg = new Leg(Angle.N, Angle.E);
 
 			move.pose.torso = new Torso(Torso.thickness / 2, Angle.W, true);
+			move.pose.torso.head.shift(2,5);
 
-			move.pose.rArm = new Arm(Angle.N.add(30), Angle.S.add(-30));
+			move.pose.rArm = new Arm(Angle.N.add(-5), Angle.SW.add(-5));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Leg-Up Crunches
@@ -760,10 +811,11 @@ public class MoveLibrary {
 			move.pose.rLeg = new Leg(Angle.N);
 
 			move.pose.torso = new Torso(Torso.thickness / 2, Angle.W, true);
+			move.pose.torso.head.shift(2,5);
 
-			move.pose.rArm = new Arm(Angle.N.add(30), Angle.S.add(-30));
+			move.pose.rArm = new Arm(Angle.N.add(-5), Angle.SW.add(-5));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Knee-Bent Crunches
@@ -771,13 +823,14 @@ public class MoveLibrary {
 			MoveWithPose move = new MoveWithPose(KNEE_BENT_CRUNCHES, Category.STRENGTH, "Crunches with Knees bent");
 			move.pose = new Pose();
 
-			move.pose.rLeg = new Leg(Angle.N.add(-45), Angle.S.add(35));
+			move.pose.rLeg = new Leg(Angle.NE.add(10), Angle.SE.add(-24));
 
 			move.pose.torso = new Torso(Torso.thickness / 2, Angle.W, true);
+			move.pose.torso.head.shift(2,5);
 
-			move.pose.rArm = new Arm(Angle.N.add(30), Angle.S.add(-30));
+			move.pose.rArm = new Arm(Angle.N.add(-5), Angle.SW.add(-5));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Frog-Leg Crunches
@@ -789,10 +842,11 @@ public class MoveLibrary {
 			move.pose.rLeg = new Leg(Angle.E.add(-10), 0.9f, Angle.E.add(5), 0.9f);
 
 			move.pose.torso = new Torso(Torso.thickness / 2, Angle.W, true);
+			move.pose.torso.head.shift(2,5);
 
-			move.pose.rArm = new Arm(Angle.N.add(30), Angle.S.add(-30));
+			move.pose.rArm = new Arm(Angle.N.add(-5), Angle.SW.add(-5));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Horse-Riding Crunches
@@ -804,10 +858,11 @@ public class MoveLibrary {
 			move.pose.rLeg = new Leg(Angle.E.add(-20), Angle.E.add(5));
 
 			move.pose.torso = new Torso(Torso.thickness / 2, Angle.W, true);
+			move.pose.torso.head.shift(2,5);
 
-			move.pose.rArm = new Arm(Angle.N.add(30), Angle.S.add(-30));
+			move.pose.rArm = new Arm(Angle.N.add(-5), Angle.SW.add(-5));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Reverse Crunches
@@ -817,11 +872,14 @@ public class MoveLibrary {
 
 			move.pose.rLeg = new Leg(Angle.N.add(15), Angle.E.add(15));
 
-			move.pose.torso = new Torso(Torso.thickness/2 + 3, Angle.W.add(5), true);
+			move.pose.torso = new Torso(Torso.thickness/2 + 2, Angle.W.add(5), true);
+			move.pose.torso.head.shift(0, 1);
+			move.pose.torso.points = new ArrayList<>();
+			move.pose.torso.points.add(new Point(-Torso.length/2, Torso.thickness/2));
 
 			move.pose.rArm = new Arm(Angle.N.add(30), Angle.S.add(-30));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Hip Raises
@@ -835,7 +893,7 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(Angle.E.add(-20), Angle.E);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Cross-Over Crunches
@@ -852,7 +910,7 @@ public class MoveLibrary {
 			move.pose.lArm = new Arm(Angle.N.add(30-torsoAngle), Angle.S.add(-30-torsoAngle));
 			move.pose.rArm = new Arm(Angle.E);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Catch Crunches
@@ -868,7 +926,7 @@ public class MoveLibrary {
 			move.pose.lArm = new Arm(Angle.E.add(10), 0.9f);
 			move.pose.rArm = new Arm(Angle.E.add(35));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Side Crunches
@@ -884,7 +942,7 @@ public class MoveLibrary {
 			move.pose.lArm = new Arm(Angle.E.add(20), 0.5f, Angle.W.add(0));
 			move.pose.rArm = new Arm(Angle.E.add(0), 0.5f, Angle.W.add(-10));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Head to Knees
@@ -900,7 +958,7 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(Angle.N.add(-30), .6f);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Reclined Hamstring w/ Strap
@@ -919,7 +977,7 @@ public class MoveLibrary {
 					new Point(move.pose.rLeg.getDistalPointX(move.pose.torso.rHip.x), move.pose.rLeg.getDistalPointY(move.pose.torso.rHip.y) + Leg.thickness / 2),
 					new Point(move.pose.rArm.getDistalPointX(move.pose.torso.rShoulder.x), move.pose.rArm.getDistalPointY(move.pose.torso.rShoulder.y)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Boat Pose
@@ -935,7 +993,7 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(Angle.E.add(5));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Bridge Pose
@@ -956,7 +1014,7 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(Angle.W.add(5));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Single-Leg Bridges
@@ -978,7 +1036,7 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(Angle.W.add(5));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Shoulder Press
@@ -993,7 +1051,7 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(Angle.E.add(-25), Angle.N.add(25));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Plow
@@ -1012,7 +1070,7 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(Angle.E.add(-7));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 	}
 
@@ -1037,7 +1095,7 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(armProximalAngle, Angle.S);
 			move.pose.lArm = new Arm(armProximalAngle.mirror(), Angle.S);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Head to Knees Top View
@@ -1061,7 +1119,7 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(armProximalAngle, armProximalRatio);
 			move.pose.lArm = new Arm(armProximalAngle.mirror(), armProximalRatio);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Thoracic Roll-outs
@@ -1079,7 +1137,7 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(Angle.W);
 			move.pose.lArm = new Arm(Angle.E);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Reclined Twist
@@ -1097,7 +1155,7 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(Angle.W);
 			move.pose.lArm = new Arm(Angle.E);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Knee Cross-Over
@@ -1115,7 +1173,7 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(Angle.W);
 			move.pose.lArm = new Arm(Angle.E.add(-55));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Hip Open
@@ -1133,7 +1191,7 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(Angle.W);
 			move.pose.lArm = new Arm(Angle.E.add(-40));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Reclined Cobbler Pose
@@ -1151,7 +1209,7 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(Angle.S.add(-4));
 			move.pose.lArm = new Arm(Angle.S.add(4));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 	}
 
@@ -1172,7 +1230,7 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(Angle.S.add(-20), .92f);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Down Dog
@@ -1189,7 +1247,7 @@ public class MoveLibrary {
 					new Angle(move.pose.rLeg.getHeight() + Leg.thickness/2, move.pose.rArm.getHeight() + Arm.thickness/2, Torso.length),
 					true);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Down Dog Alternating Calves
@@ -1207,7 +1265,7 @@ public class MoveLibrary {
 					new Angle(move.pose.rLeg.getHeight() + Leg.thickness/2, move.pose.rArm.getHeight() + Arm.thickness/2, Torso.length),
 					true);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Inch Worms
@@ -1225,7 +1283,7 @@ public class MoveLibrary {
 					new Angle(move.pose.rLeg.getHeight() + Leg.thickness/2, move.pose.lArm.getHeight() + Arm.thickness/2, Torso.length),
 					true);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Wide Leg Bend
@@ -1242,7 +1300,7 @@ public class MoveLibrary {
 			move.pose.lArm = new Arm(Angle.S.add(-5));
 			move.pose.rArm = new Arm(Angle.S.add(5));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 	}
 
@@ -1261,7 +1319,7 @@ public class MoveLibrary {
 					new Angle(move.pose.rLeg.getHeight() + Leg.thickness/2, move.pose.rArm.getHeight() + Arm.thickness/2, Torso.length),
 					true);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Cat Pose
@@ -1285,7 +1343,7 @@ public class MoveLibrary {
 			move.pose.torso.points.add(move.pose.torso.waist.offset(16, 4));
 			move.pose.torso.head.shift(-4, -9);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Child Pose
@@ -1304,7 +1362,7 @@ public class MoveLibrary {
 			move.pose.torso.head.shift(0, 4);
 
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Push-ups
@@ -1324,12 +1382,12 @@ public class MoveLibrary {
 					angle,
 					true);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Hands Plank
 		{
-			MoveWithPose move = new MoveWithPose(HANDS_PLANK, Category.STRENGTH);
+			MoveWithPose move = new MoveWithPose(HANDS_PLANK, Category.STRENGTH, "Be as straight as a plank.");
 			move.pose = new Pose();
 
 			Angle angle = new Angle(25);
@@ -1344,12 +1402,12 @@ public class MoveLibrary {
 					angle,
 					true);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Elbows Plank
 		{
-			MoveWithPose move = new MoveWithPose(ELBOWS_PLANK, Category.STRENGTH);
+			MoveWithPose move = new MoveWithPose(ELBOWS_PLANK, Category.STRENGTH, "Be as straight as a plank.");
 			move.pose = new Pose();
 
 			Angle angle = new Angle(12);
@@ -1360,12 +1418,12 @@ public class MoveLibrary {
 
 			move.pose.torso = new Torso(move.pose.rLeg.getHeight() + Leg.thickness / 2, angle, true);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Lunge
 		{
-			MoveWithPose move = new MoveWithPose(LUNGE, Category.YOGA);
+			MoveWithPose move = new MoveWithPose(PRONE_LUNGE, Category.YOGA);
 			move.pose = new Pose();
 
 			move.pose.lLeg = new Leg(Angle.W.add(30), Angle.W.add(3));
@@ -1376,7 +1434,7 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(Angle.S.add(10));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Chaturanga
@@ -1392,7 +1450,7 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(Angle.W.add(-25), Angle.S);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Cobra
@@ -1407,7 +1465,7 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(Angle.S.add(10), Angle.S.add(35));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Push-Up & Rotate
@@ -1425,7 +1483,7 @@ public class MoveLibrary {
 			move.pose.lArm = new Arm(Angle.S.add(15));
 			move.pose.rArm = new Arm(Angle.N.add(15));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Side Plank
@@ -1443,7 +1501,7 @@ public class MoveLibrary {
 			move.pose.lArm = new Arm(Angle.S.add(15), Angle.W, .3f);
 			move.pose.rArm = new Arm(angle.opposite().add(-1));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Foam Roller
@@ -1462,7 +1520,7 @@ public class MoveLibrary {
 
 			move.pose.prop = new Roller(-6, Roller.diameter / 2);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Side-lying Abduction w/ Band
@@ -1479,7 +1537,7 @@ public class MoveLibrary {
 					new Point(move.pose.lLeg.getDistalPointX(move.pose.torso.lHip.x), move.pose.lLeg.getDistalPointY(move.pose.torso.lHip.y - Band.thickness / 2)),
 					new Point(move.pose.rLeg.getDistalPointX(move.pose.torso.rHip.x), move.pose.rLeg.getDistalPointY(move.pose.torso.rHip.y + Band.thickness / 2)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Locust Pose
@@ -1494,7 +1552,7 @@ public class MoveLibrary {
 
 			move.pose.rArm = new Arm(Angle.W.add(-15), Angle.W.add(-5));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 	}
 
@@ -1512,7 +1570,7 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(Angle.S.add(-5), Angle.W.add(15), .8f);
 			move.pose.lArm = new Arm(Angle.S.add(5), Angle.E.add(-15), .8f);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Rest
@@ -1528,7 +1586,7 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(Angle.S.add(-5), Angle.W.add(15), .8f);
 			move.pose.lArm = new Arm(Angle.S.add(5), Angle.E.add(-15), .8f);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Cobbler Pose
@@ -1544,7 +1602,7 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(Angle.S.add(5));
 			move.pose.lArm = new Arm(Angle.S.add(-5));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Sage Pose
@@ -1556,7 +1614,7 @@ public class MoveLibrary {
 
 			move.pose.lLeg = new Leg(Angle.E);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Twisted Sage Pose
@@ -1572,7 +1630,7 @@ public class MoveLibrary {
 			move.pose.rArm = new Arm(Angle.SW.add(20));
 			move.pose.lArm = new Arm(Angle.SE.add(0), Angle.N);
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 	}
 
@@ -1588,7 +1646,7 @@ public class MoveLibrary {
 			move.ladderSteps.add(new OnePointLadderStep(Side.RIGHT, Ladder.getLocation(3, true).offset(.2f, 0)));
 			move.ladderSteps.add(new OnePointLadderStep(Side.LEFT, Ladder.getLocation(4, true).offset(-.2f, 0)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Lateral
@@ -1606,7 +1664,7 @@ public class MoveLibrary {
 			move.ladderSteps.add(new OnePointLadderStep(Side.RIGHT, Ladder.getLocation(3, true).offset(.2f, LadderStep.radius)));
 			move.ladderSteps.add(new OnePointLadderStep(Side.LEFT, Ladder.getLocation(3, true).offset(-.2f, -LadderStep.radius)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Lateral In/Out
@@ -1628,7 +1686,7 @@ public class MoveLibrary {
 			move.ladderSteps.add(new OnePointLadderStep(Side.RIGHT, Ladder.getLocation(3, true).offset(0, LadderStep.radius)));
 			move.ladderSteps.add(new OnePointLadderStep(Side.LEFT, Ladder.getLocation(3, true).offset(0, -LadderStep.radius)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Jumping Jack
@@ -1646,7 +1704,7 @@ public class MoveLibrary {
 
 			move.ladderSteps.add(new OnePointLadderStep(Ladder.getLocation(3, true)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Hop Scotch
@@ -1664,7 +1722,7 @@ public class MoveLibrary {
 
 			move.ladderSteps.add(new OnePointLadderStep(Side.RIGHT, Ladder.getLocation(3, true)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Slalom
@@ -1677,7 +1735,7 @@ public class MoveLibrary {
 
 			move.ladderSteps.add(new TwoPointLadderStep(Ladder.getLocation(2.5f, false, true), Ladder.getLocation(3, true)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Shuffle
@@ -1697,7 +1755,7 @@ public class MoveLibrary {
 			move.ladderSteps.add(new OnePointLadderStep(Side.RIGHT, Ladder.getLocation(3, true).offset(LadderStep.radius, 0)));
 			move.ladderSteps.add(new OnePointLadderStep(Side.LEFT, Ladder.getLocation(3, true).offset(-LadderStep.radius, 0)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Cross-Behind
@@ -1718,7 +1776,7 @@ public class MoveLibrary {
 			move.ladderSteps.add(new OnePointLadderStep(Side.LEFT, Ladder.getLocation(3, false, false).offset(LadderStep.radius, -LadderStep.radius)));
 			//move.ladderSteps.add(new OnePointLadderStep(Side.RIGHT, Ladder.getLocation(3, false, false), -1, 1));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 	}
 
@@ -1742,7 +1800,7 @@ public class MoveLibrary {
 					new Step(Side.LEFT, arrowLeft.offset(0, -2)),
 					new Arrow(arrowLeft.offset(0, -2), arrowRight.offset(0, -2), Side.LEFT).shortened(sh, true, false)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Bells
@@ -1756,7 +1814,7 @@ public class MoveLibrary {
 			move.motions.add(new SoccerTouch(new Arrow(move.ball.offset(0, 1), instep.mirror().offset(0, 1), Side.RIGHT)));
 			move.motions.add(new SoccerTouch(new Arrow(move.ball.mirror().offset(0, -1), instep.offset(0, -1), Side.LEFT)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Pull & Open Outward
@@ -1772,7 +1830,7 @@ public class MoveLibrary {
 			move.motions.add(new SoccerTouch(new Arrow(p1, p2, Side.RIGHT).shortened(sh, true, false)));
 			move.motions.add(new SoccerTouch(new Arrow(p2, p3, Side.RIGHT).shortened(sh, true, false)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Outside Turn
@@ -1788,7 +1846,7 @@ public class MoveLibrary {
 			move.motions.add(new SoccerTouch(new Arrow(p1, p2, Side.RIGHT).shortened(sh, true, false)));
 			move.motions.add(new SoccerTouch(new Arrow(p2, p3, Side.RIGHT).shortened(sh, true, false)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Triangle
@@ -1805,7 +1863,7 @@ public class MoveLibrary {
 			move.motions.add(new SoccerTouch(new Arrow(p2, p3, Side.RIGHT).shortened(sh, true, false)));
 			move.motions.add(new SoccerTouch(new Arrow(p3, p1, Side.LEFT).shortened(sh, true, false)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Advanced Turn
@@ -1821,7 +1879,7 @@ public class MoveLibrary {
 			move.motions.add(new SoccerTouch(new Arrow(p1, p2, Side.RIGHT).shortened(sh, true, false)));
 			move.motions.add(new SoccerTouch(new Arrow(p2, p3, Side.RIGHT).shortened(sh, true, false)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Triangle, Outside, Advanced
@@ -1846,7 +1904,7 @@ public class MoveLibrary {
 			Point p7 = new Point(0, -20);
 			move.motions.add(new SoccerTouch(new Arrow(p6, p7, Side.RIGHT).shortened(sh, true, false)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Ziko Turn
@@ -1862,7 +1920,7 @@ public class MoveLibrary {
 
 			move.motions.add(new SoccerTouch(new Arrow(move.ball, toe.offset(16, 0), Side.RIGHT)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Cruyff Turn
@@ -1876,7 +1934,7 @@ public class MoveLibrary {
 			Point p2 = new Point(-4, -20);
 			move.motions.add(new SoccerTouch(new Arrow(p1, p2, Side.RIGHT).shortened(sh, true, false)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Step-Over, Escape Out
@@ -1890,7 +1948,7 @@ public class MoveLibrary {
 
 			move.motions.add(new SoccerTouch(new Arrow(move.ball, move.ball.offset(-16, 4), Side.LEFT)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// 2 Step-Overs, Escape Out
@@ -1906,7 +1964,7 @@ public class MoveLibrary {
 
 			move.motions.add(new SoccerTouch(new Arrow(move.ball, move.ball.offset(16, 4), Side.RIGHT)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Hat Dance
@@ -1918,7 +1976,7 @@ public class MoveLibrary {
 			move.motions.add(new SoccerStep(new Step(Side.RIGHT, move.ball.offset(3, 0))));
 			move.motions.add(new SoccerStep(new Step(Side.LEFT, move.ball.offset(-3, 0))));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// Hat Dance Circle
@@ -1932,7 +1990,7 @@ public class MoveLibrary {
 					new Step(Side.LEFT, move.ball.offset(-3, 0)),
 					new Arrow(move.ball, move.ball.offset(20, 0), Side.LEFT)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 		// 2 touches then across
@@ -1947,7 +2005,7 @@ public class MoveLibrary {
 			move.motions.add(new SoccerTouch(new Arrow(move.ball.mirror().offset(0, -1), instep.offset(0, -1), Side.LEFT)));
 			move.motions.add(new SoccerTouch(new Arrow(move.ball, move.ball.offset(-30, 0), Side.RIGHT)));
 
-			moves.put(move.name, move);
+			addMove(move);
 		}
 
 	}

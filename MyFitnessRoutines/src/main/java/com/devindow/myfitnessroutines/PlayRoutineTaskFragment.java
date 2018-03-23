@@ -6,8 +6,6 @@ package com.devindow.myfitnessroutines;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.media.AudioManager;
-import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 
@@ -18,6 +16,7 @@ import com.devindow.myfitnessroutines.routine.Routine;
 import com.devindow.myfitnessroutines.routine.Session;
 import com.devindow.myfitnessroutines.routine.Task;
 import com.devindow.myfitnessroutines.util.Debug;
+import com.devindow.myfitnessroutines.util.MethodLogger;
 
 // This Fragment manages a the timers and retains itself across configuration changes.
 public class PlayRoutineTaskFragment extends Fragment {
@@ -90,19 +89,19 @@ public class PlayRoutineTaskFragment extends Fragment {
 	// Fragment Class Overrides
 	@Override
 	public void onAttach(Activity activity) {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineTaskFragment.onAttach()");
+		MethodLogger methodLogger = new MethodLogger();
 		super.onAttach(activity);
 
 		// set playRoutineActivity to Activity
 		playRoutineActivity = (PlayRoutineCallbacks)activity;
 
-		Debug.d(Debug.TAG_EXIT, "PlayRoutineTaskFragment.onAttach()");
+		methodLogger.end();
 	}
 
 	// TaskFragment.onCreate() happens after TaskFragment.onAttach()
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineTaskFragment.onCreate()");
+		MethodLogger methodLogger = new MethodLogger();
 		super.onCreate(savedInstanceState);
 
 		// Retain this fragment across configuration changes.
@@ -110,38 +109,48 @@ public class PlayRoutineTaskFragment extends Fragment {
 
 		setMove();
 
-		Debug.d(Debug.TAG_EXIT, "PlayRoutineTaskFragment.onCreate()");
+		methodLogger.end();
 	}
 
 	// TaskFragment.onDetach() happens on BACK or when ROTATED.
 	@Override
 	public void onDetach() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineTaskFragment.onDetach()");
+		MethodLogger methodLogger = new MethodLogger();
 		super.onDetach();
 
 		// set playRoutineActivity to NULL
 		playRoutineActivity = null;
 
-		Debug.d(Debug.TAG_EXIT, "PlayRoutineTaskFragment.onDetach()");
+		methodLogger.end();
 	}
 
 	// TaskFragment.onDestroy() only happens for Retained Fragment when BACK is hit, not when ROTATED.
 	@Override
 	public void onDestroy() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineTaskFragment.onDestroy()");
+		MethodLogger methodLogger = new MethodLogger();
 		super.onDestroy();
 
 		// kill the timer
 		pause();
 
-		Debug.d(Debug.TAG_EXIT, "PlayRoutineTaskFragment.onDestroy()");
+		methodLogger.end();
 	}
 
 	// Public Methods
 	public void setMove() {
 		Task currentTask = getCurrentTask();
 		if (currentTask == null) {
-			move = MoveLibrary.moves.get(MoveLibrary.DONE);
+			switch (routine.category) {
+				case YOGA:
+					move = MoveLibrary.moves.get(MoveLibrary.NAMASTE);
+					break;
+				case SOCCER:
+					move = MoveLibrary.moves.get(MoveLibrary.CHAMP);
+					break;
+				default:
+					move = MoveLibrary.moves.get(MoveLibrary.DONE);
+					break;
+			}
 			pause();
 
 			// insertSession Session in DB
@@ -149,8 +158,9 @@ public class PlayRoutineTaskFragment extends Fragment {
             AppDatabase.insertSession(session);
 		} else {
 			move = MoveLibrary.moves.get(currentTask.moveName);
-			resetSecondsRemaining();
 		}
+
+		resetSecondsRemaining();
 
 		if (playRoutineActivity != null) {
 			playRoutineActivity.displayTask();
@@ -165,7 +175,7 @@ public class PlayRoutineTaskFragment extends Fragment {
 	}
 
 	public void resetSecondsRemaining() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineTaskFragment.resetSecondsRemaining()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		Task currentTask = getCurrentTask();
 		if (currentTask == null) {
@@ -181,18 +191,18 @@ public class PlayRoutineTaskFragment extends Fragment {
 			restSecondsRemaining = currentTask.restSeconds;
 		}
 
-		Debug.d(Debug.TAG_EXIT, "PlayRoutineTaskFragment.resetSecondsRemaining()");
+		methodLogger.end();
 	}
 
 	public void pause() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineTaskFragment.pause()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		cancelTimer();
 		countDownTimer = null;
 	}
 
 	public void play() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineTaskFragment.play()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		if (move1SecondsRemaining > 0) {
 			runMove1Timer();
@@ -207,7 +217,7 @@ public class PlayRoutineTaskFragment extends Fragment {
 	}
 
 	public void next() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineTaskFragment.next()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		cancelTimer();
 
@@ -225,7 +235,7 @@ public class PlayRoutineTaskFragment extends Fragment {
 	}
 
 	public void prev() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineTaskFragment.prev()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		cancelTimer();
 
@@ -241,7 +251,7 @@ public class PlayRoutineTaskFragment extends Fragment {
 	}
 
 	public void restart() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineTaskFragment.restart()");
+		MethodLogger methodLogger = new MethodLogger();
 
 		taskNum = 1; // Restart ended Routine
 		setMove();
@@ -250,7 +260,7 @@ public class PlayRoutineTaskFragment extends Fragment {
 	}
 
 	public void runMove1Timer() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineTaskFragment.runMove1Timer()");
+		MethodLogger methodLogger = new MethodLogger();
 		if (playRoutineActivity != null) {
 			playRoutineActivity.updateTimer(move1SecondsRemaining + move2SecondsRemaining);
 		}
@@ -266,7 +276,7 @@ public class PlayRoutineTaskFragment extends Fragment {
 
 			@Override
 			public void onFinish() {
-				Debug.d(Debug.TAG_TIME, "Move1Timer onFinish()");
+				MethodLogger methodLogger = new MethodLogger();
 
 				// second side
 				if (move2SecondsRemaining > 0) {
@@ -295,7 +305,7 @@ public class PlayRoutineTaskFragment extends Fragment {
 	}
 
 	public void runMove2Timer() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineTaskFragment.runMove2Timer()");
+		MethodLogger methodLogger = new MethodLogger();
 		if (playRoutineActivity != null) {
 			playRoutineActivity.updateTimer(move2SecondsRemaining);
 		}
@@ -311,7 +321,7 @@ public class PlayRoutineTaskFragment extends Fragment {
 
 			@Override
 			public void onFinish() {
-				Debug.d(Debug.TAG_TIME, "Move2Timer onFinish()");
+				MethodLogger methodLogger = new MethodLogger();
 
 				// rest
 				if (restSecondsRemaining > 0) {
@@ -332,7 +342,7 @@ public class PlayRoutineTaskFragment extends Fragment {
 	}
 
 	public void runRestTimer() {
-		Debug.d(Debug.TAG_ENTER, "PlayRoutineTaskFragment.runRestTimer()");
+		MethodLogger methodLogger = new MethodLogger();
 		if (playRoutineActivity != null) {
 			playRoutineActivity.updateTimer(restSecondsRemaining);
 		}
@@ -348,18 +358,11 @@ public class PlayRoutineTaskFragment extends Fragment {
 
 			@Override
 			public void onFinish() {
-				Debug.d(Debug.TAG_TIME, "RestTimer onFinish()");
+				MethodLogger methodLogger = new MethodLogger();
 
 				next();
 			}
 		}.start();
-	}
-
-
-	// Private Methods
-	private void playChime() {
-		ToneGenerator toneGenerator = new ToneGenerator(AudioManager.STREAM_NOTIFICATION,100);
-		toneGenerator.startTone(AudioManager.STREAM_NOTIFICATION,100);
 	}
 
 }

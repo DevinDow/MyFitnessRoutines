@@ -61,17 +61,42 @@ public class OptionsMenuActivity extends AppCompatActivity {
 			}
 
 			case R.id.action_tips: {
-				MessageDialog.show(this,
-						"Some Poses have a Left and a Right component.  The app will signal you to switch half way through.\n" +
+				String tips =
+						"TIPS:\n" +
 						"\n" +
-						"I like to:\n" +
-						"- do \"Morning Yoga\" then \"Warmup\" then \"Pre-Activation\" before playing soccer.\n" +
-						"- go for a 3 mile walk where I stop in the middle at the park and do \"7 Minute Workout\" 1 or 2 times.\n" +
+						"- The app marks a routine that you've completed today in GREEN.\n" +
 						"\n" +
-						"Sometimes I hit Play and follow the timer, sometimes I just use the >> button to progress at my own pace.\n" +
-						"(I recommend first getting familiar with a routine and its poses before working with the timer.)\n" +
+						"- Some Poses have a Left and a Right component.  The app will signal you to SWITCH half way through.\n" +
 						"\n" +
-						"Tapping the screen while playing will pause.  Tapping while paused will manually advance to the next move.");
+						"- Sometimes I hit Play and follow the timer, sometimes I just use the >> button to progress at my own pace.\n" +
+						"(I recommend first getting familiar with a routine's moves before working with the timer.)\n" +
+						"\n" +
+						"- Tapping the screen while playing will pause.  Tapping while paused will manually advance to the next move.\n";
+				switch (BuildConfig.FLAVOR) {
+					case "full":
+					case "free":
+					case "soccer":
+						tips +=
+								"\n" +
+								"I like to:\n" +
+								"- go for a walk where I stop at the park and do \"7 Minute Workout\".\n" +
+								"- do \"Morning Yoga\" then \"Warmup\" then \"Pre-Activation\" before playing soccer.\n";
+						break;
+					case "abs":
+						tips +=
+								"\n" +
+								"I like to:\n";
+						break;
+				}
+				switch (BuildConfig.FLAVOR) {
+					case "abs":
+					case "full":
+					case "free":
+						tips +=
+								"- do a different abs routine every day.\n";
+						break;
+				}
+				MessageDialog.show(this, tips);
 				return true;
 			}
 

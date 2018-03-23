@@ -14,20 +14,21 @@ import android.widget.ListView;
 import com.devindow.myfitnessroutines.db.AppDatabase;
 import com.devindow.myfitnessroutines.routine.*;
 import com.devindow.myfitnessroutines.util.MessageDialog;
+import com.devindow.myfitnessroutines.util.MethodLogger;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends OptionsMenuActivity {
 
 	// Fields
-	private ArrayList<Routine> sampleRoutines;
 	private ListView lstRoutines;
 
 
 	// Overrides
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		MethodLogger methodLogger = new MethodLogger();
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
@@ -36,37 +37,60 @@ public class MainActivity extends OptionsMenuActivity {
 		setSupportActionBar(toolbar);
 
 
-		// MoveLibrary
-		MoveLibrary.generateMoves();
-
-
-		// sampleRoutines
-		sampleRoutines = SampleRoutines.generateSampleRoutines();
+		// When debugging, regenerate Moves & Routines every time MainActivity is created.
+		if (BuildConfig.DEBUG) {
+			RoutineLibrary.generate();
+		}
 
 
 		// lstRoutines
 		lstRoutines = findViewById(R.id.lstRoutines);
-		lstRoutines.setAdapter(new RoutineAdapter(this, R.layout.routine_row, sampleRoutines));
+		lstRoutines.setAdapter(new RoutineAdapter(this, R.layout.routine_row, RoutineLibrary.routines));
+		final Context context = this;
 		lstRoutines.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 				Routine routine = (Routine) lstRoutines.getItemAtPosition(position);
-				Intent intent = new Intent(view.getContext(), PlayRoutineActivity.class);
-				intent.putExtra("routine", routine);
-				startActivity(intent);
+				if (BuildConfig.FLAVOR.equals("free") && !routine.isFree) {
+					MessageDialog.show(context, "Please purchase the paid version in the app store to access these Routines.");
+				} else {
+					Intent intent = new Intent(view.getContext(), PlayRoutineActivity.class);
+					intent.putExtra("routine", routine);
+					startActivity(intent);
+				}
 			}
 		});
 
 
 		// btnNewRoutine
 		FloatingActionButton btnNewRoutine = (FloatingActionButton) findViewById(R.id.btnNewRoutine);
-		btnNewRoutine.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				Snackbar.make(view, "Creating new Routines is coming soon.", Snackbar.LENGTH_LONG)
-						.setAction("Action", null).show();
-			}
-		});
+		switch (BuildConfig.FLAVOR) {
+			case "soccer":
+			default:
+				btnNewRoutine.setVisibility(View.GONE);
+				break;
+			case "full":
+			case "yoga":
+				btnNewRoutine.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View view) {
+						Snackbar.make(view, "Creating new Routines is coming soon.", Snackbar.LENGTH_LONG)
+								.setAction("Action", null).show();
+					}
+				});
+				break;
+			case "free":
+				btnNewRoutine.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View view) {
+						Snackbar.make(view, "Creating new Routines is only available in the PAID app.", Snackbar.LENGTH_LONG)
+								.setAction("Action", null).show();
+					}
+				});
+				break;
+		}
+
+		methodLogger.end();
 	}
 
 	@Override
@@ -77,9 +101,14 @@ public class MainActivity extends OptionsMenuActivity {
 
 	@Override
 	protected void onResume() { // becoming interactive or returning from another Activity
+		MethodLogger methodLogger = new MethodLogger();
+
 		super.onResume();
 
-		new GetSessionsTask().execute(this);
+		// query DB for Sessions run recently then update Routine.ranRecently
+		new GetRecentSessionsAsyncTask().execute(this);
+
+		methodLogger.end();
 	}
 
 	@Override
@@ -107,32 +136,38 @@ public class MainActivity extends OptionsMenuActivity {
 	}
 
 
-	// GetSessionsTask class
-	private class GetSessionsTask extends AsyncTask<Context, Void, Void> {
+	// GetRecentSessionsAsyncTask class
+	private class GetRecentSessionsAsyncTask extends AsyncTask<Context, Void, Void> {
 
 		private Context context;
 		private List<Session> sessions;
 
 		@Override
 		protected Void doInBackground(Context... context) {
+			MethodLogger methodLogger = new MethodLogger();
 			this.context = context[0];
 
-			sessions = AppDatabase.getSessionsInLast24HoursAsync();
+			// Query for list of recent Sessions
+			sessions = AppDatabase.getRecentSessionsAsync();
+
+			methodLogger.end();
 			return null;
 		}
 
 		@Override
 		protected void onPostExecute(Void result) {
-			for (Routine routine : sampleRoutines) {
-				routine.ranToday = false;
+			MethodLogger methodLogger = new MethodLogger();
+			for (Routine routine : RoutineLibrary.routines) {
+				routine.ranRecently = false;
 				for (Session session : sessions) {
 					if (routine.name.equals(session.getRoutineName())) {
-						routine.ranToday = true;
+						routine.ranRecently = true;
 					}
 				}
 			}
 
-			lstRoutines.setAdapter(new RoutineAdapter(context, R.layout.routine_row, sampleRoutines));
+			lstRoutines.setAdapter(new RoutineAdapter(context, R.layout.routine_row, RoutineLibrary.routines));
+			methodLogger.end();
 		}
 
 	}

@@ -43,9 +43,9 @@ public abstract class AppDatabase extends RoomDatabase {
 	}
 
 
-	public static List<Session> getSessionsInLast24HoursAsync() {
-		long millisFrom24HoursAgo = System.currentTimeMillis() - 1000 * 60 * 60 * 24;
-		return AppDatabase.instance.sessionDao().getAllSinceTimestamp(millisFrom24HoursAgo);
+	public static List<Session> getRecentSessionsAsync() {
+		long millisFrom12HoursAgo = System.currentTimeMillis() - 1000 * 60 * 60 * 12; // 1,000ms * 60s * 60m * 12h
+		return AppDatabase.instance.sessionDao().getAllSinceTimestamp(millisFrom12HoursAgo);
 	}
 
 }

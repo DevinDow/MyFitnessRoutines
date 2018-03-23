@@ -63,6 +63,46 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    /**
+     *  Specifies the flavor dimensions you want to use. The order in which you
+     *  list each dimension determines its priority, from highest to lowest,
+     *  when Gradle merges variant sources and configurations. You must assign
+     *  each product flavor you configure to one of the flavor dimensions.
+     */
+    flavorDimensions "mode"
+    productFlavors {
+        free {
+            dimension "mode"
+            applicationIdSuffix ".free"
+            versionNameSuffix "-free"
+            resValue "string", "app_name", "My Fitness Routines - FREE"
+        }
+        full {
+            dimension "mode"
+            applicationIdSuffix ".full"
+            versionNameSuffix "-full"
+            resValue "string", "app_name", "My Fitness Routines"
+        }
+        yoga {
+            dimension "mode"
+            applicationIdSuffix ".yoga"
+            versionNameSuffix "-yoga"
+            resValue "string", "app_name", "My Yoga Routines"
+        }
+        abs {
+            dimension "mode"
+            applicationIdSuffix ".core"
+            versionNameSuffix "-core"
+            resValue "string", "app_name", "My Abs Routines"
+        }
+        soccer {
+            dimension "mode"
+            applicationIdSuffix ".soccer"
+            versionNameSuffix "-soccer"
+            resValue "string", "app_name", "My Soccer Routines"
+        }
+    }
 }
 
 dependencies {
