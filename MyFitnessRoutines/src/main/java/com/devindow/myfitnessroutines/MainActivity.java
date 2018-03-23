@@ -64,13 +64,31 @@ public class MainActivity extends OptionsMenuActivity {
 
 		// btnNewRoutine
 		FloatingActionButton btnNewRoutine = (FloatingActionButton) findViewById(R.id.btnNewRoutine);
-		btnNewRoutine.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				Snackbar.make(view, "Creating new Routines is coming soon.", Snackbar.LENGTH_LONG)
-						.setAction("Action", null).show();
-			}
-		});
+		switch (BuildConfig.FLAVOR) {
+			case "soccer":
+			default:
+				btnNewRoutine.setVisibility(View.GONE);
+				break;
+			case "full":
+			case "yoga":
+				btnNewRoutine.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View view) {
+						Snackbar.make(view, "Creating new Routines is coming soon.", Snackbar.LENGTH_LONG)
+								.setAction("Action", null).show();
+					}
+				});
+				break;
+			case "free":
+				btnNewRoutine.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View view) {
+						Snackbar.make(view, "Creating new Routines is only available in the PAID app.", Snackbar.LENGTH_LONG)
+								.setAction("Action", null).show();
+					}
+				});
+				break;
+		}
 
 		methodLogger.end();
 	}

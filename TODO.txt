@@ -6,10 +6,12 @@ CURRENT FEATURE BRANCH = Flavors
 - Flavors
   - Tips by flavor
   - Link to PAID app in App Store
-  * btnCreateRoutine requires "full" or "yoga" or hidden with different resources or via code
-    - Full, Yoga
-    - Add Routine
-    - Edit Routine
+
+----------------------------------------------------------------------------------------------------
+
+- Handle TTS not available
+
+- Sessions Log activity
 
 - Analytics
     - https://analytics.google.com/analytics/web/?authuser=0#management/Settings/a116050036w172372997p171904749/%3Fm.page%3DTrackingCode/
@@ -21,11 +23,8 @@ CURRENT FEATURE BRANCH = Flavors
         - New Routine button
         - Exceptions
 
-- Handle TTS not available
-
-----------------------------------------------------------------------------------------------------
-
-- Sessions Log activity
+- Add Routine
+- Edit Routine
 
 - Poses
 
