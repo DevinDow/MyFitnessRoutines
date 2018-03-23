@@ -9,6 +9,6 @@ import android.util.Log;
 public final class Debug {
 
 	// Public Static Constants
-	public static final boolean on = true; // Set to false to allow compiler to identify and eliminate unreachable code.
+	public static final boolean on = false; // Set to false to allow compiler to identify and eliminate unreachable code.
 
 }
