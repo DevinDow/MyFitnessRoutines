@@ -796,8 +796,9 @@ public class MoveLibrary {
 			move.pose.rLeg = new Leg(Angle.N, Angle.E);
 
 			move.pose.torso = new Torso(Torso.thickness / 2, Angle.W, true);
+			move.pose.torso.head.shift(2,5);
 
-			move.pose.rArm = new Arm(Angle.N.add(30), Angle.S.add(-30));
+			move.pose.rArm = new Arm(Angle.N.add(-5), Angle.SW.add(-5));
 
 			addMove(move);
 		}
@@ -810,8 +811,9 @@ public class MoveLibrary {
 			move.pose.rLeg = new Leg(Angle.N);
 
 			move.pose.torso = new Torso(Torso.thickness / 2, Angle.W, true);
+			move.pose.torso.head.shift(2,5);
 
-			move.pose.rArm = new Arm(Angle.N.add(30), Angle.S.add(-30));
+			move.pose.rArm = new Arm(Angle.N.add(-5), Angle.SW.add(-5));
 
 			addMove(move);
 		}
@@ -821,11 +823,12 @@ public class MoveLibrary {
 			MoveWithPose move = new MoveWithPose(KNEE_BENT_CRUNCHES, Category.STRENGTH, "Crunches with Knees bent");
 			move.pose = new Pose();
 
-			move.pose.rLeg = new Leg(Angle.N.add(-45), Angle.S.add(35));
+			move.pose.rLeg = new Leg(Angle.NE.add(10), Angle.SE.add(-24));
 
 			move.pose.torso = new Torso(Torso.thickness / 2, Angle.W, true);
+			move.pose.torso.head.shift(2,5);
 
-			move.pose.rArm = new Arm(Angle.N.add(30), Angle.S.add(-30));
+			move.pose.rArm = new Arm(Angle.N.add(-5), Angle.SW.add(-5));
 
 			addMove(move);
 		}
@@ -839,8 +842,9 @@ public class MoveLibrary {
 			move.pose.rLeg = new Leg(Angle.E.add(-10), 0.9f, Angle.E.add(5), 0.9f);
 
 			move.pose.torso = new Torso(Torso.thickness / 2, Angle.W, true);
+			move.pose.torso.head.shift(2,5);
 
-			move.pose.rArm = new Arm(Angle.N.add(30), Angle.S.add(-30));
+			move.pose.rArm = new Arm(Angle.N.add(-5), Angle.SW.add(-5));
 
 			addMove(move);
 		}
@@ -854,8 +858,9 @@ public class MoveLibrary {
 			move.pose.rLeg = new Leg(Angle.E.add(-20), Angle.E.add(5));
 
 			move.pose.torso = new Torso(Torso.thickness / 2, Angle.W, true);
+			move.pose.torso.head.shift(2,5);
 
-			move.pose.rArm = new Arm(Angle.N.add(30), Angle.S.add(-30));
+			move.pose.rArm = new Arm(Angle.N.add(-5), Angle.SW.add(-5));
 
 			addMove(move);
 		}
@@ -867,7 +872,10 @@ public class MoveLibrary {
 
 			move.pose.rLeg = new Leg(Angle.N.add(15), Angle.E.add(15));
 
-			move.pose.torso = new Torso(Torso.thickness/2 + 3, Angle.W.add(5), true);
+			move.pose.torso = new Torso(Torso.thickness/2 + 2, Angle.W.add(5), true);
+			move.pose.torso.head.shift(0, 1);
+			move.pose.torso.points = new ArrayList<>();
+			move.pose.torso.points.add(new Point(-Torso.length/2, Torso.thickness/2));
 
 			move.pose.rArm = new Arm(Angle.N.add(30), Angle.S.add(-30));
 
