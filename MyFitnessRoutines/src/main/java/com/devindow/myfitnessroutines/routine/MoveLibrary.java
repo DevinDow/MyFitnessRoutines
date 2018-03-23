@@ -602,7 +602,7 @@ public class MoveLibrary {
 
 		// Chair Pose
 		{
-			MoveWithPose move = new MoveWithPose(CHAIR_POSE, Category.YOGA, "Palms together overhead, navel towards spine");
+			MoveWithPose move = new MoveWithPose(CHAIR_POSE, Category.YOGA, "Palms towards each other, navel towards spine");
 			move.pose = new Pose();
 
 			move.pose.rLeg = new Leg(Angle.SE.add(15), Angle.SW.add(15));
