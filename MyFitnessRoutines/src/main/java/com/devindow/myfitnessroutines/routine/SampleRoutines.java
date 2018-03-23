@@ -49,6 +49,10 @@ public class SampleRoutines {
 			case "yoga":
 				generateMorningYoga();
 				generateSunSalutation();
+
+				generate5MinMeditation();
+				generate10MinMeditation();
+				generate15MinMeditation();
 				break;
 
 			case "abs":
