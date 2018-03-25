@@ -68,34 +68,33 @@ public class OptionsMenuActivity extends AppCompatActivity {
 						"\n" +
 						"- Some Poses have a Left and a Right component.  The app will signal you to SWITCH half way through.\n" +
 						"\n" +
-						"- Sometimes I hit Play and follow the timer, sometimes I just use the >> button to progress at my own pace.\n" +
+						"- Sometimes I hit PLAY and follow the timer, sometimes I manually advance through the moves at my own pace.\n" +
 						"(I recommend first getting familiar with a routine's moves before working with the timer.)\n" +
 						"\n" +
-						"- Tapping the screen while playing will pause.  Tapping while paused will manually advance to the next move.\n";
+						"- Tapping the screen while playing will PAUSE.\n" +
+						"- Tapping the screen while paused will manually advance to the NEXT MOVE.\n";
+
+				switch (BuildConfig.FLAVOR) {
+					case "abs":
+					case "full":
+					case "free":
+						tips +=
+								"\n" +
+								"\n" +
+								"I LIKE TO:\n" +
+								"  - do a different abs routine every day.\n";
+						break;
+				}
 				switch (BuildConfig.FLAVOR) {
 					case "full":
 					case "free":
 					case "soccer":
 						tips +=
-								"\n" +
-								"I like to:\n" +
-								"- go for a walk where I stop at the park and do \"7 Minute Workout\".\n" +
-								"- do \"Morning Yoga\" then \"Warmup\" then \"Pre-Activation\" before playing soccer.\n";
-						break;
-					case "abs":
-						tips +=
-								"\n" +
-								"I like to:\n";
+								"  - go for a walk where I stop at the park and do \"7 Minute Workout\".\n" +
+								"  - do \"Morning Yoga\" then \"Warmup\" then \"Pre-Activation\" before playing soccer.\n";
 						break;
 				}
-				switch (BuildConfig.FLAVOR) {
-					case "abs":
-					case "full":
-					case "free":
-						tips +=
-								"- do a different abs routine every day.\n";
-						break;
-				}
+
 				MessageDialog.show(this, tips);
 				return true;
 			}
