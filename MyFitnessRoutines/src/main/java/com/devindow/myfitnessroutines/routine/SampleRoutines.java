@@ -1,7 +1,6 @@
 package com.devindow.myfitnessroutines.routine;
 
 import com.devindow.myfitnessroutines.BuildConfig;
-import com.devindow.myfitnessroutines.util.Debug;
 import com.devindow.myfitnessroutines.util.MethodLogger;
 import com.devindow.myfitnessroutines.util.Side;
 
@@ -15,7 +14,7 @@ public class SampleRoutines {
 	public static void generate() {
 		MethodLogger methodLogger = new MethodLogger();
 
-		if (Debug.on) {
+		if (BuildConfig.DEBUG) {
 			generateTestRoutine();
 		}
 

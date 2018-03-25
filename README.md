@@ -6,8 +6,6 @@ Android app to guide you through fitness routines.
 1. File Changes
     - **TODO.txt** up to date
     - Commit these on *master*:
-        - Debug in **Debug.java**
-            - *Debug.on = false;*
         - Version in Module's **build.gradle**
             - *versionCode* incremented (every App Store submission must be higher)
             - *versionString* (what's displayed to users)
