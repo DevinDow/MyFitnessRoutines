@@ -258,8 +258,8 @@ public class SampleRoutines {
 	private static void generateMixedAbs() {
 		Routine routine = new Routine("Mixed Abs", Category.STRENGTH, "A mixture of different abdominal areas", true);
 
-		routine.tasks.add(new Task(MoveLibrary.KNEE_UP_CRUNCHES, 30, 10));
-		routine.tasks.add(new Task(MoveLibrary.HIP_RAISES, 30));
+		routine.tasks.add(new Task(MoveLibrary.KNEE_UP_CRUNCHES, 30));
+		routine.tasks.add(new Task(MoveLibrary.HIP_RAISES, 30, 10));
 
 		routine.tasks.add(new Task(MoveLibrary.CROSSOVER_CRUNCHES, 60, 10));
 
