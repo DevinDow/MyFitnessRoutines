@@ -68,8 +68,6 @@ public class OptionsMenuActivity extends AppCompatActivity {
 
 			case R.id.action_tips: {
 				String tips =
-						"TIPS:\n" +
-						"\n" +
 						"- The app marks a routine that you've completed today in GREEN.\n" +
 						"\n" +
 						"- Some Poses have a Left and a Right component.  The app will signal you to SWITCH half way through.\n" +
@@ -101,7 +99,12 @@ public class OptionsMenuActivity extends AppCompatActivity {
 						break;
 				}
 
-				MessageDialog.show(this, tips);
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				builder.setTitle("Usage Tips");
+				builder.setIcon(android.R.drawable.ic_dialog_info);
+				builder.setMessage(tips);
+				AlertDialog dialog = builder.create();
+				dialog.show();
 				return true;
 			}
 

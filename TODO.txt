@@ -11,8 +11,8 @@ Submit app
 ----------------------------------------------------------------------------------------------------
 
 - Exception Handling
-    - Send Feedback
-    
+    - Send email or use Crashlytics?
+
 - Done timer returns to MainActivity after some time
 
 - Handle TTS not available
