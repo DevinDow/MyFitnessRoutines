@@ -3,7 +3,6 @@ TODO
 
 Submit app
     - Submit FULL app, then link to "develop?id=" from FREE app, then submit FREE app, then submit other apps
-    - Tablet screen grab
 
 - Pay Wall
     - Links to all apps with nice wording instead of long links
