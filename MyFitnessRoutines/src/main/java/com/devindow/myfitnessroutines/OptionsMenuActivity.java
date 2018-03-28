@@ -2,6 +2,8 @@ package com.devindow.myfitnessroutines;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,6 +28,7 @@ public class OptionsMenuActivity extends AppCompatActivity {
 		return true;
 	}
 
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
@@ -35,6 +38,7 @@ public class OptionsMenuActivity extends AppCompatActivity {
 		int id = item.getItemId();
 
 		switch (id) {
+
 
 			case R.id.action_speakMoveNames: {
 				if (Preferences.getSpeakMoveNames()) {
@@ -48,6 +52,7 @@ public class OptionsMenuActivity extends AppCompatActivity {
 				return true;
 			}
 
+
 			case R.id.action_speakMoveInstructions: {
 				if (Preferences.getSpeakMoveInstructions()) {
 					item.setChecked(false);
@@ -59,6 +64,7 @@ public class OptionsMenuActivity extends AppCompatActivity {
 
 				return true;
 			}
+
 
 			case R.id.action_tips: {
 				String tips =
@@ -99,10 +105,22 @@ public class OptionsMenuActivity extends AppCompatActivity {
 				return true;
 			}
 
+
+			case R.id.action_feedback: {
+				Intent Email = new Intent(Intent.ACTION_SEND);
+				Email.setType("text/email");
+				Email.putExtra(Intent.EXTRA_EMAIL, new String[] { "DevinDowApps@gmail.com" });
+				Email.putExtra(Intent.EXTRA_SUBJECT, "Feedback on " + App.getContext().getResources().getString(R.string.app_name));
+				Email.putExtra(Intent.EXTRA_TEXT, "Version = " + BuildConfig.VERSION_NAME + "\n\nDear Devin, \n");
+				startActivity(Intent.createChooser(Email, "Send Feedback:"));
+				return true;
+			}
+
 		}
 
 		return super.onOptionsItemSelected(item);
 	}
+
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {

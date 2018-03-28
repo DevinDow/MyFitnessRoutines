@@ -7,10 +7,12 @@ Submit app
     - email address - new free gmail?  with Google+
     - devindow.com/apps
 - Link to PAID app in App Store
-- Send Feedback
 
 ----------------------------------------------------------------------------------------------------
 
+- Exception Handling
+    - Send Feedback
+    
 - Done timer returns to MainActivity after some time
 
 - Handle TTS not available

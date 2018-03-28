@@ -17,4 +17,8 @@
         android:checkable="true"
         android:title="Speak Move Instructions" />
 
+    <item
+        android:id="@+id/action_feedback"
+        android:title="Send Feedback" />
+
 </menu>
