@@ -290,7 +290,7 @@ public class SampleRoutines {
 
 
 	private static void generate5MinMeditation() {
-		Routine routine = new Routine("5 min Meditation");
+		Routine routine = new Routine("5 min Meditation", Category.MEDITATION, "Meditation timer");
 
 		routine.tasks.add(new Task(MoveLibrary.LOTUS, 5*60));
 
@@ -298,7 +298,7 @@ public class SampleRoutines {
 	}
 
 	private static void generate10MinMeditation() {
-		Routine routine = new Routine("10 min Meditation");
+		Routine routine = new Routine("10 min Meditation", Category.MEDITATION, "Meditation timer", true);
 
 		routine.tasks.add(new Task(MoveLibrary.LOTUS, 10*60));
 
@@ -306,7 +306,7 @@ public class SampleRoutines {
 	}
 
 	private static void generate15MinMeditation() {
-		Routine routine = new Routine("15 min Meditation");
+		Routine routine = new Routine("15 min Meditation", Category.MEDITATION, "Meditation timer");
 
 		routine.tasks.add(new Task(MoveLibrary.LOTUS, 15*60));
 

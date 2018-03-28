@@ -141,6 +141,7 @@ public class PlayRoutineTaskFragment extends Fragment {
 		if (currentTask == null) {
 			switch (routine.category) {
 				case YOGA:
+				case MEDITATION:
 					move = MoveLibrary.moves.get(MoveLibrary.NAMASTE);
 					break;
 				case SOCCER:
