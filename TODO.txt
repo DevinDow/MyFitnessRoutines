@@ -3,10 +3,13 @@ TODO
 
 Submit app
     - Register as a developer DevinDow or DevinDowApps?
-    - Submit apps
-    - email address - new free gmail?  with Google+
-    - devindow.com/apps
-- Link to PAID app in App Store
+    - Submit FULL app, then link to "develop?id=" from FREE app, then submit FREE app, then submit other apps
+    - EMAIL: DevinDowApps@gamil.com
+    - WEBSITE: devindow.com/apps
+    - SCREENS: not DEBUG
+
+- Pay Wall
+    - Links to all apps with nice wording instead of long links
 
 ----------------------------------------------------------------------------------------------------
 

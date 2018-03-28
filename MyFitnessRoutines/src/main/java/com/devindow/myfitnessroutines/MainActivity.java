@@ -1,5 +1,6 @@
 package com.devindow.myfitnessroutines;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -7,9 +8,13 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.devindow.myfitnessroutines.db.AppDatabase;
 import com.devindow.myfitnessroutines.routine.*;
@@ -51,9 +56,26 @@ public class MainActivity extends OptionsMenuActivity {
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 				Routine routine = (Routine) lstRoutines.getItemAtPosition(position);
+
+				// Link to PAID apps
 				if (BuildConfig.FLAVOR.equals("free") && !routine.isFree) {
-					MessageDialog.show(context, "Please purchase the paid version in the app store to access these Routines.");
-				} else {
+					final SpannableString message = new SpannableString("This app is a free sample with only a few routines enabled.\nTo access the other routines please purchase a paid version in the app store :\nhttps://play.google.com/store/apps/developer?id=DevinDow");
+					Linkify.addLinks(message, Linkify.ALL);
+
+					final AlertDialog dialog = new AlertDialog.Builder(context)
+							.setTitle("Paid App Required")
+							.setIcon(android.R.drawable.ic_dialog_info)
+							.setMessage(message)
+							.setPositiveButton(android.R.string.ok, null)
+							.create();
+					dialog.show();
+
+					// Make the TextView clickable. (must be called after show())
+					((TextView) dialog.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
+				}
+
+				// Start PlayRoutineActivity
+				else {
 					Intent intent = new Intent(view.getContext(), PlayRoutineActivity.class);
 					intent.putExtra("routine", routine);
 					startActivity(intent);

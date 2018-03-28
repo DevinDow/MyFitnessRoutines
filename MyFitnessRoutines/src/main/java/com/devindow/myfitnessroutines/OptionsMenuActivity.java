@@ -1,19 +1,10 @@
 package com.devindow.myfitnessroutines;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
-
-import com.devindow.myfitnessroutines.db.AppDatabase;
-import com.devindow.myfitnessroutines.routine.Session;
-import com.devindow.myfitnessroutines.util.MessageDialog;
-
-import java.util.List;
 
 /**
  * Created by Devin on 3/17/2018.
@@ -99,11 +90,12 @@ public class OptionsMenuActivity extends AppCompatActivity {
 						break;
 				}
 
-				AlertDialog.Builder builder = new AlertDialog.Builder(this);
-				builder.setTitle("Usage Tips");
-				builder.setIcon(android.R.drawable.ic_dialog_info);
-				builder.setMessage(tips);
-				AlertDialog dialog = builder.create();
+				final AlertDialog dialog = new AlertDialog.Builder(this)
+						.setTitle("Usage Tips")
+						.setIcon(android.R.drawable.ic_dialog_info)
+						.setMessage(tips)
+						.setPositiveButton(android.R.string.ok, null)
+						.create();
 				dialog.show();
 				return true;
 			}
