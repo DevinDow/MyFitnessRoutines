@@ -15,7 +15,6 @@ import com.devindow.myfitnessroutines.routine.MoveLibrary;
 import com.devindow.myfitnessroutines.routine.Routine;
 import com.devindow.myfitnessroutines.routine.Session;
 import com.devindow.myfitnessroutines.routine.Task;
-import com.devindow.myfitnessroutines.util.Debug;
 import com.devindow.myfitnessroutines.util.MethodLogger;
 
 // This Fragment manages a the timers and retains itself across configuration changes.
@@ -142,6 +141,7 @@ public class PlayRoutineTaskFragment extends Fragment {
 		if (currentTask == null) {
 			switch (routine.category) {
 				case YOGA:
+				case MEDITATION:
 					move = MoveLibrary.moves.get(MoveLibrary.NAMASTE);
 					break;
 				case SOCCER:

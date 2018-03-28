@@ -1,18 +1,35 @@
 TODO
 ----
 
-- Link to PAID app in App Store
+Submit app
+    - Register as a developer DevinDow or DevinDowApps?
+    - Submit FULL app, then link to "develop?id=" from FREE app, then submit FREE app, then submit other apps
+    - EMAIL: DevinDowApps@gamil.com
+    - WEBSITE: devindow.com/apps
+    - SCREENS: not DEBUG
+
+- Pay Wall
+    - Links to all apps with nice wording instead of long links
 
 ----------------------------------------------------------------------------------------------------
+
+- Exception Handling
+    - Send email or use Crashlytics?
+
+- Done timer returns to MainActivity after some time
 
 - Handle TTS not available
 
 - Sessions Log activity
 
 - Analytics
-    - https://analytics.google.com/analytics/web/?authuser=0#management/Settings/a116050036w172372997p171904749/%3Fm.page%3DTrackingCode/
-    - Tracking ID = UA-116050036-1
-    - Getting Started: https://developers.google.com/analytics/devguides/collection/android/v4/
+    - Crashlytics
+        - http://try.crashlytics.com/
+        - https://fabric.io/kits/android/crashlytics/summary
+    - Google Analytics
+        - https://analytics.google.com/analytics/web/?authuser=0#management/Settings/a116050036w172372997p171904749/%3Fm.page%3DTrackingCode/
+        - Tracking ID = UA-116050036-1
+        - Getting Started: https://developers.google.com/analytics/devguides/collection/android/v4/
     - Track:
         - Routines
         - Time/Play/Pause
@@ -25,6 +42,8 @@ TODO
 - Poses
 
 ----------------------------------------------------------------------------------------------------
+
+- Category enum: should it be a flag like Side?  Useful for assigning multiple Categories to a Move for Create/Edit Routine feature.
 
 - Pose improvement ideas
   - Safety Jacks use 2 Poses

@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/action_tips"
-        android:title="Tips" />
+        android:title="Usage Tips" />
 
     <item
         android:id="@+id/action_speakMoveNames"
@@ -16,5 +16,9 @@
         android:id="@+id/action_speakMoveInstructions"
         android:checkable="true"
         android:title="Speak Move Instructions" />
+
+    <item
+        android:id="@+id/action_feedback"
+        android:title="Send Feedback" />
 
 </menu>

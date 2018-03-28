@@ -1,17 +1,10 @@
 package com.devindow.myfitnessroutines;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
-
-import com.devindow.myfitnessroutines.db.AppDatabase;
-import com.devindow.myfitnessroutines.routine.Session;
-import com.devindow.myfitnessroutines.util.MessageDialog;
-
-import java.util.List;
 
 /**
  * Created by Devin on 3/17/2018.
@@ -26,6 +19,7 @@ public class OptionsMenuActivity extends AppCompatActivity {
 		return true;
 	}
 
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
@@ -35,6 +29,7 @@ public class OptionsMenuActivity extends AppCompatActivity {
 		int id = item.getItemId();
 
 		switch (id) {
+
 
 			case R.id.action_speakMoveNames: {
 				if (Preferences.getSpeakMoveNames()) {
@@ -48,6 +43,7 @@ public class OptionsMenuActivity extends AppCompatActivity {
 				return true;
 			}
 
+
 			case R.id.action_speakMoveInstructions: {
 				if (Preferences.getSpeakMoveInstructions()) {
 					item.setChecked(false);
@@ -60,43 +56,58 @@ public class OptionsMenuActivity extends AppCompatActivity {
 				return true;
 			}
 
+
 			case R.id.action_tips: {
 				String tips =
-						"TIPS:\n" +
-						"\n" +
 						"- The app marks a routine that you've completed today in GREEN.\n" +
 						"\n" +
 						"- Some Poses have a Left and a Right component.  The app will signal you to SWITCH half way through.\n" +
 						"\n" +
-						"- Sometimes I hit Play and follow the timer, sometimes I just use the >> button to progress at my own pace.\n" +
+						"- Sometimes I hit PLAY and follow the timer, sometimes I manually advance through the moves at my own pace.\n" +
 						"(I recommend first getting familiar with a routine's moves before working with the timer.)\n" +
 						"\n" +
-						"- Tapping the screen while playing will pause.  Tapping while paused will manually advance to the next move.\n";
+						"- Tapping the screen while playing will PAUSE.\n" +
+						"- Tapping the screen while paused will manually advance to the NEXT MOVE.\n";
+
+				switch (BuildConfig.FLAVOR) {
+					case "abs":
+					case "full":
+					case "free":
+						tips +=
+								"\n" +
+								"\n" +
+								"I LIKE TO:\n" +
+								"  - do a different abs routine every day.\n";
+						break;
+				}
 				switch (BuildConfig.FLAVOR) {
 					case "full":
 					case "free":
 					case "soccer":
 						tips +=
-								"\n" +
-								"I like to:\n" +
-								"- go for a walk where I stop at the park and do \"7 Minute Workout\".\n" +
-								"- do \"Morning Yoga\" then \"Warmup\" then \"Pre-Activation\" before playing soccer.\n";
-						break;
-					case "abs":
-						tips +=
-								"\n" +
-								"I like to:\n";
+								"  - go for a walk where I stop at the park and do \"7 Minute Workout\".\n" +
+								"  - do \"Morning Yoga\" then \"Warmup\" then \"Pre-Activation\" before playing soccer.\n";
 						break;
 				}
-				switch (BuildConfig.FLAVOR) {
-					case "abs":
-					case "full":
-					case "free":
-						tips +=
-								"- do a different abs routine every day.\n";
-						break;
-				}
-				MessageDialog.show(this, tips);
+
+				final AlertDialog dialog = new AlertDialog.Builder(this)
+						.setTitle("Usage Tips")
+						.setIcon(android.R.drawable.ic_dialog_info)
+						.setMessage(tips)
+						.setPositiveButton(android.R.string.ok, null)
+						.create();
+				dialog.show();
+				return true;
+			}
+
+
+			case R.id.action_feedback: {
+				Intent Email = new Intent(Intent.ACTION_SEND);
+				Email.setType("text/email");
+				Email.putExtra(Intent.EXTRA_EMAIL, new String[] { "DevinDowApps@gmail.com" });
+				Email.putExtra(Intent.EXTRA_SUBJECT, "Feedback on " + App.getContext().getResources().getString(R.string.app_name));
+				Email.putExtra(Intent.EXTRA_TEXT, "Version = " + BuildConfig.VERSION_NAME + "\n\nDear Devin, \n");
+				startActivity(Intent.createChooser(Email, "Send Feedback:"));
 				return true;
 			}
 
@@ -104,6 +115,7 @@ public class OptionsMenuActivity extends AppCompatActivity {
 
 		return super.onOptionsItemSelected(item);
 	}
+
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {

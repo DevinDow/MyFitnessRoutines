@@ -1,7 +1,6 @@
 package com.devindow.myfitnessroutines.routine;
 
 import com.devindow.myfitnessroutines.BuildConfig;
-import com.devindow.myfitnessroutines.util.Debug;
 import com.devindow.myfitnessroutines.util.MethodLogger;
 import com.devindow.myfitnessroutines.util.Side;
 
@@ -15,7 +14,7 @@ public class SampleRoutines {
 	public static void generate() {
 		MethodLogger methodLogger = new MethodLogger();
 
-		if (Debug.on) {
+		if (BuildConfig.DEBUG) {
 			generateTestRoutine();
 		}
 
@@ -259,8 +258,8 @@ public class SampleRoutines {
 	private static void generateMixedAbs() {
 		Routine routine = new Routine("Mixed Abs", Category.STRENGTH, "A mixture of different abdominal areas", true);
 
-		routine.tasks.add(new Task(MoveLibrary.KNEE_UP_CRUNCHES, 30, 10));
-		routine.tasks.add(new Task(MoveLibrary.HIP_RAISES, 30));
+		routine.tasks.add(new Task(MoveLibrary.KNEE_UP_CRUNCHES, 30));
+		routine.tasks.add(new Task(MoveLibrary.HIP_RAISES, 30, 10));
 
 		routine.tasks.add(new Task(MoveLibrary.CROSSOVER_CRUNCHES, 60, 10));
 
@@ -291,7 +290,7 @@ public class SampleRoutines {
 
 
 	private static void generate5MinMeditation() {
-		Routine routine = new Routine("5 min Meditation");
+		Routine routine = new Routine("5 min Meditation", Category.MEDITATION, "Meditation timer");
 
 		routine.tasks.add(new Task(MoveLibrary.LOTUS, 5*60));
 
@@ -299,7 +298,7 @@ public class SampleRoutines {
 	}
 
 	private static void generate10MinMeditation() {
-		Routine routine = new Routine("10 min Meditation");
+		Routine routine = new Routine("10 min Meditation", Category.MEDITATION, "Meditation timer", true);
 
 		routine.tasks.add(new Task(MoveLibrary.LOTUS, 10*60));
 
@@ -307,7 +306,7 @@ public class SampleRoutines {
 	}
 
 	private static void generate15MinMeditation() {
-		Routine routine = new Routine("15 min Meditation");
+		Routine routine = new Routine("15 min Meditation", Category.MEDITATION, "Meditation timer");
 
 		routine.tasks.add(new Task(MoveLibrary.LOTUS, 15*60));
 

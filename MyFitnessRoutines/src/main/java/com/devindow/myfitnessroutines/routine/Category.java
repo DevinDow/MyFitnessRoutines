@@ -5,5 +5,13 @@ package com.devindow.myfitnessroutines.routine;
  */
 
 public enum Category {
-	NONE, STRETCH, WARMUP, YOGA, STRENGTH, CARDIO, MEDITATION, SOCCER, AGILITY
+	NONE,
+	STRETCH,
+	WARMUP,
+	YOGA,
+	STRENGTH,
+	CARDIO,
+	MEDITATION,
+	SOCCER,
+	AGILITY
 }
