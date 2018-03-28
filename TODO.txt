@@ -2,11 +2,8 @@ TODO
 ----
 
 Submit app
-    - Register as a developer DevinDow or DevinDowApps?
     - Submit FULL app, then link to "develop?id=" from FREE app, then submit FREE app, then submit other apps
-    - EMAIL: DevinDowApps@gamil.com
-    - WEBSITE: devindow.com/apps
-    - SCREENS: not DEBUG
+    - Tablet screen grab
 
 - Pay Wall
     - Links to all apps with nice wording instead of long links
