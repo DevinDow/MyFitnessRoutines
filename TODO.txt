@@ -1,11 +1,14 @@
 TODO
 ----
 
-Submit app
-    - Submit FULL app, then link to "develop?id=" from FREE app, then submit FREE app, then submit other apps
-
 - Pay Wall
-    - Links to all apps with nice wording instead of long links
+    - Link to Play Store?  OR  prettier link
+- Flavors to submit
+    - Free
+    - Abs
+    - Soccer
+- Update apps.devindow.com
+
 
 ----------------------------------------------------------------------------------------------------
 

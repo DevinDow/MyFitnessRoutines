@@ -22,6 +22,7 @@ import com.devindow.myfitnessroutines.util.MessageDialog;
 import com.devindow.myfitnessroutines.util.MethodLogger;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class MainActivity extends OptionsMenuActivity {
 
@@ -59,7 +60,11 @@ public class MainActivity extends OptionsMenuActivity {
 
 				// Link to PAID apps
 				if (BuildConfig.FLAVOR.equals("free") && !routine.isFree) {
-					final SpannableString message = new SpannableString("This app is a free sample with only a few routines enabled.\nTo access the other routines please purchase a paid version in the app store :\nhttps://play.google.com/store/apps/developer?id=DevinDow");
+					final String link = "https://play.google.com/store/apps/developer?id=Devin+Dow";
+					final SpannableString message = new SpannableString(
+							"This app is a free sample with only a few routines enabled.\n\n" +
+									"To access the other routines please purchase a paid version in the app store :\n" +
+									link);
 					Linkify.addLinks(message, Linkify.ALL);
 
 					final AlertDialog dialog = new AlertDialog.Builder(context)
