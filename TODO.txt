@@ -3,10 +3,6 @@ TODO
 
 - Pay Wall
     - Link to Play Store?  OR  prettier link
-- Flavors to submit
-    - Free
-    - Abs
-    - Soccer
 - Update apps.devindow.com
 
 
