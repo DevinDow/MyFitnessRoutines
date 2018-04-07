@@ -30,10 +30,10 @@ android {
         targetSdkVersion 26
 
         // Defines the version number of your app.
-        versionCode 12
+        versionCode 13
 
         // Defines a user-friendly version name for your app.
-        versionName "1.0.2"
+        versionName "1.0.3"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -76,7 +76,7 @@ android {
             dimension "mode"
             applicationIdSuffix ".free"
             versionNameSuffix "-free"
-            resValue "string", "app_name", "My Fitness Routines - FREE"
+            resValue "string", "app_name", "My Fitness Routines - Free"
         }
         full {
             dimension "mode"

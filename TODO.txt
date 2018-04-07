@@ -1,9 +1,10 @@
 TODO
 ----
 
+- TV, Wear
+
 - Pay Wall
     - Link to Play Store?  OR  prettier link
-- Update apps.devindow.com
 
 
 ----------------------------------------------------------------------------------------------------
