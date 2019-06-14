@@ -65,7 +65,7 @@ Android app to guide you through fitness routines.
 ###### SoccerStep : Motion
 - **step**
 ### Session
-- **date** & timestamp
+- **date** & **timestamp**
 - **routineName**
 - **durationSeconds**
 
