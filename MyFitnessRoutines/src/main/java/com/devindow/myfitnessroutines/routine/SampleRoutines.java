@@ -26,6 +26,7 @@ public class SampleRoutines {
 
 				generateMorningYoga();
 				generateSunSalutation();
+				generateYogaStretch();
 
 				generateWarmup();
 
@@ -48,6 +49,7 @@ public class SampleRoutines {
 			case "yoga":
 				generateMorningYoga();
 				generateSunSalutation();
+				generateYogaStretch();
 
 				generate5MinMeditation();
 				generate10MinMeditation();
@@ -80,8 +82,8 @@ public class SampleRoutines {
 	private static void generateTestRoutine() {
 		Routine routine = new Routine("Test Routine", Category.NONE, "", true);
 
-		routine.tasks.add(new Task(MoveLibrary.CHAMP, 15));
-		routine.tasks.add(new Task(MoveLibrary.NAMASTE, 15));
+		routine.tasks.add(new Task(MoveLibrary.HAMSTRING_STRETCH, 15));
+		routine.tasks.add(new Task(MoveLibrary.HIP_HAMSTRING, 15));
 		routine.tasks.add(new Task(MoveLibrary.PLOW,10, "Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.CHAIR_POSE,5));
 		routine.tasks.add(new Task(MoveLibrary.WARRIOR_1,5, Side.RIGHT));
@@ -169,6 +171,24 @@ public class SampleRoutines {
 		}
 
 		routine.tasks.add(new Task(MoveLibrary.PRAYER, breathSeconds * 3, "Breathe."));
+
+		RoutineLibrary.routines.add(routine);
+	}
+
+	private static void generateYogaStretch() {
+		Routine routine = new Routine("Yoga Stretch", Category.YOGA, "Yoga with 2 minute holds for stretching connective tissue, releasing stagnation, and meditation.");
+
+		routine.tasks.add(new Task(MoveLibrary.HIP_STRETCH, 120, Side.RIGHT, "Sink forward to relax hip flexor."));
+		routine.tasks.add(new Task(MoveLibrary.HAMSTRING_STRETCH, 30, Side.RIGHT, "Push back & straighten front leg to rest hip and stretch hamstring."));
+		routine.tasks.add(new Task(MoveLibrary.HIP_STRETCH, 120, Side.LEFT, "Sink forward to relax hip flexor."));
+		routine.tasks.add(new Task(MoveLibrary.HAMSTRING_STRETCH, 30, Side.LEFT, "Push back & straighten front leg to rest hip and stretch hamstring."));
+		routine.tasks.add(new Task(MoveLibrary.HERO, 120, "Sit on ankles, lean back."));
+		routine.tasks.add(new Task(MoveLibrary.DOWN_DOG, 60, "Stretch hamstrings and calves."));
+		routine.tasks.add(new Task(MoveLibrary.COBBLER_POSE, 60, "Butterfly, lean forward"));
+		routine.tasks.add(new Task(MoveLibrary.FROG_SPLITS, 120, "Knees wide & bent 90, push back."));
+		routine.tasks.add(new Task(MoveLibrary.CHILD_POSE, 30, "An easy break for a moment."));
+		routine.tasks.add(new Task(MoveLibrary.PIGEON, 240, "One leg bent on the ground, chest to thigh, stretching glute piraformis."));
+		routine.tasks.add(new Task(MoveLibrary.KNEE_CROSS_OVER, 60, "Hug knee then cross over."));
 
 		RoutineLibrary.routines.add(routine);
 	}

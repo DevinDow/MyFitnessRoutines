@@ -82,6 +82,7 @@ public class MoveLibrary {
 	public static final String SINGLE_LEG_BRIDGES = "Single-Leg Bridges";
 	public static final String SHOULDER_PRESS = "Shoulder Press";
 	public static final String PLOW = "Plow";
+	public static final String HERO = "Hero";
 
 	// Back-Lying Top View Poses
 	public static final String CORPSE_POSE = "Corpse Pose";
@@ -98,6 +99,7 @@ public class MoveLibrary {
 	public static final String DOWN_DOG_ALTERNATING_CALVES = "Down Dog Alternating Calves";
 	public static final String INCH_WORMS = "Inch Worms";
 	public static final String WIDE_LEG_BEND = "Wide Leg Bend";
+	public static final String PIGEON = "Pigeon";
 
 	// Prone Poses
 	public static final String ROTATE_ON_ALL_FOURS = "Rotate on all fours";
@@ -114,6 +116,7 @@ public class MoveLibrary {
 	public static final String FOAM_ROLLER = "Foam Roller";
 	public static final String SIDE_LYING_ABDUCTION_W_BAND = "Side-Lying Abduction w/ Band";
 	public static final String LOCUST_POSE = "Locust Pose";
+	public static final String FROG_SPLITS = "Frog Splits";
 
 	// Sitting Poses
 	public static final String LOTUS = "Lotus";
@@ -1072,6 +1075,10 @@ public class MoveLibrary {
 
 			addMove(move);
 		}
+
+		// Hero
+		moves.put(HERO, new MoveWithPose(HERO, Category.STRETCH));
+
 	}
 
 	private static void generateBackLyingTopViewMoves() {
@@ -1302,6 +1309,9 @@ public class MoveLibrary {
 
 			addMove(move);
 		}
+
+		// Pigeon
+		moves.put(PIGEON, new MoveWithPose(PIGEON, Category.STRETCH, true));
 	}
 
 	private static void generateProneMoves() {
@@ -1554,6 +1564,9 @@ public class MoveLibrary {
 
 			addMove(move);
 		}
+
+		// Frog Splits
+		moves.put(FROG_SPLITS, new MoveWithPose(FROG_SPLITS, Category.STRETCH));
 	}
 
 	private static void generateSittingMoves() {
