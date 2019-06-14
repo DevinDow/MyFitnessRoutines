@@ -71,27 +71,27 @@ Android app to guide you through fitness routines.
 
 ## Architecture
 ### Create Moves & Routines
-- App.onCreate() in RELEASE to create once or MainActivity.onCreate() in DEBUG to recreate each time
-- RoutineLibrary.generate()
-- MoveLibrary.generate()
-- SampleRoutines.generate()
-- SampleRoutines.generateXXX()
+- *App.onCreate()* in **RELEASE** to create once or *MainActivity.onCreate()* in **DEBUG** to recreate each time
+- *RoutineLibrary.generate()*
+- *MoveLibrary.generate()*
+- *SampleRoutines.generate()*
+- *SampleRoutines.generateXXX()*
 ### MainActivity
-- onCreate()
-    - lstRoutines based on RoutineLibrary.routines
-        - onItemClick() starts PlayRoutineActivity
-- onResume() queries AppDB to update Routine.ranRecently
+- *onCreate()*
+    - **lstRoutines** based on **RoutineLibrary.routines**
+        - *onItemClick()* starts **PlayRoutineActivity**
+- *onResume()* queries **AppDB** to update **Routine.ranRecently**
 ### PlayRoutineActivity
-- onCreate()
-    - TextToSpeech
-    - keep Screen ON
-    - PlayRoutineTaskFragment
-    - displayTask()
-        - displayInstructions()
-        - displayMove()
+- *onCreate()*
+    - **TextToSpeech**
+    - keep **Screen ON**
+    - **PlayRoutineTaskFragment**
+    - *displayTask()*
+        - *displayInstructions()*
+        - *displayMove()*
         - etc.
 #### PlayRoutineTaskFragment
-- setMove(), cancelTimer(), resetSecondsRemaining()
-- pause(), play(), next(), prev(), restart()
-- runXXXTimer()
-- isPaused(), getCurrentTask(), getInstructions(), getNextTask(), getTasksRemaining(),getSecondsRemaining(), isSecondSide()
+- *setMove(*), *cancelTimer()*, *resetSecondsRemaining()*
+- *pause()*, *play()*, *next()*, *prev()*, *restart()*
+- *runXXXTimer()*
+- *isPaused()*, *getCurrentTask()*, *getInstructions()*, *getNextTask()*, *getTasksRemaining()*, *getSecondsRemaining()*, *isSecondSide()*
