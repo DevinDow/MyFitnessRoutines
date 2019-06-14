@@ -20,54 +20,54 @@ Android app to guide you through fitness routines.
 
 ## Object-Oriented Design
 ### Routine
-- name
-- description
-- category
-- tasks
-- getDuration()
+- **name**
+- **description**
+- **category**
+- **tasks**
+- *getDuration()*
 ### Task
-- move
-- moveSeconds
-- restSeconds
+- **move**
+- **moveSeconds**
+- **restSeconds**
 ### Move (MoveWithPose, LadderMove, SoccerMove)
-- name
-- description
-- category
-- twoSides
-- getBitmap()
+- **name**
+- **description**
+- **category**
+- **twoSides**
+- *getBitmap()*
 #### MoveWithPose : Move
-- pose
+- **pose**
 ##### Pose
-- torso
-- rLeg
-- lLeg
-- rArm
-- lArm
-- prop
+- **torso**
+- **rLeg**
+- **lLeg**
+- **rArm**
+- **lArm**
+- **prop**
 ### LadderMove : Move
-- ladderSteps
+- **ladderSteps**
 #### LadderStep (OnePointLadderStep, TwoPointLadderStep)
-- draw()
-- hasLeft(), hasRight(), hasBoth()
-- getLeft(), getRight()
+- *draw()*
+- *hasLeft()*, *hasRight()*, *hasBoth()*
+- *getLeft()*, *getRight()*
 ##### OnePointLadderStep
-- step
+- **step**
 ##### TwoPointLadderStep
-- left
-- right
+- **left**
+- **right**
 #### SoccerMove : Move
-- ball
-- motions
+- **ball**
+- **motions**
 ##### Motion (SoccerTouch, SoccerStep)
-- draw()
+- *draw()*
 ###### SoccerTouch : Motion
-- arrow
+- **arrow**
 ###### SoccerStep : Motion
-- step
+- **step**
 ### Session
-- Date
-- Routine Name
-- Duration
+- **date** & timestamp
+- **routineName**
+- **durationSeconds**
 
 ## Architecture
 ### Create Moves & Routines
