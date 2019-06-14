@@ -20,78 +20,78 @@ Android app to guide you through fitness routines.
 
 ## Object-Oriented Design
 ### Routine
-    - name
-    - description
-    - category
-    - tasks
-    - getDuration()
+- name
+- description
+- category
+- tasks
+- getDuration()
 ### Task
-    - move
-    - moveSeconds
-    - restSeconds
+- move
+- moveSeconds
+- restSeconds
 ### Move (MoveWithPose, LadderMove, SoccerMove)
-    - name
-    - description
-    - category
-    - twoSides
-    - getBitmap()
+- name
+- description
+- category
+- twoSides
+- getBitmap()
 #### MoveWithPose : Move
-    - pose
+- pose
 ##### Pose
-    - torso
-    - rLeg
-    - lLeg
-    - rArm
-    - lArm
-    - prop
+- torso
+- rLeg
+- lLeg
+- rArm
+- lArm
+- prop
 ### LadderMove : Move
-    - ladderSteps
+- ladderSteps
 #### LadderStep (OnePointLadderStep, TwoPointLadderStep)
-    - draw()
-    - hasLeft(), hasRight(), hasBoth()
-    - getLeft(), getRight()
+- draw()
+- hasLeft(), hasRight(), hasBoth()
+- getLeft(), getRight()
 ##### OnePointLadderStep
-    - step
+- step
 ##### TwoPointLadderStep
-    - left
-    - right
+- left
+- right
 #### SoccerMove : Move
-    - ball
-    - motions
+- ball
+- motions
 ##### Motion (SoccerTouch, SoccerStep)
-    - draw()
+- draw()
 ###### SoccerTouch : Motion
-    - arrow
+- arrow
 ###### SoccerStep : Motion
-    - step
+- step
 ### Session
-    - Date
-    - Routine Name
-    - Duration
+- Date
+- Routine Name
+- Duration
 
 ## Architecture
 ### Create Moves & Routines
-    - App.onCreate() in RELEASE to create once or MainActivity.onCreate() in DEBUG to recreate each time
-    - RoutineLibrary.generate()
-    - MoveLibrary.generate()
-    - SampleRoutines.generate()
-    - SampleRoutines.generateXXX()
+- App.onCreate() in RELEASE to create once or MainActivity.onCreate() in DEBUG to recreate each time
+- RoutineLibrary.generate()
+- MoveLibrary.generate()
+- SampleRoutines.generate()
+- SampleRoutines.generateXXX()
 ### MainActivity
-    - onCreate()
-        - lstRoutines based on RoutineLibrary.routines
-            - onItemClick() starts PlayRoutineActivity
-    - onResume() queries AppDB to update Routine.ranRecently
+- onCreate()
+    - lstRoutines based on RoutineLibrary.routines
+        - onItemClick() starts PlayRoutineActivity
+- onResume() queries AppDB to update Routine.ranRecently
 ### PlayRoutineActivity
-    - onCreate()
-        - TextToSpeech
-        - keep Screen ON
-        - PlayRoutineTaskFragment
-        - displayTask()
-            - displayInstructions()
-            - displayMove()
-            - etc.
+- onCreate()
+    - TextToSpeech
+    - keep Screen ON
+    - PlayRoutineTaskFragment
+    - displayTask()
+        - displayInstructions()
+        - displayMove()
+        - etc.
 #### PlayRoutineTaskFragment
-    - setMove(), cancelTimer(), resetSecondsRemaining()
-    - pause(), play(), next(), prev(), restart()
-    - runXXXTimer()
-    - isPaused(), getCurrentTask(), getInstructions(), getNextTask(), getTasksRemaining(),getSecondsRemaining(), isSecondSide()
+- setMove(), cancelTimer(), resetSecondsRemaining()
+- pause(), play(), next(), prev(), restart()
+- runXXXTimer()
+- isPaused(), getCurrentTask(), getInstructions(), getNextTask(), getTasksRemaining(),getSecondsRemaining(), isSecondSide()
