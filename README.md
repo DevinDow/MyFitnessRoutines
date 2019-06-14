@@ -64,7 +64,7 @@ Android app to guide you through fitness routines.
     - arrow
 ###### SoccerStep : Motion
     - step
-###- Session
+### Session
     - Date
     - Routine Name
     - Duration
