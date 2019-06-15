@@ -120,7 +120,7 @@ public class SampleRoutines {
 
 
 	private static void generateMorningYoga() {
-		Routine routine = new Routine("Morning Yoga", Category.YOGA, "Yoga for getting going when stiff from inactivity.  Breathe with each movement.");
+		Routine routine = new Routine("Morning Yoga", Category.YOGA, "Yoga for getting going when stiff from inactivity.  Breathe with each movement.", true);
 
 		routine.tasks.add(new Task(MoveLibrary.CORPSE_POSE, 60, "Lie on your back. Relax. Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.KNEE_CROSS_OVER, 30, "Knee across body. Breathe."));
@@ -195,7 +195,7 @@ public class SampleRoutines {
 
 
 	private static void generateWarmup() {
-		Routine routine = new Routine("Warmup/Thermoregulation", Category.WARMUP, "A warmup to do when starting out cold");
+		Routine routine = new Routine("Warmup/Thermoregulation", Category.WARMUP, "A warmup to do when starting out cold", true);
 
 		routine.tasks.add(new Task(MoveLibrary.JOG_LATERALLY, 30));
 		routine.tasks.add(new Task(MoveLibrary.PUSH_UPS, 30));

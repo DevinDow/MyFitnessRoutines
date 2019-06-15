@@ -26,6 +26,9 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends OptionsMenuActivity {
 
+	// Constants
+	private boolean BLOCK_NONFREE_ROUTINES = false;
+
 	// Fields
 	private ListView lstRoutines;
 
@@ -59,7 +62,7 @@ public class MainActivity extends OptionsMenuActivity {
 				Routine routine = (Routine) lstRoutines.getItemAtPosition(position);
 
 				// Link to PAID apps
-				if (BuildConfig.FLAVOR.equals("free") && !routine.isFree) {
+				if (BLOCK_NONFREE_ROUTINES && BuildConfig.FLAVOR.equals("free") && !routine.isFree) {
 					final String link = "https://play.google.com/store/apps/developer?id=Devin+Dow";
 					final SpannableString message = new SpannableString(
 							"This app is a free sample with only a few routines enabled.\n\n" +
