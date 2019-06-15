@@ -741,7 +741,18 @@ public class MoveLibrary {
 			addMove(move);
 		}
 
-		moves.put(HAMSTRING_STRETCH, new MoveWithPose(HAMSTRING_STRETCH, Category.STRETCH, true));
+		// Hamstring Stretch
+		{
+			MoveWithPose move = new MoveWithPose(HAMSTRING_STRETCH, Category.STRETCH, true);
+			move.pose = new Pose();
+
+			move.pose.rLeg = new Leg(Angle.E.add(-25));
+			move.pose.torso = new Torso(move.pose.rLeg.getHeight() + Leg.thickness / 2, Angle.N.add(-50), true);
+
+			move.pose.lLeg = new Leg(Angle.S.add(10), 0.9f, Angle.W);
+
+			addMove(move);
+		}
 
 		// Step-Ups
 		{
