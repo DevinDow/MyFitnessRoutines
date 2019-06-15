@@ -1036,13 +1036,15 @@ public class MoveLibrary {
 			MoveWithPose move = new MoveWithPose(HERO, Category.YOGA);
 			move.pose = new Pose();
 
-			move.pose.lLeg = new Leg(Angle.W.add(20), Angle.E);
+			move.pose.lLeg = new Leg(Angle.W.add(28), Angle.E);
 
 			move.pose.torso = new Torso(
 					move.pose.lLeg.getHeight() + Leg.thickness / 2,
-					Angle.E.add(-10),
+					Angle.E.add(20),
 					true);
-			move.pose.torso.head.y += 1;
+			move.pose.torso.head.y -= 3;
+
+			move.pose.rArm = new Arm(Angle.S.add(15));
 
 			addMove(move);
 		}
