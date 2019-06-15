@@ -1031,6 +1031,22 @@ public class MoveLibrary {
 			addMove(move);
 		}
 
+		// Hero
+		{
+			MoveWithPose move = new MoveWithPose(HERO, Category.YOGA);
+			move.pose = new Pose();
+
+			move.pose.lLeg = new Leg(Angle.W.add(20), Angle.E);
+
+			move.pose.torso = new Torso(
+					move.pose.lLeg.getHeight() + Leg.thickness / 2,
+					Angle.E.add(-10),
+					true);
+			move.pose.torso.head.y += 1;
+
+			addMove(move);
+		}
+
 		// Single-Leg Bridges
 		{
 			MoveWithPose move = new MoveWithPose(SINGLE_LEG_BRIDGES, Category.WARMUP, true, "Drive leg up, hold, repeat.");
@@ -1086,10 +1102,6 @@ public class MoveLibrary {
 
 			addMove(move);
 		}
-
-		// Hero
-		moves.put(HERO, new MoveWithPose(HERO, Category.STRETCH));
-
 	}
 
 	private static void generateBackLyingTopViewMoves() {
