@@ -1,7 +1,7 @@
 TODO
 ----
 
-Ladders: Karaoke, Karaoke w/ Turn
+Ladders: Karaoke, Karaoke w/ Turn (1 Foot in each Square)
 
 - TV, Wear
 
