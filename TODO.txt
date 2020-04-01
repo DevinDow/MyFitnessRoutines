@@ -1,6 +1,8 @@
 TODO
 ----
 
+Ladders: Karaoke, Karaoke w/ Turn
+
 - TV, Wear
 
 - Pay Wall
