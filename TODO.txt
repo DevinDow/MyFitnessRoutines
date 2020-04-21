@@ -1,7 +1,8 @@
 TODO
 ----
 
-BUG: Speaking isn't working on my Release but is working in virtual Device debug
+- Generic Tasks w/o Move
+    - Can I do 2 Sides?
 
 Ladders: Karaoke, Karaoke w/ Turn (1 Foot in each Square)
 

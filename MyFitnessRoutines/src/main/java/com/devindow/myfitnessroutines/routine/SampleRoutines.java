@@ -27,7 +27,6 @@ public class SampleRoutines {
 				generateMorningYoga();
 				generateSunSalutation();
 				generateYogaStretch();
-				generateTaiChi24();
 
 				generateWarmup();
 
@@ -45,17 +44,22 @@ public class SampleRoutines {
 
 				generateLadderDrills();
 				generateSoccerTouches();
+
+				generateTaiChi24();
+				generateShibashi1();
 				break;
 
 			case "yoga":
 				generateMorningYoga();
 				generateSunSalutation();
 				generateYogaStretch();
-				generateTaiChi24();
 
 				generate5MinMeditation();
 				generate10MinMeditation();
 				generate15MinMeditation();
+
+				generateTaiChi24();
+				generateShibashi1();
 				break;
 
 			case "abs":
@@ -189,13 +193,41 @@ public class SampleRoutines {
 		Routine routine = new Routine("Tai Chi 24 Forms", Category.TAICHI, "24 Forms Simplified Tai Chi Routine.");
 
 		routine.tasks.add(new Task("1) Opening", 10, "Hands up then down.  Turn."));
-		routine.tasks.add(new Task("2) Parting Horse's Mane 3x", 25, "Hold Ball, Brush Wrist, Step"));
+		routine.tasks.add(new Task("2) Parting Horse's Mane 3x", 20, "Hold Ball, Brush Wrist, Step"));
 		routine.tasks.add(new Task("3) Crane Spreads Wings", 10, "Half Step, Part & Step Back"));
-		routine.tasks.add(new Task("4) Brush Knee 3x", 30, "Arm Back, Turn Brushing Knee, Step"));
+		routine.tasks.add(new Task("4) Brush Knee 3x", 20, "Arm Back, Turn Brushing Knee, Step"));
 		routine.tasks.add(new Task("5) Strum Lute", 10, "Half Step, Weight Back & Strum Lute"));
-		routine.tasks.add(new Task("6) Repulse Monkey 4x", 30, "Arm Back, Push & Step Back"));
-		routine.tasks.add(new Task("7) Grasp Bird's Tail - Left", 30, "Hold Ball Right, Step Left & Transfer, Stroke Hands from Left, Press Hands Left, Pull Back & Press"));
-		routine.tasks.add(new Task("6) Grasp Bird's Tail - Right", 30, "Hold Ball Left, Step Right & Transfer, Stroke Hands from Right, Press Hands Right, Pull Back & Press"));
+		routine.tasks.add(new Task("6) Repulse Monkey 4x", 20, "Arm Back, Push & Step Back"));
+		routine.tasks.add(new Task("7) Grasp Bird's Tail - Left", 20, "Hold Ball Right, Step Left & Transfer, Stroke Hands from Left, Press Hands Left, Pull Back & Press"));
+		routine.tasks.add(new Task("6) Grasp Bird's Tail - Right", 20, "Hold Ball Left, Step Right & Transfer, Stroke Hands from Right, Press Hands Right, Pull Back & Press"));
+
+		RoutineLibrary.routines.add(routine);
+	}
+
+	private static void generateShibashi1() {
+		Routine routine = new Routine("Tai Chi Shibashi 1", Category.TAICHI, "Tai Chi Qigong Shibashi 1.");
+
+		routine.tasks.add(new Task("Opening", 30, "Arms down, Palms face Thighs"));
+		routine.tasks.add(new Task("Commencing", 45, "Arms up then down"));
+		routine.tasks.add(new Task("Broaden Chest", 45, "Raise Arms the Open Arms"));
+		routine.tasks.add(new Task("Dancing with Rainbows", 45, "Turn & shift Weight back with Rainbow Arm"));
+		routine.tasks.add(new Task("Circling Arms", 45, "Hands up front then out"));
+		routine.tasks.add(new Task("Twist Waist & Swing Arms", 45, "Arm reaches back then pushes through"));
+		routine.tasks.add(new Task("Rowing Boat", 45, "Arms overhead then paddle in front"));
+		routine.tasks.add(new Task("Holding Ball", 45, "Turn & lift forward Palm"));
+		routine.tasks.add(new Task("Carrying Moon", 45, "Turn & reach for Moon"));
+		routine.tasks.add(new Task("Twist & Push Hands", 45, "Turn & Push forward Hand"));
+		routine.tasks.add(new Task("Playing with Clouds", 45, "Twist leading Backhand"));
+		routine.tasks.add(new Task("Scooping Sea LEFT", 45, "Bend at Waist & Scoop"));
+		routine.tasks.add(new Task("Playing with Waves LEFT", 45, "Push Hands then Pull Hands"));
+		routine.tasks.add(new Task("Spread Wings LEFT", 45, "Hands wide then shift & together"));
+		routine.tasks.add(new Task("Punching", 45, "Fists at Waist then Punch"));
+		routine.tasks.add(new Task("Flying like Goose", 45, "Arms flap to the side"));
+		routine.tasks.add(new Task("Spinning Wheel", 45, /*Side.BOTH,*/ "Circle Arms from Toes to Overhead"));
+		routine.tasks.add(new Task("Bouncing a Ball", 45, "Raise Hand & Opposite Foot"));
+		routine.tasks.add(new Task("Pressing Palms", 45, "Palms up then bring down Palms toward Dantian"));
+		routine.tasks.add(new Task("Closing", 3*60, "Hold Chi Ball between relaxed Hands"));
+		routine.tasks.add(new Task("Rub Belly", 30));
 
 		RoutineLibrary.routines.add(routine);
 	}
