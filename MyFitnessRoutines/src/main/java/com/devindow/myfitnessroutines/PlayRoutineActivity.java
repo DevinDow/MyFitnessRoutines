@@ -129,12 +129,13 @@ public class PlayRoutineActivity extends OptionsMenuActivity implements PlayRout
 		final TextView txtMoveName = findViewById(R.id.txtMoveName);
 		final ImageView imgMove = findViewById(R.id.imgMove);
 
+		String moveName = taskFragment.getMoveName();
+
 		if (taskFragment.move == null) {
-			txtMoveName.setText("NULL");
+			txtMoveName.setText(moveName);
 			imgMove.setImageBitmap(Bitmap.createBitmap(MoveWithPose.BITMAP_PIXELS, MoveWithPose.BITMAP_PIXELS, Bitmap.Config.ARGB_8888));
 		} else {
 			Task currentTask = taskFragment.getCurrentTask();
-			String moveName = taskFragment.move.name;
 			boolean mirrored = false;
 			if (taskFragment.move.twoSides) {
 				if (currentTask.side.hasBoth()) {
