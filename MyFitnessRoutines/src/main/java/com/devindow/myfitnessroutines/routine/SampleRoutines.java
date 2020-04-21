@@ -199,7 +199,7 @@ public class SampleRoutines {
 		routine.tasks.add(new Task("5) Strum Lute", 10, "Half Step, Weight Back & Strum Lute"));
 		routine.tasks.add(new Task("6) Repulse Monkey 4x", 20, "Arm Back, Push & Step Back"));
 		routine.tasks.add(new Task("7) Grasp Bird's Tail - Left", 20, "Hold Ball Right, Step Left & Transfer, Stroke Hands from Left, Press Hands Left, Pull Back & Press"));
-		routine.tasks.add(new Task("6) Grasp Bird's Tail - Right", 20, "Hold Ball Left, Step Right & Transfer, Stroke Hands from Right, Press Hands Right, Pull Back & Press"));
+		routine.tasks.add(new Task("8) Grasp Bird's Tail - Right", 20, "Hold Ball Left, Step Right & Transfer, Stroke Hands from Right, Press Hands Right, Pull Back & Press"));
 
 		RoutineLibrary.routines.add(routine);
 	}
@@ -209,24 +209,24 @@ public class SampleRoutines {
 
 		routine.tasks.add(new Task("Opening", 30, "Arms down, Palms face Thighs"));
 		routine.tasks.add(new Task("Commencing", 45, "Arms up then down"));
-		routine.tasks.add(new Task("Broaden Chest", 45, "Raise Arms the Open Arms"));
-		routine.tasks.add(new Task("Dancing with Rainbows", 45, "Turn & shift Weight back with Rainbow Arm"));
+		routine.tasks.add(new Task("Broaden Chest", 45, "raise Arms then open Arms"));
+		routine.tasks.add(new Task("Dancing with Rainbows", 45, "turn & shift weight back with rainbow Arm"));
 		routine.tasks.add(new Task("Circling Arms", 45, "Hands up front then out"));
 		routine.tasks.add(new Task("Twist Waist & Swing Arms", 45, "Arm reaches back then pushes through"));
-		routine.tasks.add(new Task("Rowing Boat", 45, "Arms overhead then paddle in front"));
-		routine.tasks.add(new Task("Holding Ball", 45, "Turn & lift forward Palm"));
-		routine.tasks.add(new Task("Carrying Moon", 45, "Turn & reach for Moon"));
-		routine.tasks.add(new Task("Twist & Push Hands", 45, "Turn & Push forward Hand"));
-		routine.tasks.add(new Task("Playing with Clouds", 45, "Twist leading Backhand"));
-		routine.tasks.add(new Task("Scooping Sea LEFT", 45, "Bend at Waist & Scoop"));
-		routine.tasks.add(new Task("Playing with Waves LEFT", 45, "Push Hands then Pull Hands"));
+		routine.tasks.add(new Task("Rowing Boat", 45, "Arms overhead then paddle"));
+		routine.tasks.add(new Task("Holding Ball", 45, "twist & lift Palm"));
+		routine.tasks.add(new Task("Carrying Moon", 45, "twist & reach for Moon"));
+		routine.tasks.add(new Task("Push Palm", 45, "turn & push Palm"));
+		routine.tasks.add(new Task("Cloud Hands", 45, "twist leading Backhand"));
+		routine.tasks.add(new Task("Scooping Sea LEFT", 45, "bend at Waist & scoop"));
+		routine.tasks.add(new Task("Playing with Waves LEFT", 45, "push Hands then pull Hands"));
 		routine.tasks.add(new Task("Spread Wings LEFT", 45, "Hands wide then shift & together"));
-		routine.tasks.add(new Task("Punching", 45, "Fists at Waist then Punch"));
+		routine.tasks.add(new Task("Punching", 45, "Fists at Waist then punch"));
 		routine.tasks.add(new Task("Flying like Goose", 45, "Arms flap to the side"));
-		routine.tasks.add(new Task("Spinning Wheel", 45, /*Side.BOTH,*/ "Circle Arms from Toes to Overhead"));
-		routine.tasks.add(new Task("Bouncing a Ball", 45, "Raise Hand & Opposite Foot"));
+		routine.tasks.add(new Task("Spinning Wheel", 45, /*Side.BOTH,*/ "circle Arms from Toes to overhead"));
+		routine.tasks.add(new Task("Bouncing a Ball", 45, "raise Hand & opposite Foot"));
 		routine.tasks.add(new Task("Pressing Palms", 45, "Palms up then bring down Palms toward Dantian"));
-		routine.tasks.add(new Task("Closing", 3*60, "Hold Chi Ball between relaxed Hands"));
+		routine.tasks.add(new Task("Closing", 3*60, "hold Chi Ball between relaxed Hands"));
 		routine.tasks.add(new Task("Rub Belly", 30));
 
 		RoutineLibrary.routines.add(routine);
