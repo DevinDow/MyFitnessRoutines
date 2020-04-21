@@ -84,7 +84,7 @@ public class SampleRoutines {
 	private static void generateTestRoutine() {
 		Routine routine = new Routine("Test Routine", Category.NONE, "", true);
 
-		routine.tasks.add(new Task(MoveLibrary.HAMSTRING_STRETCH, 4, Side.RIGHT, "Push back & straighten front leg to rest hip and stretch hamstring."));
+		routine.tasks.add(new Task(MoveLibrary.HAMSTRING_STRETCH, 4, "Push back & straighten front leg to rest hip and stretch hamstring."));
 		routine.tasks.add(new Task("1) Opening", 10, "Hands up then down.  Turn."));
 
 		RoutineLibrary.routines.add(routine);

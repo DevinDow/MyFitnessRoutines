@@ -1,7 +1,6 @@
 TODO
 ----
 
-BUG: Switch isn't working
 BUG: Speaking isn't working on my Release but is working in virtual Device debug
 
 Ladders: Karaoke, Karaoke w/ Turn (1 Foot in each Square)
