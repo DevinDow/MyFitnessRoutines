@@ -9,6 +9,7 @@ public enum Category {
 	STRETCH,
 	WARMUP,
 	YOGA,
+	TAICHI,
 	STRENGTH,
 	CARDIO,
 	MEDITATION,

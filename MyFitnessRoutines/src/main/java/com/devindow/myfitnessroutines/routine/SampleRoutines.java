@@ -27,6 +27,7 @@ public class SampleRoutines {
 				generateMorningYoga();
 				generateSunSalutation();
 				generateYogaStretch();
+				generateTaiChi24();
 
 				generateWarmup();
 
@@ -50,6 +51,7 @@ public class SampleRoutines {
 				generateMorningYoga();
 				generateSunSalutation();
 				generateYogaStretch();
+				generateTaiChi24();
 
 				generate5MinMeditation();
 				generate10MinMeditation();
@@ -82,9 +84,8 @@ public class SampleRoutines {
 	private static void generateTestRoutine() {
 		Routine routine = new Routine("Test Routine", Category.NONE, "", true);
 
-		routine.tasks.add(new Task(MoveLibrary.HERO, 15, "Sit on ankles, lean back."));
-		routine.tasks.add(new Task(MoveLibrary.PLOW,10));
-		routine.tasks.add(new Task(MoveLibrary.BRIDGE_POSE,10));
+		routine.tasks.add(new Task(MoveLibrary.HAMSTRING_STRETCH, 4, Side.RIGHT, "Push back & straighten front leg to rest hip and stretch hamstring."));
+		routine.tasks.add(new Task("1) Opening", 10, "Hands up then down.  Turn."));
 
 		RoutineLibrary.routines.add(routine);
 	}
@@ -180,6 +181,21 @@ public class SampleRoutines {
 		routine.tasks.add(new Task(MoveLibrary.CHILD_POSE, 30, "An easy break for a moment."));
 		routine.tasks.add(new Task(MoveLibrary.PIGEON, 240, "One leg bent on the ground, chest to thigh, stretching glute piraformis."));
 		routine.tasks.add(new Task(MoveLibrary.KNEE_CROSS_OVER, 60, "Hug knee then cross over."));
+
+		RoutineLibrary.routines.add(routine);
+	}
+
+	private static void generateTaiChi24() {
+		Routine routine = new Routine("Tai Chi 24 Forms", Category.TAICHI, "24 Forms Simplified Tai Chi Routine.");
+
+		routine.tasks.add(new Task("1) Opening", 10, "Hands up then down.  Turn."));
+		routine.tasks.add(new Task("2) Parting Horse's Mane 3x", 25, "Hold Ball, Brush Wrist, Step"));
+		routine.tasks.add(new Task("3) Crane Spreads Wings", 10, "Half Step, Part & Step Back"));
+		routine.tasks.add(new Task("4) Brush Knee 3x", 30, "Arm Back, Turn Brushing Knee, Step"));
+		routine.tasks.add(new Task("5) Strum Lute", 10, "Half Step, Weight Back & Strum Lute"));
+		routine.tasks.add(new Task("6) Repulse Monkey 4x", 30, "Arm Back, Push & Step Back"));
+		routine.tasks.add(new Task("7) Grasp Bird's Tail - Left", 30, "Hold Ball Right, Step Left & Transfer, Stroke Hands from Left, Press Hands Left, Pull Back & Press"));
+		routine.tasks.add(new Task("6) Grasp Bird's Tail - Right", 30, "Hold Ball Left, Step Right & Transfer, Stroke Hands from Right, Press Hands Right, Pull Back & Press"));
 
 		RoutineLibrary.routines.add(routine);
 	}
