@@ -13,7 +13,7 @@ public class VideoStreamActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
     VideoView videoView;
-    String URL = "http://techslides.com/demos/sample-videos/small.mp4"; // "http://techslides.com/demos/sample-videos/small.3gp"; // "http://www.androidbegin.com/tutorial/AndroidCommercial.3gp";
+    String URL = "file://root/sdcard/Download/sample.mp4"; // "http://techslides.com/demos/sample-videos/small.mp4"; // "http://techslides.com/demos/sample-videos/small.3gp"; // "http://www.androidbegin.com/tutorial/AndroidCommercial.3gp";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
