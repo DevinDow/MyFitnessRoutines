@@ -6,4 +6,13 @@
     android:layout_height="match_parent"
     tools:context="com.devindow.myfitnessroutines.VideoStreamActivity">
 
+	<VideoView
+	   android:id="@+id/videoView1"
+	   android:layout_width="match_parent"
+	   android:layout_height="match_parent"
+	   android:layout_centerHorizontal="true"
+	   android:layout_centerVertical="true"
+	  />
+
 </android.support.constraint.ConstraintLayout>
+
