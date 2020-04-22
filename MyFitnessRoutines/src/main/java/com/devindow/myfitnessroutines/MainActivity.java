@@ -109,6 +109,16 @@ public class MainActivity extends OptionsMenuActivity {
 					}
 				});
 				break;
+			case "taichi":
+				btnNewRoutine.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View view) {
+						Intent intent = new Intent(view.getContext(), PlayRoutineActivity.class);
+						intent.putExtra("routine", new Routine("test"));
+						startActivity(intent);
+					}
+				});
+				break;
 			case "free":
 				btnNewRoutine.setOnClickListener(new View.OnClickListener() {
 					@Override
