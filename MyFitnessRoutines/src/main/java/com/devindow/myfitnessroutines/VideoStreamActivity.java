@@ -17,7 +17,7 @@ public class VideoStreamActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
     VideoView videoView;
-    String URL = "file://root/sdcard/Download/sample.mp4"; // "http://techslides.com/demos/sample-videos/small.mp4"; // "http://techslides.com/demos/sample-videos/small.3gp"; // "http://www.androidbegin.com/tutorial/AndroidCommercial.3gp";
+    String URL = "file:///storage/emulated/0/DCIM/Camera/VID_20200223_153149.mp4"; // "file:///root/sdcard/Download/sample.mp4"; // "http://techslides.com/demos/sample-videos/small.mp4"; // "http://techslides.com/demos/sample-videos/small.3gp"; // "http://www.androidbegin.com/tutorial/AndroidCommercial.3gp";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +26,10 @@ public class VideoStreamActivity extends AppCompatActivity {
         setContentView(R.layout.activity_video_stream);
 
         if (ContextCompat.checkSelfPermission(VideoStreamActivity.this,
-                Manifest.permission.INTERNET)
+                Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(VideoStreamActivity.this,
-                    new String[]{Manifest.permission.INTERNET},
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                     1);
         }
 
