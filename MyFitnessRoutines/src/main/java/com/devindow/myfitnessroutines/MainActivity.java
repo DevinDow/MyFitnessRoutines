@@ -113,7 +113,7 @@ public class MainActivity extends OptionsMenuActivity {
 				btnNewRoutine.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View view) {
-						Intent intent = new Intent(view.getContext(), LearnActivity.class);
+						Intent intent = new Intent(view.getContext(), VideoStreamActivity.class);
 						startActivity(intent);
 					}
 				});
