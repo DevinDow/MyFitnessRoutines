@@ -1,8 +1,12 @@
 package com.devindow.myfitnessroutines;
 
+import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +24,15 @@ public class VideoStreamActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_video_stream);
+
+        if (ContextCompat.checkSelfPermission(VideoStreamActivity.this,
+                Manifest.permission.INTERNET)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(VideoStreamActivity.this,
+                    new String[]{Manifest.permission.INTERNET},
+                    1);
+        }
+
 
         videoView = (VideoView)findViewById(R.id.videoView1);
         progressDialog = new ProgressDialog(VideoStreamActivity.this);
