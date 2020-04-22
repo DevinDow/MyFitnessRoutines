@@ -78,6 +78,11 @@ public class SampleRoutines {
 				generateSoccerTouches();
 				generate7MinuteWorkout();
 				break;
+
+			case "taichi":
+				generateTaiChi24();
+				generateShibashi1();
+				break;
 		}
 
 		methodLogger.end();
