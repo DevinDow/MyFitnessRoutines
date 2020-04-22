@@ -11,8 +11,8 @@ import android.widget.VideoView;
 
 public class VideoStreamActivity extends AppCompatActivity {
 
-    ProgressDialog pd;
-    VideoView view;
+    ProgressDialog progressDialog;
+    VideoView videoView;
     String URL = "http://techslides.com/demos/sample-videos/small.mp4"; // "http://techslides.com/demos/sample-videos/small.3gp"; // "http://www.androidbegin.com/tutorial/AndroidCommercial.3gp";
 
     @Override
@@ -21,32 +21,55 @@ public class VideoStreamActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_video_stream);
 
-        view = (VideoView)findViewById(R.id.videoView1);
-        pd = new ProgressDialog(VideoStreamActivity.this);
-        pd.setTitle("Video Streaming Demo");
-        pd.setMessage("Buffering...");
-        pd.setIndeterminate(false);
-        pd.setCancelable(false);
-        pd.show();
+        videoView = (VideoView)findViewById(R.id.videoView1);
+        progressDialog = new ProgressDialog(VideoStreamActivity.this);
+        progressDialog.setTitle("Video Streaming Demo");
+        progressDialog.setMessage("Buffering...");
+        progressDialog.setIndeterminate(false);
+        progressDialog.setCancelable(false);
+        progressDialog.show();
 
         try {
-            MediaController controller = new MediaController(VideoStreamActivity.this);
-            controller.setAnchorView(view);
+            MediaController mediaController = new MediaController(VideoStreamActivity.this);
+            mediaController.setAnchorView(videoView);
             Uri vid = Uri.parse(URL);
-            view.setMediaController(controller);
-            view.setVideoURI(vid);
+            videoView.setMediaController(mediaController);
+            videoView.setVideoURI(vid);
+            //videoView.start();
         } catch (Exception e) {
             Log.e("Error", e.getMessage());
             e.printStackTrace();
         }
 
-        view.requestFocus();
+        videoView.requestFocus();
 
-        view.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             public void onPrepared(MediaPlayer mp) {
-// TODO Auto-generated method stub
-                pd.dismiss();
-                view.start();
+                Log.i("VideoView", "onPrepared()");
+                progressDialog.dismiss();
+                videoView.start();
+            }
+        });
+
+        videoView.setOnErrorListener(new MediaPlayer.OnErrorListener() {
+            @Override
+            public boolean onError(MediaPlayer mp, int what, int extra) {
+                Log.i("VideoView", "Error " + what + " " + extra);
+                progressDialog.setMessage("Error");
+                if (what == MediaPlayer.MEDIA_ERROR_UNKNOWN) {
+                    progressDialog.setMessage("Error Unknown");
+                }
+                return false;
+            }
+        });
+
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                Log.i("VideoView", "Completion");
+                progressDialog.setMessage("Complete");
+                progressDialog.dismiss();
+                VideoStreamActivity.this.finish();
             }
         });
     }
