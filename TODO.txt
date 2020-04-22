@@ -1,6 +1,21 @@
 TODO
 ----
 
+My Tai Chi Routines
+-------------------
+- Start = Learn or Practice
+- Stream Videos
+    - from AWS S3?
+    - use File Name?
+    - http://www.uandblog.com/How-to-Create-Video-Streaming-Application-in-Android
+
+Routines
+--------
+Ladders: Karaoke, Karaoke w/ Turn (1 Foot in each Square)
+
+
+Features
+--------
 - BodyPart Interface: getExtents(), draw()
 - Generic Tasks w/o Move
     - Can I do 2 Sides?
@@ -9,9 +24,6 @@ TODO
     - Lt Grey & Dk Grey?  (translucent won't work because of overlapping body parts)
         - pass param to Pose.draw() & BodyPart.draw() - bool for light color?
         - Colors.bodyOpaque Lt & Dk
-
-
-Ladders: Karaoke, Karaoke w/ Turn (1 Foot in each Square)
 
 - TV, Wear
 
@@ -26,7 +38,7 @@ Ladders: Karaoke, Karaoke w/ Turn (1 Foot in each Square)
 
 - Done timer returns to MainActivity after some time
 
-- Handle TTS not available
+- Handle TTS (Voice) not available
 
 - Sessions Log activity
 
