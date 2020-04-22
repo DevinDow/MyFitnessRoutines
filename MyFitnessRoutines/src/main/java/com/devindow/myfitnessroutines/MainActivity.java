@@ -113,8 +113,7 @@ public class MainActivity extends OptionsMenuActivity {
 				btnNewRoutine.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View view) {
-						Intent intent = new Intent(view.getContext(), PlayRoutineActivity.class);
-						intent.putExtra("routine", new Routine("test"));
+						Intent intent = new Intent(view.getContext(), LearnActivity.class);
 						startActivity(intent);
 					}
 				});
