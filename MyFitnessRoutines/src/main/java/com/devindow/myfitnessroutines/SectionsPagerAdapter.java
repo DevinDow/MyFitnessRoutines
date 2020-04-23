@@ -22,8 +22,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 0:
             default:
                 return new LearnFragment();
-            /*case 1:
-                return "Practice";*/
+            case 1:
+                return new PracticeFragment();
         }
     }
 
