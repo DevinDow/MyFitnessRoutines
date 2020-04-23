@@ -2,6 +2,7 @@ package com.devindow.myfitnessroutines;
 
 import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -13,13 +14,14 @@ import android.util.Log;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
+import com.devindow.myfitnessroutines.routine.Routine;
+import com.devindow.myfitnessroutines.video.Video;
+
 public class VideoStreamActivity extends AppCompatActivity {
 
+    Video video = null;
     ProgressDialog progressDialog;
     VideoView videoView;
-    //String URL = "https://mytaichiroutines.s3-us-west-2.amazonaws.com/flute.mp4";
-    //String URL = "https://mytaichiroutines.s3-us-west-2.amazonaws.com/small.mp4";
-    String URL = "https://mytaichiroutines.s3-us-west-2.amazonaws.com/Workout 1.mp4";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,18 +29,16 @@ public class VideoStreamActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_video_stream);
 
-        if (ContextCompat.checkSelfPermission(VideoStreamActivity.this,
-                Manifest.permission.INTERNET)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(VideoStreamActivity.this,
-                    new String[]{Manifest.permission.INTERNET},
-                    1);
-        }
+        // get Video passed in by Intent
+        Intent intent = getIntent();
+        video = (Video)intent.getSerializableExtra("video");
 
+        // Routine Name in Title
+        setTitle(video.name);
 
         videoView = (VideoView)findViewById(R.id.videoView1);
         progressDialog = new ProgressDialog(VideoStreamActivity.this);
-        progressDialog.setTitle("Video Streaming Demo");
+        progressDialog.setTitle(video.name);
         progressDialog.setMessage("Buffering...");
         progressDialog.setIndeterminate(false);
         progressDialog.setCancelable(false);
@@ -50,7 +50,7 @@ public class VideoStreamActivity extends AppCompatActivity {
             };
             mediaController.setAnchorView(videoView);
             videoView.setMediaController(mediaController);
-            Uri parsedUri = Uri.parse(URL);
+            Uri parsedUri = Uri.parse(video.url);
             videoView.setVideoURI(parsedUri);
             //videoView.start();
         } catch (Exception e) {

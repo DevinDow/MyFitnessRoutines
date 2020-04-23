@@ -47,7 +47,7 @@ public class LearnFragment extends Fragment {
         lstVideos = view.findViewById(R.id.lstVideos);
         final Context context = getActivity();
         ArrayList<Video> videos = new  ArrayList<Video>();
-        videos.add(new Video("small", "a small video", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/small.mp4"));
+        videos.add(new Video("Tiny Video", "a quick, small video", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/small.mp4"));
         videos.add(new Video("Family Workout", "a small, choppy video", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/Workout 1.mp4"));
         videos.add(new Video("High Res", "a high-res video that takes longer to buffer", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/flute.mp4"));
         lstVideos.setAdapter(new VideoAdapter(context, R.layout.routine_row, videos));
@@ -56,7 +56,7 @@ public class LearnFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Video video = (Video) lstVideos.getItemAtPosition(position);
                 Intent intent = new Intent(view.getContext(), VideoStreamActivity.class);
-                intent.putExtra("Video", video);
+                intent.putExtra("video", video);
                 startActivity(intent);
             }
         });
