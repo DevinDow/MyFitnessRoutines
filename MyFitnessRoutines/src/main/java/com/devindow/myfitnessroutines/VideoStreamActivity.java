@@ -18,6 +18,7 @@ public class VideoStreamActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     VideoView videoView;
     //String URL = "https://mytaichiroutines.s3-us-west-2.amazonaws.com/flute.mp4";
+    //String URL = "https://mytaichiroutines.s3-us-west-2.amazonaws.com/small.mp4";
     String URL = "https://mytaichiroutines.s3-us-west-2.amazonaws.com/Workout 1.mp4";
 
     @Override
