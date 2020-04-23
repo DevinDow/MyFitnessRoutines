@@ -7,8 +7,6 @@ My Tai Chi Routines
 - Stream Videos
     - from AWS S3?
     - use File Name?
-    - http://www.uandblog.com/How-to-Create-Video-Streaming-Application-in-Android
-        - INTERNET Permission working?
 
 Routines
 --------
