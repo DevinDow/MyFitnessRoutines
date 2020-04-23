@@ -18,11 +18,9 @@ import android.widget.TextView;
 
 import com.devindow.myfitnessroutines.db.AppDatabase;
 import com.devindow.myfitnessroutines.routine.*;
-import com.devindow.myfitnessroutines.util.MessageDialog;
 import com.devindow.myfitnessroutines.util.MethodLogger;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 public class MainActivity extends OptionsMenuActivity {
 

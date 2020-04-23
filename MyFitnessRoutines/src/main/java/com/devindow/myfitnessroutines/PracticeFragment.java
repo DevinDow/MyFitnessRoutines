@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.Toolbar;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
@@ -17,8 +16,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.devindow.myfitnessroutines.routine.Routine;
+import com.devindow.myfitnessroutines.routine.RoutineAdapter;
 import com.devindow.myfitnessroutines.routine.RoutineLibrary;
-import com.devindow.myfitnessroutines.util.MethodLogger;
 
 public class PracticeFragment extends Fragment {
 

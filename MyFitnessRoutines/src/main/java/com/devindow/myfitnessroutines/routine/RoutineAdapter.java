@@ -1,4 +1,4 @@
-package com.devindow.myfitnessroutines;
+package com.devindow.myfitnessroutines.routine;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.devindow.myfitnessroutines.BuildConfig;
+import com.devindow.myfitnessroutines.R;
 import com.devindow.myfitnessroutines.routine.Routine;
 
 import java.util.ArrayList;
