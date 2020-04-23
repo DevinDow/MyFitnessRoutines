@@ -3,10 +3,11 @@ TODO
 
 My Tai Chi Routines
 -------------------
-- Start = Learn or Practice
-- Stream Videos
-    - from AWS S3?
-    - use File Name?
+- AWS S3
+    - List Objects in Bucket: https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/java/example_code/s3/src/main/java/aws/example/s3/ListObjects.java
+        - AWS Credentials?
+        - use File Name?
+
 
 Routines
 --------
