@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import com.devindow.myfitnessroutines.routine.Routine;
 import com.devindow.myfitnessroutines.routine.RoutineLibrary;
+import com.devindow.myfitnessroutines.video.Video;
+import com.devindow.myfitnessroutines.video.VideoAdapter;
 
 import java.util.ArrayList;
 
@@ -26,7 +28,7 @@ public class LearnFragment extends Fragment {
     private boolean BLOCK_NONFREE_ROUTINES = false;
 
     // Fields
-    private ListView lstRoutines;
+    private ListView lstVideos;
 
 
     // Overrides
@@ -41,16 +43,22 @@ public class LearnFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        /*// lstVideos
+        // lstVideos
         lstVideos = view.findViewById(R.id.lstVideos);
         final Context context = getActivity();
-        ArrayList<String> videos = new  ArrayList<String>();
-        lstVideos.setAdapter(new RoutineAdapter(context, R.layout.routine_row, videos));
+        ArrayList<Video> videos = new  ArrayList<Video>();
+        videos.add(new Video("small", "a small video", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/small.mp4"));
+        videos.add(new Video("Family Workout", "a small, choppy video", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/Workout 1.mp4"));
+        videos.add(new Video("High Res", "a high-res video that takes longer to buffer", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/flute.mp4"));
+        lstVideos.setAdapter(new VideoAdapter(context, R.layout.routine_row, videos));
         lstVideos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                //Routine routine = (Routine) lstRoutines.getItemAtPosition(position);
+                Video video = (Video) lstVideos.getItemAtPosition(position);
+                Intent intent = new Intent(view.getContext(), VideoStreamActivity.class);
+                intent.putExtra("Video", video);
+                startActivity(intent);
             }
-        });*/
+        });
     }
 }
