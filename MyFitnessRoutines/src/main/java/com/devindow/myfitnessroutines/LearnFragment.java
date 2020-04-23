@@ -1,4 +1,4 @@
-package com.devindow.myfitnessroutines.ui.main;
+package com.devindow.myfitnessroutines;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

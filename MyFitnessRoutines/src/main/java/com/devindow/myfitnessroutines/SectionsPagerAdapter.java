@@ -1,13 +1,10 @@
-package com.devindow.myfitnessroutines.ui.main;
+package com.devindow.myfitnessroutines;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-
-import com.devindow.myfitnessroutines.R;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
