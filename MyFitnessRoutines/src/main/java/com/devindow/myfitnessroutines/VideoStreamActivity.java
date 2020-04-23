@@ -17,7 +17,7 @@ public class VideoStreamActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
     VideoView videoView;
-    String URL = "file:///storage/emulated/0/DCIM/Camera/VID_20200223_153149.mp4"; // "file:///root/sdcard/Download/sample.mp4"; // "http://techslides.com/demos/sample-videos/small.mp4"; // "http://techslides.com/demos/sample-videos/small.3gp"; // "http://www.androidbegin.com/tutorial/AndroidCommercial.3gp";
+    String URL = "https://mytaichiroutines.s3-us-west-2.amazonaws.com/flute.mp4"; //"file:///storage/emulated/0/DCIM/Camera/VID_20200223_153149.mp4"; // "file:///root/sdcard/Download/sample.mp4"; // "http://techslides.com/demos/sample-videos/small.mp4"; // "http://techslides.com/demos/sample-videos/small.3gp"; // "http://www.androidbegin.com/tutorial/AndroidCommercial.3gp";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +26,10 @@ public class VideoStreamActivity extends AppCompatActivity {
         setContentView(R.layout.activity_video_stream);
 
         if (ContextCompat.checkSelfPermission(VideoStreamActivity.this,
-                Manifest.permission.READ_EXTERNAL_STORAGE)
+                Manifest.permission.INTERNET)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(VideoStreamActivity.this,
-                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    new String[]{Manifest.permission.INTERNET},
                     1);
         }
 
@@ -45,9 +45,9 @@ public class VideoStreamActivity extends AppCompatActivity {
         try {
             MediaController mediaController = new MediaController(VideoStreamActivity.this);
             mediaController.setAnchorView(videoView);
-            Uri vid = Uri.parse(URL);
             videoView.setMediaController(mediaController);
-            videoView.setVideoURI(vid);
+            Uri parsedUri = Uri.parse(URL);
+            videoView.setVideoURI(parsedUri);
             //videoView.start();
         } catch (Exception e) {
             Log.e("Error", e.getMessage());
