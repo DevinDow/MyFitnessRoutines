@@ -21,9 +21,13 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position + 1);
+        switch (position) {
+            case 0:
+            default:
+                return new LearnFragment();
+            /*case 1:
+                return "Practice";*/
+        }
     }
 
     @Nullable
@@ -31,11 +35,11 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
+            default:
                 return "Learn";
             case 1:
                 return "Practice";
         }
-        return "";
     }
 
     @Override
