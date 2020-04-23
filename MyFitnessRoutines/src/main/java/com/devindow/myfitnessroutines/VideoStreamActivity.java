@@ -45,7 +45,9 @@ public class VideoStreamActivity extends AppCompatActivity {
         progressDialog.show();
 
         try {
-            MediaController mediaController = new MediaController(VideoStreamActivity.this);
+            final MediaController mediaController = new MediaController(VideoStreamActivity.this) {
+                @Override public void hide() {} // don't let MediaController hide after 3 seconds
+            };
             mediaController.setAnchorView(videoView);
             videoView.setMediaController(mediaController);
             Uri parsedUri = Uri.parse(URL);
