@@ -35,8 +35,6 @@
             android:label="Routine"
             android:parentActivityName=".MainActivity" />
 
-        <activity android:name=".LearnActivity" />
-
         <activity android:name=".VideoStreamActivity"
             android:label="Learn"
             android:parentActivityName=".MainActivity" />
