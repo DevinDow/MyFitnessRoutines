@@ -17,7 +17,8 @@ public class VideoStreamActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
     VideoView videoView;
-    String URL = "https://mytaichiroutines.s3-us-west-2.amazonaws.com/flute.mp4"; //"file:///storage/emulated/0/DCIM/Camera/VID_20200223_153149.mp4"; // "file:///root/sdcard/Download/sample.mp4"; // "http://techslides.com/demos/sample-videos/small.mp4"; // "http://techslides.com/demos/sample-videos/small.3gp"; // "http://www.androidbegin.com/tutorial/AndroidCommercial.3gp";
+    //String URL = "https://mytaichiroutines.s3-us-west-2.amazonaws.com/flute.mp4";
+    String URL = "https://mytaichiroutines.s3-us-west-2.amazonaws.com/Workout 1.mp4";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,9 +70,6 @@ public class VideoStreamActivity extends AppCompatActivity {
             public boolean onError(MediaPlayer mp, int what, int extra) {
                 Log.i("VideoView", "Error " + what + " " + extra);
                 progressDialog.setMessage("Error");
-                if (what == MediaPlayer.MEDIA_ERROR_UNKNOWN) {
-                    progressDialog.setMessage("Error Unknown");
-                }
                 return false;
             }
         });
@@ -80,9 +78,7 @@ public class VideoStreamActivity extends AppCompatActivity {
             @Override
             public void onCompletion(MediaPlayer mp) {
                 Log.i("VideoView", "Completion");
-                progressDialog.setMessage("Complete");
-                progressDialog.dismiss();
-                VideoStreamActivity.this.finish();
+                //VideoStreamActivity.this.finish();
             }
         });
     }
