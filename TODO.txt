@@ -8,6 +8,8 @@ My Tai Chi Routines
         - AWS Credentials?
         - use File Name?
 
+- YouTube videos in Practice
+
 
 Routines
 --------
