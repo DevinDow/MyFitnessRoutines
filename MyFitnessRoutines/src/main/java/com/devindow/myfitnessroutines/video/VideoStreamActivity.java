@@ -1,21 +1,16 @@
-package com.devindow.myfitnessroutines;
+package com.devindow.myfitnessroutines.video;
 
-import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
-import com.devindow.myfitnessroutines.routine.Routine;
-import com.devindow.myfitnessroutines.video.Video;
+import com.devindow.myfitnessroutines.R;
 
 public class VideoStreamActivity extends AppCompatActivity {
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:onClick="onScreenClick"
     android:orientation="vertical"
-    tools:context="com.devindow.myfitnessroutines.PlayRoutineActivity">
+    tools:context="com.devindow.myfitnessroutines.routine.PlayRoutineActivity">
 
     <TextView
         android:id="@+id/txtMoveName"

@@ -1,24 +1,19 @@
-package com.devindow.myfitnessroutines;
+package com.devindow.myfitnessroutines.video;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.SpannableString;
-import android.text.method.LinkMovementMethod;
-import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import com.devindow.myfitnessroutines.routine.Routine;
-import com.devindow.myfitnessroutines.routine.RoutineLibrary;
+import com.devindow.myfitnessroutines.R;
 import com.devindow.myfitnessroutines.video.Video;
 import com.devindow.myfitnessroutines.video.VideoAdapter;
+import com.devindow.myfitnessroutines.video.VideoStreamActivity;
 
 import java.util.ArrayList;
 

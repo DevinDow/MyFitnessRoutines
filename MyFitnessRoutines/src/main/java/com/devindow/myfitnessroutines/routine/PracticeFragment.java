@@ -1,4 +1,4 @@
-package com.devindow.myfitnessroutines;
+package com.devindow.myfitnessroutines.routine;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -15,6 +15,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.devindow.myfitnessroutines.BuildConfig;
+import com.devindow.myfitnessroutines.R;
+import com.devindow.myfitnessroutines.routine.PlayRoutineActivity;
 import com.devindow.myfitnessroutines.routine.Routine;
 import com.devindow.myfitnessroutines.routine.RoutineAdapter;
 import com.devindow.myfitnessroutines.routine.RoutineLibrary;
