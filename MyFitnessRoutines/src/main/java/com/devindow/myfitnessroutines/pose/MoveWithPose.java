@@ -7,9 +7,8 @@ import com.devindow.myfitnessroutines.routine.Move;
 import com.devindow.myfitnessroutines.routine.Category;
 
 /**
- * Created by Devin on 2/22/2018.
+ * a Move with a Pose
  */
-
 public class MoveWithPose extends Move {
 
 	// Constants

@@ -17,6 +17,9 @@ import com.devindow.myfitnessroutines.routine.Routine;
 
 import java.util.ArrayList;
 
+/**
+ * [ArrayAdapter] for Generics for lists in TabbedActivity
+ */
 public class GenericAdapter extends ArrayAdapter<Generic> {
 
 	// Private Fields
@@ -33,8 +36,7 @@ public class GenericAdapter extends ArrayAdapter<Generic> {
 
 
 	// ArrayAdapter implementation
-	@NonNull
-	@Override
+	@NonNull @Override
 	public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
 		Generic generic = getItem(position);

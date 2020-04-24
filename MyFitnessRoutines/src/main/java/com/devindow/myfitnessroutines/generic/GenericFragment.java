@@ -27,7 +27,7 @@ import com.devindow.myfitnessroutines.video.VideoStreamActivity;
 import java.util.ArrayList;
 
 /**
- * Generic Fragment holds ListView of Generics
+ * GenericFragment holds ListView of Generics
  */
 public class GenericFragment extends Fragment {
 

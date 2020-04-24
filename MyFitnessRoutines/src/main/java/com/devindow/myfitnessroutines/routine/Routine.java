@@ -4,6 +4,9 @@ import com.devindow.myfitnessroutines.generic.Generic;
 
 import java.util.ArrayList;
 
+/**
+ * a Routine of Tasks
+ */
 public class Routine extends Generic {
 
 	// Public Fields

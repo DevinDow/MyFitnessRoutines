@@ -10,6 +10,9 @@ import android.view.View;
 
 import com.devindow.myfitnessroutines.R;
 
+/**
+ * Activity with Tabs of GenericFragments
+ */
 public class TabbedActivity extends AppCompatActivity {
 
     @Override
