@@ -85,18 +85,91 @@ public class GenericFragment extends Fragment {
         switch (BuildConfig.FLAVOR) {
             case "taichi":
                 switch (sectionNum) {
-                    case 0:
+                    case 0: // Learn
                         generics.add(new Video("Tiny Video", "a quick, small video", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/small.mp4"));
                         generics.add(new Video("Family Workout", "a small, choppy video", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/Workout 1.mp4"));
                         generics.add(new Video("High Res", "a high-res video that takes longer to buffer", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/flute.mp4"));
                         break;
-                    case 1:
+                    case 1: // Practice
                         generics.add(RoutineLibrary.routines.get(RoutineLibrary.TWENTY_FOUR_FORMS));
                         generics.add(RoutineLibrary.routines.get(RoutineLibrary.SHIBASHI_1));
                         break;
                 }
                 break;
+            case "full":
+            case "free":
+                switch (sectionNum) {
+                    case 0: // Warm-up
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.MORNING_YOGA));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.WARMUP_THERMOREGULATION));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.PRE_ACTIVATION));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.SUN_SALUTATION));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.YOGA_STRETCH));
+                        break;
+                    case 1: // Fitness
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.SEVEN_MINUTE_WORKOUT));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.MIXED_ABS));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.LOWER_ABS));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.OBLIQUE_ABS));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.UPPER_ABS));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.PLANKS));
+                        break;
+                    case 2: // Agility
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.LADDER_DRILLS));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.SOCCER_TOUCHES));
+                        break;
+                    case 3: // Meditation
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.FIVE_MIN_MEDITATION));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.TEN_MIN_MEDITATION));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.FIFTEEN_MIN_MEDITATION));
+                        break;
+                }
+                break;
             case "soccer":
+                switch (sectionNum) {
+                    case 0: // Warm-up
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.MORNING_YOGA));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.WARMUP_THERMOREGULATION));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.PRE_ACTIVATION));
+                        break;
+                    case 1: // Agility
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.LADDER_DRILLS));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.SOCCER_TOUCHES));
+                        break;
+                    case 2: // Fitness
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.SEVEN_MINUTE_WORKOUT));
+                        break;
+                }
+                break;
+            case "yoga":
+                switch (sectionNum) {
+                    case 0: // Yoga
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.MORNING_YOGA));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.SUN_SALUTATION));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.YOGA_STRETCH));
+                        break;
+                    case 1: // Meditation
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.FIVE_MIN_MEDITATION));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.TEN_MIN_MEDITATION));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.FIFTEEN_MIN_MEDITATION));
+                        break;
+                }
+                break;
+            case "abs":
+                switch (sectionNum) {
+                    case 0: // Warm-up
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.MORNING_YOGA));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.WARMUP_THERMOREGULATION));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.SEVEN_MINUTE_WORKOUT));
+                        break;
+                    case 1: // Core
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.MIXED_ABS));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.LOWER_ABS));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.OBLIQUE_ABS));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.UPPER_ABS));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.PLANKS));
+                        break;
+                }
                 break;
         }
         lstGeneric.setAdapter(new GenericAdapter(context, R.layout.generic_row, generics));

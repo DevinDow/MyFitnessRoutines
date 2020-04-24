@@ -5,9 +5,8 @@ import com.devindow.myfitnessroutines.util.MethodLogger;
 import com.devindow.myfitnessroutines.util.Side;
 
 /**
- * Created by Devin on 1/27/2018.
+ * generation of hard-coded Routines
  */
-
 public class SampleRoutines {
 
 	// Public Static Methods
@@ -16,72 +15,31 @@ public class SampleRoutines {
 
 		generateTestRoutine();
 
-		switch (BuildConfig.FLAVOR) {
-			case "free":
-			case "full":
-			default:
-				generate7MinuteWorkout();
+		generate7MinuteWorkout();
 
-				generateMorningYoga();
-				generateSunSalutation();
-				generateYogaStretch();
+		generateMorningYoga();
+		generateSunSalutation();
+		generateYogaStretch();
 
-				generateWarmup();
+		generateWarmup();
 
-				generatePreActivation();
+		generatePreActivation();
 
-				generateLowerAbs();
-				generateObliqueAbs();
-				generateUpperAbs();
-				generateMixedAbs();
-				generatePlanks();
+		generateLowerAbs();
+		generateObliqueAbs();
+		generateUpperAbs();
+		generateMixedAbs();
+		generatePlanks();
 
-				generate5MinMeditation();
-				generate10MinMeditation();
-				generate15MinMeditation();
+		generate5MinMeditation();
+		generate10MinMeditation();
+		generate15MinMeditation();
 
-				generateLadderDrills();
-				generateSoccerTouches();
+		generateLadderDrills();
+		generateSoccerTouches();
 
-				generateTaiChi24();
-				generateShibashi1();
-				break;
-
-			case "yoga":
-				generateMorningYoga();
-				generateSunSalutation();
-				generateYogaStretch();
-
-				generate5MinMeditation();
-				generate10MinMeditation();
-				generate15MinMeditation();
-
-				generateTaiChi24();
-				generateShibashi1();
-				break;
-
-			case "abs":
-				generateLowerAbs();
-				generateObliqueAbs();
-				generateUpperAbs();
-				generateMixedAbs();
-				generatePlanks();
-				break;
-
-			case "soccer":
-				generateMorningYoga();
-				generateWarmup();
-				generatePreActivation();
-				generateLadderDrills();
-				generateSoccerTouches();
-				generate7MinuteWorkout();
-				break;
-
-			case "taichi":
-				generateTaiChi24();
-				generateShibashi1();
-				break;
-		}
+		generateTaiChi24();
+		generateShibashi1();
 
 		methodLogger.end();
 	}

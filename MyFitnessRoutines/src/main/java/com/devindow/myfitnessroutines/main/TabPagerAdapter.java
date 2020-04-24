@@ -26,6 +26,15 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
         switch (BuildConfig.FLAVOR) {
             case "taichi":
                 return 2;
+            case "full":
+            case "free":
+                return 4;
+            case "soccer":
+                return 3;
+            case "yoga":
+                return 2;
+            case "abs":
+                return 2;
             default:
                 return 1;
         }
@@ -44,12 +53,44 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
             case "taichi":
                 switch (position) {
                     case 0:
-                    default:
                         return "Learn";
                     case 1:
                         return "Practice";
+                }
+            case "full":
+            case "free":
+                switch (position) {
+                    case 0:
+                        return "Warm-up";
+                    case 1:
+                        return "Fitness";
                     case 2:
-                        return "Test";
+                        return "Agility";
+                    case 3:
+                        return "Meditation";
+                }
+            case "soccer":
+                switch (position) {
+                    case 0:
+                        return "Warm-up";
+                    case 1:
+                        return "Agility";
+                    case 2:
+                        return "Fitness";
+                }
+            case "yoga":
+                switch (position) {
+                    case 0:
+                        return "Yoga";
+                    case 1:
+                        return "Meditation";
+                }
+            case "abs":
+                switch (position) {
+                    case 0:
+                        return "Warm-up";
+                    case 1:
+                        return "Core";
                 }
             default:
                 return "Routines";
