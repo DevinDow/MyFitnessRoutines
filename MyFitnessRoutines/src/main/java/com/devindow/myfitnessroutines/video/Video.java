@@ -1,12 +1,10 @@
 package com.devindow.myfitnessroutines.video;
 
-import java.io.Serializable;
+import com.devindow.myfitnessroutines.generic.Generic;
 
-public class Video implements Serializable {
+public class Video extends Generic {
 
     // Public Fields
-    public String name;
-    public String description;
     public String url;
 
 
