@@ -13,7 +13,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.devindow.myfitnessroutines.OptionsMenuActivity;
+import com.devindow.myfitnessroutines.main.OptionsMenuActivity;
 import com.devindow.myfitnessroutines.Preferences;
 import com.devindow.myfitnessroutines.R;
 import com.devindow.myfitnessroutines.pose.MoveWithPose;

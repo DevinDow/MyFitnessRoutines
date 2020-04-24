@@ -1,10 +1,15 @@
-package com.devindow.myfitnessroutines;
+package com.devindow.myfitnessroutines.main;
 
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.devindow.myfitnessroutines.App;
+import com.devindow.myfitnessroutines.BuildConfig;
+import com.devindow.myfitnessroutines.Preferences;
+import com.devindow.myfitnessroutines.R;
 
 /**
  * Created by Devin on 3/17/2018.

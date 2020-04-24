@@ -17,10 +17,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.devindow.myfitnessroutines.BuildConfig;
-import com.devindow.myfitnessroutines.OptionsMenuActivity;
+import com.devindow.myfitnessroutines.main.OptionsMenuActivity;
 import com.devindow.myfitnessroutines.R;
 import com.devindow.myfitnessroutines.db.AppDatabase;
-import com.devindow.myfitnessroutines.routine.*;
 import com.devindow.myfitnessroutines.util.MethodLogger;
 import com.devindow.myfitnessroutines.video.VideoStreamActivity;
 

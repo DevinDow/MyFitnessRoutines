@@ -1,4 +1,4 @@
-package com.devindow.myfitnessroutines;
+package com.devindow.myfitnessroutines.main;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
