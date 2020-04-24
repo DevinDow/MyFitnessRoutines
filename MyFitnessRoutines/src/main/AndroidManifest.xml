@@ -25,7 +25,7 @@
         </activity>
 
         <activity
-            android:name=".routine.MainActivity"
+            android:name=".routine.RoutinesActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
@@ -33,11 +33,11 @@
         <activity
             android:name=".routine.PlayRoutineActivity"
             android:label="Routine"
-            android:parentActivityName=".routine.MainActivity" />
+            android:parentActivityName=".routine.RoutinesActivity" />
 
         <activity android:name=".video.VideoStreamActivity"
             android:label="Learn"
-            android:parentActivityName=".routine.MainActivity" />
+            android:parentActivityName=".routine.RoutinesActivity" />
 
     </application>
 

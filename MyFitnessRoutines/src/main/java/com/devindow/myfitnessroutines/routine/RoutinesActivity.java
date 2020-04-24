@@ -26,7 +26,7 @@ import com.devindow.myfitnessroutines.video.VideoStreamActivity;
 
 import java.util.List;
 
-public class MainActivity extends OptionsMenuActivity {
+public class RoutinesActivity extends OptionsMenuActivity {
 
 	// Constants
 	private boolean BLOCK_NONFREE_ROUTINES = false;
