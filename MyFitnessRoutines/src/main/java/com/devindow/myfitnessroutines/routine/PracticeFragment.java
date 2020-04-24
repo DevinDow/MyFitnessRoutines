@@ -17,10 +17,6 @@ import android.widget.TextView;
 
 import com.devindow.myfitnessroutines.BuildConfig;
 import com.devindow.myfitnessroutines.R;
-import com.devindow.myfitnessroutines.routine.PlayRoutineActivity;
-import com.devindow.myfitnessroutines.routine.Routine;
-import com.devindow.myfitnessroutines.routine.RoutineAdapter;
-import com.devindow.myfitnessroutines.routine.RoutineLibrary;
 
 public class PracticeFragment extends Fragment {
 
@@ -56,7 +52,7 @@ public class PracticeFragment extends Fragment {
         // lstRoutines
         lstRoutines = view.findViewById(R.id.lstRoutines);
         final Context context = getActivity();
-        lstRoutines.setAdapter(new RoutineAdapter(context, R.layout.routine_row, RoutineLibrary.routines));
+        lstRoutines.setAdapter(new RoutineAdapter(context, R.layout.generic_row, RoutineLibrary.routines));
         lstRoutines.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {

@@ -55,7 +55,7 @@ public class RoutinesActivity extends OptionsMenuActivity {
 
 		// lstRoutines
 		lstRoutines = findViewById(R.id.lstRoutines);
-		lstRoutines.setAdapter(new RoutineAdapter(this, R.layout.routine_row, RoutineLibrary.routines));
+		lstRoutines.setAdapter(new RoutineAdapter(this, R.layout.generic_row, RoutineLibrary.routines));
 		final Context context = this;
 		lstRoutines.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
@@ -206,7 +206,7 @@ public class RoutinesActivity extends OptionsMenuActivity {
 				}
 			}
 
-			lstRoutines.setAdapter(new RoutineAdapter(context, R.layout.routine_row, RoutineLibrary.routines));
+			lstRoutines.setAdapter(new RoutineAdapter(context, R.layout.generic_row, RoutineLibrary.routines));
 			methodLogger.end();
 		}
 

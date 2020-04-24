@@ -11,9 +11,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.devindow.myfitnessroutines.R;
-import com.devindow.myfitnessroutines.video.Video;
-import com.devindow.myfitnessroutines.video.VideoAdapter;
-import com.devindow.myfitnessroutines.video.VideoStreamActivity;
 
 import java.util.ArrayList;
 
@@ -45,7 +42,7 @@ public class LearnFragment extends Fragment {
         videos.add(new Video("Tiny Video", "a quick, small video", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/small.mp4"));
         videos.add(new Video("Family Workout", "a small, choppy video", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/Workout 1.mp4"));
         videos.add(new Video("High Res", "a high-res video that takes longer to buffer", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/flute.mp4"));
-        lstVideos.setAdapter(new VideoAdapter(context, R.layout.routine_row, videos));
+        lstVideos.setAdapter(new VideoAdapter(context, R.layout.generic_row, videos));
         lstVideos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
