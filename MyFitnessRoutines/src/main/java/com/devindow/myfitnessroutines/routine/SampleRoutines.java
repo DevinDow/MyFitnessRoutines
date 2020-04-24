@@ -14,9 +14,7 @@ public class SampleRoutines {
 	public static void generate() {
 		MethodLogger methodLogger = new MethodLogger();
 
-		if (BuildConfig.DEBUG) {
-			generateTestRoutine();
-		}
+		generateTestRoutine();
 
 		switch (BuildConfig.FLAVOR) {
 			case "free":
@@ -91,18 +89,18 @@ public class SampleRoutines {
 
 	// Private Methods
 	private static void generateTestRoutine() {
-		Routine routine = new Routine("Test Routine", Category.NONE, "", true);
+		Routine routine = new Routine(RoutineLibrary.TEST, Category.NONE, "", true);
 
 		routine.tasks.add(new Task(MoveLibrary.MOUNTAIN_POSE, 15, "Roll up slowly. Stand tall. Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.WARRIOR_2, 30, "Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.LOTUS, 60, "Meditate & Breathe."));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 
 	private static void generate7MinuteWorkout() {
-		Routine routine = new Routine("7 Minute Workout", Category.CARDIO, "High-intensity circuit training that alternates muscle groups", true);
+		Routine routine = new Routine(RoutineLibrary.SEVEN_MINUTE_WORKOUT, Category.CARDIO, "High-intensity circuit training that alternates muscle groups", true);
 
 		routine.tasks.add(new Task(MoveLibrary.JUMPING_JACKS, 30, 5));
 		routine.tasks.add(new Task(MoveLibrary.WALL_SIT, 30, 5));
@@ -117,12 +115,12 @@ public class SampleRoutines {
 		routine.tasks.add(new Task(MoveLibrary.PUSH_UP_ROTATE, 30, 5));
 		routine.tasks.add(new Task(MoveLibrary.SIDE_PLANK, 30));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 
 	private static void generateMorningYoga() {
-		Routine routine = new Routine("Morning Yoga", Category.YOGA, "Yoga for getting going when stiff from inactivity.  Breathe with each movement.", true);
+		Routine routine = new Routine(RoutineLibrary.MORNING_YOGA, Category.YOGA, "Yoga for getting going when stiff from inactivity.  Breathe with each movement.", true);
 
 		routine.tasks.add(new Task(MoveLibrary.CORPSE_POSE, 60, "Lie on your back. Relax. Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.KNEE_CROSS_OVER, 30, "Knee across body. Breathe."));
@@ -151,11 +149,11 @@ public class SampleRoutines {
 		routine.tasks.add(new Task(MoveLibrary.TWISTED_SAGE_POSE, 30, "Sit Tall. Pretzel. Breathe."));
 		routine.tasks.add(new Task(MoveLibrary.LOTUS, 60, "Meditate & Breathe."));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 	private static void generateSunSalutation() {
-		Routine routine = new Routine("Sun Salutation", Category.YOGA, "Yoga warmup of folding & unfolding along with your breath");
+		Routine routine = new Routine(RoutineLibrary.SUN_SALUTATION, Category.YOGA, "Yoga warmup of folding & unfolding along with your breath");
 
 		int breathSeconds = 5;
 		for (int i=1; i<=2; i++) { // 2 times
@@ -174,11 +172,11 @@ public class SampleRoutines {
 
 		routine.tasks.add(new Task(MoveLibrary.PRAYER, breathSeconds * 3, "Breathe."));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 	private static void generateYogaStretch() {
-		Routine routine = new Routine("Yoga Stretch", Category.YOGA, "Yoga with 2 minute holds for stretching connective tissue, releasing stagnation, and meditation.");
+		Routine routine = new Routine(RoutineLibrary.YOGA_STRETCH, Category.YOGA, "Yoga with 2 minute holds for stretching connective tissue, releasing stagnation, and meditation.");
 
 		routine.tasks.add(new Task(MoveLibrary.HIP_STRETCH, 120, Side.RIGHT, "Sink forward to relax hip flexor."));
 		routine.tasks.add(new Task(MoveLibrary.HAMSTRING_STRETCH, 30, Side.RIGHT, "Push back & straighten front leg to rest hip and stretch hamstring."));
@@ -192,11 +190,11 @@ public class SampleRoutines {
 		routine.tasks.add(new Task(MoveLibrary.PIGEON, 240, "One leg bent on the ground, chest to thigh, stretching glute piraformis."));
 		routine.tasks.add(new Task(MoveLibrary.KNEE_CROSS_OVER, 60, "Hug knee then cross over."));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 	private static void generateTaiChi24() {
-		Routine routine = new Routine("Tai Chi 24 Forms", Category.TAICHI, "24 Forms Simplified Tai Chi Routine.");
+		Routine routine = new Routine(RoutineLibrary.TWENTY_FOUR_FORMS, Category.TAICHI, "24 Forms Simplified Tai Chi Routine.");
 
 		routine.tasks.add(new Task("1) Opening", 10, "Hands up then down.  Turn."));
 		routine.tasks.add(new Task("2) Parting Horse's Mane 3x", 20, "Hold Ball, Brush Wrist, Step"));
@@ -207,11 +205,11 @@ public class SampleRoutines {
 		routine.tasks.add(new Task("7) Grasp Bird's Tail - Left", 20, ""));
 		routine.tasks.add(new Task("8) Grasp Bird's Tail - Right", 20, ""));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 	private static void generateShibashi1() {
-		Routine routine = new Routine("Tai Chi Shibashi 1", Category.TAICHI, "Tai Chi Qigong Shibashi 1.");
+		Routine routine = new Routine(RoutineLibrary.SHIBASHI_1, Category.TAICHI, "Tai Chi Qigong Shibashi 1.");
 
 		routine.tasks.add(new Task("Opening", 30, "Arms down, Palms face Thighs"));
 		routine.tasks.add(new Task("Commencing", 45, "Arms up then down"));
@@ -235,12 +233,12 @@ public class SampleRoutines {
 		routine.tasks.add(new Task("Closing", 3*60, "hold Chi Ball between relaxed Hands"));
 		routine.tasks.add(new Task("Rub Belly", 30));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 
 	private static void generateWarmup() {
-		Routine routine = new Routine("Warmup/Thermoregulation", Category.WARMUP, "A warmup to do when starting out cold", true);
+		Routine routine = new Routine(RoutineLibrary.WARMUP_THERMOREGULATION, Category.WARMUP, "A warmup to do when starting out cold", true);
 
 		routine.tasks.add(new Task(MoveLibrary.JOG_LATERALLY, 30));
 		routine.tasks.add(new Task(MoveLibrary.PUSH_UPS, 30));
@@ -254,11 +252,11 @@ public class SampleRoutines {
 		routine.tasks.add(new Task(MoveLibrary.FAST_FEET, 30));
 		routine.tasks.add(new Task(MoveLibrary.SKIP, 30));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 	private static void generatePreActivation() {
-		Routine routine = new Routine("Pre-Activation", Category.WARMUP, "From the England National Soccer Team.  Do a warmup first.");
+		Routine routine = new Routine(RoutineLibrary.PRE_ACTIVATION, Category.WARMUP, "From the England National Soccer Team.  Do a warmup first.");
 
 		routine.tasks.add(new Task(MoveLibrary.FOAM_ROLLER, 60));
 		routine.tasks.add(new Task(MoveLibrary.THORACIC_ROLL_OUTS, 60));
@@ -274,12 +272,12 @@ public class SampleRoutines {
 		routine.tasks.add(new Task(MoveLibrary.JUMPS_180, 30));
 		routine.tasks.add(new Task(MoveLibrary.JUMPS_90_TO_1_FOOT_LANDING, 30));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 
 	private static void generateLowerAbs() {
-		Routine routine = new Routine("Lower Abs", Category.STRENGTH, "Focus on lower part of the abdominal muscles");
+		Routine routine = new Routine(RoutineLibrary.LOWER_ABS, Category.STRENGTH, "Focus on lower part of the abdominal muscles");
 
 		routine.tasks.add(new Task(MoveLibrary.HIP_RAISES, 30));
 		routine.tasks.add(new Task(MoveLibrary.REVERSE_CRUNCHES, 30, 10));
@@ -290,11 +288,11 @@ public class SampleRoutines {
 		routine.tasks.add(new Task(MoveLibrary.HIP_RAISES, 30));
 		routine.tasks.add(new Task(MoveLibrary.REVERSE_CRUNCHES, 30));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 	private static void generateObliqueAbs() {
-		Routine routine = new Routine("Oblique Abs", Category.STRENGTH, "Focus on the oblique abdominal muscles");
+		Routine routine = new Routine(RoutineLibrary.OBLIQUE_ABS, Category.STRENGTH, "Focus on the oblique abdominal muscles");
 
 		routine.tasks.add(new Task(MoveLibrary.CROSSOVER_CRUNCHES, 60, 10));
 
@@ -302,11 +300,11 @@ public class SampleRoutines {
 
 		routine.tasks.add(new Task(MoveLibrary.SIDE_CRUNCHES, 60));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 	private static void generateUpperAbs() {
-		Routine routine = new Routine("Upper Abs", Category.STRENGTH, "Focus on upper part of the abdominal muscles");
+		Routine routine = new Routine(RoutineLibrary.UPPER_ABS, Category.STRENGTH, "Focus on upper part of the abdominal muscles");
 
 		routine.tasks.add(new Task(MoveLibrary.LEG_UP_CRUNCHES, 30));
 		routine.tasks.add(new Task(MoveLibrary.KNEE_UP_CRUNCHES, 30, 10));
@@ -317,11 +315,11 @@ public class SampleRoutines {
 		routine.tasks.add(new Task(MoveLibrary.HORSE_RIDING_CRUNCHES, 30));
 		routine.tasks.add(new Task(MoveLibrary.LEG_UP_CRUNCHES, 30));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 	private static void generateMixedAbs() {
-		Routine routine = new Routine("Mixed Abs", Category.STRENGTH, "A mixture of different abdominal areas", true);
+		Routine routine = new Routine(RoutineLibrary.MIXED_ABS, Category.STRENGTH, "A mixture of different abdominal areas", true);
 
 		routine.tasks.add(new Task(MoveLibrary.KNEE_UP_CRUNCHES, 30));
 		routine.tasks.add(new Task(MoveLibrary.HIP_RAISES, 30, 10));
@@ -332,11 +330,11 @@ public class SampleRoutines {
 		routine.tasks.add(new Task(MoveLibrary.CATCH_CRUNCHES, 30));
 		routine.tasks.add(new Task(MoveLibrary.BOAT_POSE, 15));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 	private static void generatePlanks() {
-		Routine routine = new Routine("Planks", Category.STRENGTH, "Develop core strength with a variety of planks");
+		Routine routine = new Routine(RoutineLibrary.PLANKS, Category.STRENGTH, "Develop core strength with a variety of planks");
 
 		routine.tasks.add(new Task(MoveLibrary.HANDS_PLANK, 30));
 		routine.tasks.add(new Task(MoveLibrary.ELBOWS_PLANK, 30));
@@ -350,37 +348,37 @@ public class SampleRoutines {
 		routine.tasks.add(new Task(MoveLibrary.HANDS_PLANK, 10));
 		routine.tasks.add(new Task(MoveLibrary.ELBOWS_PLANK, 10));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 
 	private static void generate5MinMeditation() {
-		Routine routine = new Routine("5 min Meditation", Category.MEDITATION, "Meditation timer");
+		Routine routine = new Routine(RoutineLibrary.FIVE_MIN_MEDITATION, Category.MEDITATION, "Meditation timer");
 
 		routine.tasks.add(new Task(MoveLibrary.LOTUS, 5*60));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 	private static void generate10MinMeditation() {
-		Routine routine = new Routine("10 min Meditation", Category.MEDITATION, "Meditation timer", true);
+		Routine routine = new Routine(RoutineLibrary.TEN_MIN_MEDITATION, Category.MEDITATION, "Meditation timer", true);
 
 		routine.tasks.add(new Task(MoveLibrary.LOTUS, 10*60));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 	private static void generate15MinMeditation() {
-		Routine routine = new Routine("15 min Meditation", Category.MEDITATION, "Meditation timer");
+		Routine routine = new Routine(RoutineLibrary.FIFTEEN_MIN_MEDITATION, Category.MEDITATION, "Meditation timer");
 
 		routine.tasks.add(new Task(MoveLibrary.LOTUS, 15*60));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 
 	private static void generateLadderDrills() {
-		Routine routine = new Routine("Ladder Drills", Category.AGILITY, "Improve your Agility, Speed, Coordination, & Fitness");
+		Routine routine = new Routine(RoutineLibrary.LADDER_DRILLS, Category.AGILITY, "Improve your Agility, Speed, Coordination, & Fitness");
 
 		routine.tasks.add(new Task(MoveLibrary.LADDER_SPRINT, 15, 5));
 		routine.tasks.add(new Task(MoveLibrary.LADDER_LATERAL, 15, 5));
@@ -391,12 +389,12 @@ public class SampleRoutines {
 		routine.tasks.add(new Task(MoveLibrary.LADDER_HOPSCOTCH, 15, 5));
 		routine.tasks.add(new Task(MoveLibrary.LADDER_SLALOM, 15, 5));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 
 	private static void generateSoccerTouches() {
-		Routine routine = new Routine("Soccer Touches", Category.SOCCER, "Improve your Touches & Fitness");
+		Routine routine = new Routine(RoutineLibrary.SOCCER_TOUCHES, Category.SOCCER, "Improve your Touches & Fitness");
 
 		routine.tasks.add(new Task(MoveLibrary.SOCCER_INSIDE_ROLLS, 30, 5));
 		routine.tasks.add(new Task(MoveLibrary.SOCCER_BELLS, 30, 5));
@@ -413,7 +411,7 @@ public class SampleRoutines {
 		routine.tasks.add(new Task(MoveLibrary.SOCCER_HAT_DANCE_CIRCLE, 30, 5));
 		routine.tasks.add(new Task(MoveLibrary.SOCCER_2_TOUCHES_THEN_ACROSS, 30, 5));
 
-		RoutineLibrary.routines.add(routine);
+		RoutineLibrary.addRoutine(routine);
 	}
 
 }

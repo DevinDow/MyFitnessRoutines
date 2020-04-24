@@ -78,25 +78,28 @@ public class GenericFragment extends Fragment {
         // lstGeneric
         final ListView lstGeneric = view.findViewById(R.id.lstGeneric);
         final Context context = getActivity();
+        ArrayList<Generic> generics = new ArrayList<Generic>();
+        if (BuildConfig.DEBUG) {
+            generics.add(RoutineLibrary.routines.get(RoutineLibrary.TEST));
+        }
         switch (BuildConfig.FLAVOR) {
             case "taichi":
                 switch (sectionNum) {
                     case 0:
-                    default:
-                        ArrayList<Generic> videos = new ArrayList<Generic>();
-                        videos.add(new Video("Tiny Video", "a quick, small video", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/small.mp4"));
-                        videos.add(new Video("Family Workout", "a small, choppy video", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/Workout 1.mp4"));
-                        videos.add(new Video("High Res", "a high-res video that takes longer to buffer", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/flute.mp4"));
-                        lstGeneric.setAdapter(new GenericAdapter(context, R.layout.generic_row, videos));
+                        generics.add(new Video("Tiny Video", "a quick, small video", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/small.mp4"));
+                        generics.add(new Video("Family Workout", "a small, choppy video", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/Workout 1.mp4"));
+                        generics.add(new Video("High Res", "a high-res video that takes longer to buffer", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/flute.mp4"));
                         break;
                     case 1:
-                        lstGeneric.setAdapter(new GenericAdapter(context, R.layout.generic_row, RoutineLibrary.routines));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.TWENTY_FOUR_FORMS));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.SHIBASHI_1));
+                        break;
                 }
                 break;
-            default:
-                lstGeneric.setAdapter(new GenericAdapter(context, R.layout.generic_row, RoutineLibrary.routines));
+            case "soccer":
                 break;
         }
+        lstGeneric.setAdapter(new GenericAdapter(context, R.layout.generic_row, generics));
 
         // lstGeneric OnItemClick
         lstGeneric.setOnItemClickListener(new AdapterView.OnItemClickListener() {
