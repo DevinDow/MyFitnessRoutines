@@ -1,5 +1,6 @@
 package com.devindow.myfitnessroutines.routine;
 
+import com.devindow.myfitnessroutines.generic.Generic;
 import com.devindow.myfitnessroutines.util.MethodLogger;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 public class RoutineLibrary {
 
 	// Public Fields
-	public static ArrayList<Routine> routines;
+	public static ArrayList<Generic> routines;
 
 
 	// Public Methods

@@ -1,4 +1,4 @@
-package com.devindow.myfitnessroutines.main;
+package com.devindow.myfitnessroutines.generic;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -18,13 +18,10 @@ import android.support.v4.app.Fragment;
 
 import com.devindow.myfitnessroutines.BuildConfig;
 import com.devindow.myfitnessroutines.R;
-import com.devindow.myfitnessroutines.generic.Generic;
 import com.devindow.myfitnessroutines.routine.PlayRoutineActivity;
 import com.devindow.myfitnessroutines.routine.Routine;
-import com.devindow.myfitnessroutines.routine.RoutineAdapter;
 import com.devindow.myfitnessroutines.routine.RoutineLibrary;
 import com.devindow.myfitnessroutines.video.Video;
-import com.devindow.myfitnessroutines.video.VideoAdapter;
 import com.devindow.myfitnessroutines.video.VideoStreamActivity;
 
 import java.util.ArrayList;
@@ -86,16 +83,18 @@ public class GenericFragment extends Fragment {
                 switch (sectionNum) {
                     case 0:
                     default:
-                        ArrayList<Video> videos = new ArrayList<Video>();
+                        ArrayList<Generic> videos = new ArrayList<Generic>();
                         videos.add(new Video("Tiny Video", "a quick, small video", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/small.mp4"));
                         videos.add(new Video("Family Workout", "a small, choppy video", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/Workout 1.mp4"));
                         videos.add(new Video("High Res", "a high-res video that takes longer to buffer", "https://mytaichiroutines.s3-us-west-2.amazonaws.com/flute.mp4"));
-                        lstGeneric.setAdapter(new VideoAdapter(context, R.layout.generic_row, videos));
+                        lstGeneric.setAdapter(new GenericAdapter(context, R.layout.generic_row, videos));
                         break;
+                    case 1:
+                        lstGeneric.setAdapter(new GenericAdapter(context, R.layout.generic_row, RoutineLibrary.routines));
                 }
                 break;
             default:
-                lstGeneric.setAdapter(new RoutineAdapter(context, R.layout.generic_row, RoutineLibrary.routines));
+                lstGeneric.setAdapter(new GenericAdapter(context, R.layout.generic_row, RoutineLibrary.routines));
                 break;
         }
 

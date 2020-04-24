@@ -25,19 +25,13 @@
         </activity>
 
         <activity
-            android:name=".routine.RoutinesActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
-        <activity
             android:name=".routine.PlayRoutineActivity"
             android:label="Routine"
-            android:parentActivityName=".routine.RoutinesActivity" />
+            android:parentActivityName=".main.TabbedActivity" />
 
         <activity android:name=".video.VideoStreamActivity"
             android:label="Learn"
-            android:parentActivityName=".routine.RoutinesActivity" />
+            android:parentActivityName=".main.TabbedActivity" />
 
     </application>
 
