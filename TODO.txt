@@ -1,13 +1,16 @@
 TODO
 ----
+- it's for me, not professional for my customers
+- show history
 
 My Tai Chi Routines
 -------------------
-- Start = Learn or Practice
 - Stream Videos
     - from AWS S3?
     - use File Name?
     - http://www.uandblog.com/How-to-Create-Video-Streaming-Application-in-Android
+- YouTube videos
+- Tai Chi Poses & Text
 
 Routines
 --------
@@ -56,8 +59,9 @@ Features
         - New Routine button
         - Exceptions
 
-- Add Routine
-- Edit Routine
+- Custom Routines
+    - Add Routine
+    - Edit Routine
 
 - Poses
 
