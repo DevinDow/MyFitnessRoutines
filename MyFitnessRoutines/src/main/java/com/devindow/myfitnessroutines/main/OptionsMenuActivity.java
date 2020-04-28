@@ -91,7 +91,7 @@ public class OptionsMenuActivity extends AppCompatActivity {
 					case "soccer":
 						tips +=
 								"  - go for a walk where I stop at the park and do \"7 Minute Workout\".\n" +
-								"  - do \"Morning Yoga\" then \"Warmup\" then \"Pre-Activation\" before playing soccer.\n";
+								"  - do \"Morning Yoga\" then \"Warm-up\" then \"Pre-Activation\" before playing soccer.\n";
 						break;
 				}
 

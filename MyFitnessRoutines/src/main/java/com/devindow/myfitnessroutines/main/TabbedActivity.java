@@ -28,6 +28,7 @@ public class TabbedActivity extends AppCompatActivity {
             RoutineLibrary.generate();
         }
 
+        // Tab Pager
         TabPagerAdapter tabPagerAdapter = new TabPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(tabPagerAdapter);
