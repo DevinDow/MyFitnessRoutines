@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:onClick="onScreenClick"
     android:orientation="horizontal"
-    tools:context="com.devindow.myfitnessroutines.PlayRoutineActivity">
+    tools:context="com.devindow.myfitnessroutines.routine.PlayRoutineActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

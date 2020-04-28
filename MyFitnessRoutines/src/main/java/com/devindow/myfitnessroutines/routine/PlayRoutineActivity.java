@@ -1,4 +1,4 @@
-package com.devindow.myfitnessroutines;
+package com.devindow.myfitnessroutines.routine;
 
 import android.app.FragmentManager;
 import android.content.Intent;
@@ -13,8 +13,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.devindow.myfitnessroutines.main.OptionsMenuActivity;
+import com.devindow.myfitnessroutines.Preferences;
+import com.devindow.myfitnessroutines.R;
 import com.devindow.myfitnessroutines.pose.MoveWithPose;
-import com.devindow.myfitnessroutines.routine.*;
 import com.devindow.myfitnessroutines.util.MethodLogger;
 
 import java.util.Locale;

@@ -1,20 +1,16 @@
 package com.devindow.myfitnessroutines.routine;
 
-import java.io.Serializable;
+import com.devindow.myfitnessroutines.generic.Generic;
+
 import java.util.ArrayList;
 
 /**
- * Created by Devin on 1/27/2018.
+ * a Routine of Tasks
  */
-
-public class Routine implements Serializable {
+public class Routine extends Generic {
 
 	// Public Fields
-	public String name;
 	public Category category;
-	public String description;
-	public boolean isFree;
-	public boolean ranRecently;
 	public ArrayList<Task> tasks = new ArrayList<>();
 
 

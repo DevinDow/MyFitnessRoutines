@@ -1,10 +1,24 @@
 TODO
 ----
 - it's for me, not professional for my customers
-- show history
+    - but I don't mind experimenting with a custom version for Ryan
+        - but I should not overcommit more time than I want to
 
 My Tai Chi Routines
 -------------------
+- ALPHA in App Store
+- FAB to YouTube Channel
+- YouTube videos in Practice tab
+
+- TabbedActivity
+    - remember which Tab we are on
+
+- AWS S3
+    - List Objects in Bucket: https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/java/example_code/s3/src/main/java/aws/example/s3/ListObjects.java
+        - AWS Credentials?
+        - use File Name?
+
+=======
 - Stream Videos
     - from AWS S3?
     - use File Name?
@@ -19,8 +33,9 @@ Ladders: Karaoke, Karaoke w/ Turn (1 Foot in each Square)
 
 Features
 --------
+- show history
 - BodyPart Interface: getExtents(), draw()
-- Generic Tasks w/o Move
+* Generic Tasks w/o Move
     - Can I do 2 Sides?
 
 - Move w/ 2 Poses

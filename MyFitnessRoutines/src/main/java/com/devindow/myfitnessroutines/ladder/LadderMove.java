@@ -10,9 +10,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Created by Devin on 2/22/2018.
+ * a Ladder Move with Steps
  */
-
 public class LadderMove extends Move implements Serializable {
 
 	// Constants

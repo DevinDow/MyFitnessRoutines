@@ -19,50 +19,53 @@ Android app to guide you through fitness routines.
 1. Reverse-Merge *master* to *develop*
 
 ## Object-Oriented Design
-### Routine
+### Generic (abstract for Routine, Video)
 - **name**
 - **description**
+#### Video : Generic
+- **url**
+#### Routine : Generic
 - **category**
 - **tasks**
 - *getDuration()*
-### Task
+#### Task
 - **move**
 - **moveSeconds**
 - **restSeconds**
-### Move (MoveWithPose, LadderMove, SoccerMove)
+#### Move (MoveWithPose, LadderMove, SoccerMove)
 - **name**
 - **description**
 - **category**
 - **twoSides**
 - *getBitmap()*
-#### MoveWithPose : Move
+##### MoveWithPose : Move
 - **pose**
-##### Pose
+###### Pose
 - **torso**
 - **rLeg**
 - **lLeg**
 - **rArm**
 - **lArm**
 - **prop**
-### LadderMove : Move
+#### LadderMove : Move
 - **ladderSteps**
-#### LadderStep (OnePointLadderStep, TwoPointLadderStep)
+##### LadderStep (OnePointLadderStep, TwoPointLadderStep)
 - *draw()*
 - *hasLeft()*, *hasRight()*, *hasBoth()*
 - *getLeft()*, *getRight()*
-##### OnePointLadderStep
+###### OnePointLadderStep
 - **step**
-##### TwoPointLadderStep
+###### TwoPointLadderStep
 - **left**
 - **right**
-#### SoccerMove : Move
+##### SoccerMove : Move
 - **ball**
 - **motions**
-##### Motion (SoccerTouch, SoccerStep)
+###### Motion (SoccerTouch, SoccerStep)
 - *draw()*
-###### SoccerTouch : Motion
+####### SoccerTouch : Motion
 - **arrow**
-###### SoccerStep : Motion
+####### SoccerStep : Motion
 - **step**
 ### Session
 - **date** & **timestamp**
@@ -71,16 +74,22 @@ Android app to guide you through fitness routines.
 
 ## Architecture
 ### Create Moves & Routines
-- *App.onCreate()* in **RELEASE** to create once or *MainActivity.onCreate()* in **DEBUG** to recreate each time
-- *RoutineLibrary.generate()*
-- *MoveLibrary.generate()*
-- *SampleRoutines.generate()*
-- *SampleRoutines.generateXXX()*
-### MainActivity
-- *onCreate()*
-    - **lstRoutines** based on **RoutineLibrary.routines**
-        - *onItemClick()* starts **PlayRoutineActivity**
-- *onResume()* queries **AppDB** to update **Routine.ranRecently**
+- *App.onCreate()* in **RELEASE** to create once or *TabbedActivity.onCreate()* in **DEBUG** to recreate each time
+    - *RoutineLibrary.generate()*
+        - *MoveLibrary.generate()*
+        - *SampleRoutines.generate()*
+            - *SampleRoutines.generateXXX()*
+### TabbedActivity
+- sets up Tab Pager
+- in **DEBUG**: regenerates RoutineLibrary
+- handles Floating Action Button
+#### TabPagerAdapter
+- creates Tabs
+#### GenericFragment
+- fills *ListView* of **Generics** based on *FLAVOR* & *Tab Section Number*
+- handles onItemClick
+#### GenericAdapter
+- *ArrayAdapter* for **Generics** in *lstGenerics*
 ### PlayRoutineActivity
 - *onCreate()*
     - **TextToSpeech**

@@ -1,10 +1,15 @@
-package com.devindow.myfitnessroutines;
+package com.devindow.myfitnessroutines.main;
 
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.devindow.myfitnessroutines.App;
+import com.devindow.myfitnessroutines.BuildConfig;
+import com.devindow.myfitnessroutines.Preferences;
+import com.devindow.myfitnessroutines.R;
 
 /**
  * Created by Devin on 3/17/2018.
@@ -86,7 +91,7 @@ public class OptionsMenuActivity extends AppCompatActivity {
 					case "soccer":
 						tips +=
 								"  - go for a walk where I stop at the park and do \"7 Minute Workout\".\n" +
-								"  - do \"Morning Yoga\" then \"Warmup\" then \"Pre-Activation\" before playing soccer.\n";
+								"  - do \"Morning Yoga\" then \"Warm-up\" then \"Pre-Activation\" before playing soccer.\n";
 						break;
 				}
 

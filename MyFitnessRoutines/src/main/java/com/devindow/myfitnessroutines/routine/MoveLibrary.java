@@ -12,10 +12,35 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 
 /**
- * Created by Devin on 1/29/2018.
+ * Library of Moves
  */
-
 public class MoveLibrary {
+
+	// Public Static Fields
+	public static Dictionary<String, Move> moves;
+
+
+	// Public Static Methods
+	public static void generate() {
+		MethodLogger methodLogger = new MethodLogger();
+
+		moves = new Hashtable<>(); // new hashtable since this could be a re-run
+
+		generateStandingFrontalMoves();
+		generateStandingProfileMoves();
+		generateSquattingMoves();
+		generateBackLyingMoves();
+		generateBackLyingTopViewMoves();
+		generateForwardBendingMoves();
+		generateProneMoves();
+		generateSittingMoves();
+
+		generateLadderMoves();
+		generateSoccerMoves();
+
+		methodLogger.end();
+	}
+
 
 	// Constants
 	// Move.name is used as Key in Hashtable, so all names must be unique.
@@ -150,32 +175,6 @@ public class MoveLibrary {
 	public static final String SOCCER_HAT_DANCE = "Hat Dance";
 	public static final String SOCCER_HAT_DANCE_CIRCLE = "Hat Dance Circle";
 	public static final String SOCCER_2_TOUCHES_THEN_ACROSS = "2 touches then across";
-
-
-	// Public Static Fields
-	public static Dictionary<String, Move> moves;
-
-
-	// Public Static Methods
-	public static void generate() {
-		MethodLogger methodLogger = new MethodLogger();
-
-		moves = new Hashtable<>(); // new hashtable since this could be a re-run
-
-		generateStandingFrontalMoves();
-		generateStandingProfileMoves();
-		generateSquattingMoves();
-		generateBackLyingMoves();
-		generateBackLyingTopViewMoves();
-		generateForwardBendingMoves();
-		generateProneMoves();
-		generateSittingMoves();
-
-		generateLadderMoves();
-		generateSoccerMoves();
-
-		methodLogger.end();
-	}
 
 
 	// Private Static Methods

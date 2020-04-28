@@ -1,4 +1,4 @@
-package com.devindow.myfitnessroutines;
+package com.devindow.myfitnessroutines.routine;
 
 /**
  * Created by Devin on 2/18/2018.
@@ -10,11 +10,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 
 import com.devindow.myfitnessroutines.db.AppDatabase;
-import com.devindow.myfitnessroutines.routine.Move;
-import com.devindow.myfitnessroutines.routine.MoveLibrary;
-import com.devindow.myfitnessroutines.routine.Routine;
-import com.devindow.myfitnessroutines.routine.Session;
-import com.devindow.myfitnessroutines.routine.Task;
 import com.devindow.myfitnessroutines.util.MethodLogger;
 
 // This Fragment manages a the timers and retains itself across configuration changes.

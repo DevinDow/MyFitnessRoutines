@@ -5,9 +5,9 @@ import com.devindow.myfitnessroutines.util.Side;
 import java.io.Serializable;
 
 /**
- * Created by Devin on 1/29/2018.
+ * a Task of a Routine consisting of a MoveName with Duration & Side
+ * moveName is used to lookup in MoveLibrary
  */
-
 public class Task implements Serializable {
 
 	// Public Fields

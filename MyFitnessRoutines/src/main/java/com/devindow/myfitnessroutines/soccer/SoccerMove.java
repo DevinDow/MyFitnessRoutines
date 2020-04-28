@@ -11,9 +11,8 @@ import com.devindow.myfitnessroutines.util.*;
 import java.util.ArrayList;
 
 /**
- * Created by Devin on 2/22/2018.
+ * a Soccer Move with a Ball
  */
-
 public class SoccerMove extends Move {
 
 	// Constants
