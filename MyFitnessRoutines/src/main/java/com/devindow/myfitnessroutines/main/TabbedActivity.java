@@ -8,7 +8,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.devindow.myfitnessroutines.BuildConfig;
 import com.devindow.myfitnessroutines.R;
+import com.devindow.myfitnessroutines.routine.RoutineLibrary;
 
 /**
  * Activity with Tabs of GenericFragments
@@ -20,6 +22,11 @@ public class TabbedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_tabbed);
+
+        // When debugging, regenerate Moves & Routines every time TabbedActivity is created.
+        if (BuildConfig.DEBUG) {
+            RoutineLibrary.generate();
+        }
 
         TabPagerAdapter tabPagerAdapter = new TabPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);

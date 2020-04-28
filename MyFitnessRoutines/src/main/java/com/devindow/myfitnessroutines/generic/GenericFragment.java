@@ -27,7 +27,8 @@ import com.devindow.myfitnessroutines.video.VideoStreamActivity;
 import java.util.ArrayList;
 
 /**
- * GenericFragment holds ListView of Generics
+ * GenericFragment fills ListView of Generics based on FLAVOR & Tab Section Number
+ * - handles lstGeneric OnItemClick
  */
 public class GenericFragment extends Fragment {
 
@@ -40,7 +41,7 @@ public class GenericFragment extends Fragment {
     private int sectionNum = 0;
 
 
-    // newInstance() pattern
+    // newInstance() pattern for passing Tabbed Section Index
     public static GenericFragment newInstance(int index) {
         GenericFragment fragment = new GenericFragment();
         Bundle bundle = new Bundle();
@@ -58,11 +59,6 @@ public class GenericFragment extends Fragment {
         if (getArguments() != null) {
             sectionNum = getArguments().getInt(ARG_SECTION_NUMBER);
         }
-
-        // When debugging, regenerate Moves & Routines every time MainActivity is created.
-        if (BuildConfig.DEBUG) {
-            RoutineLibrary.generate();
-        }
     }
 
     @Override
@@ -71,6 +67,7 @@ public class GenericFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_generic, container, false);
     }
 
+    // build list of Generics for the Flavor & Tab Section Number
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -178,42 +175,42 @@ public class GenericFragment extends Fragment {
         lstGeneric.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Generic generic = (Generic) lstGeneric.getItemAtPosition(position);
+            Generic generic = (Generic) lstGeneric.getItemAtPosition(position);
 
-                // Link to PAID apps
-                if (BLOCK_NONFREE_ROUTINES && BuildConfig.FLAVOR.equals("free") && !generic.isFree) {
-                    final String link = "https://play.google.com/store/apps/developer?id=Devin+Dow";
-                    final SpannableString message = new SpannableString(
-                            "This app is a free sample with only a few routines enabled.\n\n" +
-                                    "To access the other routines please purchase a paid version in the app store :\n" +
-                                    link);
-                    Linkify.addLinks(message, Linkify.ALL);
+            // Link to PAID apps
+            if (BLOCK_NONFREE_ROUTINES && BuildConfig.FLAVOR.equals("free") && !generic.isFree) {
+                final String link = "https://play.google.com/store/apps/developer?id=Devin+Dow";
+                final SpannableString message = new SpannableString(
+                        "This app is a free sample with only a few routines enabled.\n\n" +
+                                "To access the other routines please purchase a paid version in the app store :\n" +
+                                link);
+                Linkify.addLinks(message, Linkify.ALL);
 
-                    final AlertDialog dialog = new AlertDialog.Builder(context)
-                            .setTitle("Paid App Required")
-                            .setIcon(android.R.drawable.ic_dialog_info)
-                            .setMessage(message)
-                            .setPositiveButton(android.R.string.ok, null)
-                            .create();
-                    dialog.show();
+                final AlertDialog dialog = new AlertDialog.Builder(context)
+                        .setTitle("Paid App Required")
+                        .setIcon(android.R.drawable.ic_dialog_info)
+                        .setMessage(message)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .create();
+                dialog.show();
 
-                    // Make the TextView clickable. (must be called after show())
-                    ((TextView) dialog.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
+                // Make the TextView clickable. (must be called after show())
+                ((TextView) dialog.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
+            }
+
+            // Start Activity
+            else {
+                if (generic instanceof Routine) {
+                    Intent intent = new Intent(view.getContext(), PlayRoutineActivity.class);
+                    intent.putExtra("routine", generic);
+                    startActivity(intent);
+                } else if (generic instanceof Video) {
+                    Video video = (Video) lstGeneric.getItemAtPosition(position);
+                    Intent intent = new Intent(view.getContext(), VideoStreamActivity.class);
+                    intent.putExtra("video", generic);
+                    startActivity(intent);
                 }
-
-                // Start Activity
-                else {
-                    if (generic instanceof Routine) {
-                        Intent intent = new Intent(view.getContext(), PlayRoutineActivity.class);
-                        intent.putExtra("routine", generic);
-                        startActivity(intent);
-                    } else if (generic instanceof Video) {
-                        Video video = (Video) lstGeneric.getItemAtPosition(position);
-                        Intent intent = new Intent(view.getContext(), VideoStreamActivity.class);
-                        intent.putExtra("video", generic);
-                        startActivity(intent);
-                    }
-                }
+            }
             }
         });
     }
