@@ -1,5 +1,6 @@
 package com.devindow.myfitnessroutines.routine;
 
+import com.devindow.myfitnessroutines.pic.PicMove;
 import com.devindow.myfitnessroutines.pose.*;
 import com.devindow.myfitnessroutines.ladder.*;
 import com.devindow.myfitnessroutines.soccer.*;
@@ -13,6 +14,7 @@ import java.util.Hashtable;
 
 /**
  * Library of Moves
+ * maps a MoveName to a Move object
  */
 public class MoveLibrary {
 
@@ -37,6 +39,7 @@ public class MoveLibrary {
 
 		generateLadderMoves();
 		generateSoccerMoves();
+		generateTaiChiMoves();
 
 		methodLogger.end();
 	}
@@ -175,6 +178,9 @@ public class MoveLibrary {
 	public static final String SOCCER_HAT_DANCE = "Hat Dance";
 	public static final String SOCCER_HAT_DANCE_CIRCLE = "Hat Dance Circle";
 	public static final String SOCCER_2_TOUCHES_THEN_ACROSS = "2 touches then across";
+
+	// Soccer Moves
+	public static final String TAICHI_COMMENCING = "Commencing";
 
 
 	// Private Static Methods
@@ -2043,6 +2049,16 @@ public class MoveLibrary {
 			move.motions.add(new SoccerTouch(new Arrow(move.ball, move.ball.offset(-30, 0), Side.RIGHT)));
 
 			addMove(move);
+		}
+
+	}
+
+
+	private static void generateTaiChiMoves() {
+
+		// Commencing
+		{
+			addMove(new PicMove(TAICHI_COMMENCING, Category.TAICHI, "Arms up then down"));
 		}
 
 	}

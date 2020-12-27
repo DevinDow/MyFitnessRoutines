@@ -170,8 +170,8 @@ public class SampleRoutines {
 		Routine routine = new Routine(RoutineLibrary.SHIBASHI_1, Category.TAICHI, "Tai Chi Qigong Shibashi 1.");
 
 		routine.tasks.add(new Task("Opening", 30, "Arms down, Palms face Thighs"));
-		routine.tasks.add(new Task("Commencing", 45, "Arms up then down"));
-		routine.tasks.add(new Task("Broaden Chest", 45, "raise Arms then open Arms"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_COMMENCING, 45, "for Respiration, Blood Pressure, Nerves, Knees"));
+		routine.tasks.add(new Task("Broaden Chest", 45, "for Lungs, Insomnia, Mental Fatigue"));
 		routine.tasks.add(new Task("Dancing with Rainbows", 45, "turn & shift weight back with rainbow Arm"));
 		routine.tasks.add(new Task("Circling Arms", 45, "Hands up front then out"));
 		routine.tasks.add(new Task("Twist Waist & Swing Arms", 45, "Arm reaches back then pushes through"));

@@ -1,8 +1,11 @@
 package com.devindow.myfitnessroutines.pic;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 
+import com.devindow.myfitnessroutines.App;
+import com.devindow.myfitnessroutines.R;
 import com.devindow.myfitnessroutines.ladder.Ladder;
 import com.devindow.myfitnessroutines.routine.Category;
 import com.devindow.myfitnessroutines.routine.Move;
@@ -20,10 +23,6 @@ public class PicMove extends Move implements Serializable {
         super(name);
     }
 
-    public PicMove(String name, boolean twoSides) {
-        super(name, twoSides);
-    }
-
     public PicMove(String name, Category category) {
         super(name, category);
     }
@@ -36,23 +35,11 @@ public class PicMove extends Move implements Serializable {
         super(name, description, category);
     }
 
-    public PicMove(String name, Category category, boolean twoSides) {
-        super(name, category, twoSides);
-    }
-
-    public PicMove(String name, boolean twoSides, String description) {
-        super(name, description, twoSides);
-    }
-
-    public PicMove(String name, Category category, boolean twoSides, String description) {
-        super(name, description, category, twoSides);
-    }
-
 
     // Overrides
     @Override
     public Bitmap getBitmap(boolean mirrored) {
-        Bitmap bitmap = Bitmap.createBitmap(200, 200, Bitmap.Config.ARGB_8888);
+        Bitmap bitmap = BitmapFactory.decodeResource(App.getContext().getResources(), R.drawable.commencing);
         /*Bitmap bitmap = Bitmap.createBitmap(BITMAP_PIXELS, BITMAP_PIXELS, Bitmap.Config.ARGB_8888);
 
         Canvas canvas = new Canvas(bitmap);
