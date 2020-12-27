@@ -1,13 +1,18 @@
 TODO
 ----
+
+My Tai Chi Routines
+-------------------
 - it's for me, not professional for my customers
     - but I don't mind experimenting with a custom version for Ryan
         - but I should not overcommit more time than I want to
 
-My Tai Chi Routines
--------------------
+- Tai Chi Poses & Text
+    - PicMove must use Move.name to find pic (to lower?)
+    - MoveLibrary::generateTaiChiMoves() w/ motions, SampleRoutine::generateShibashi1() w/ benefits
+
 - ALPHA in App Store
-- FAB to YouTube Channel
+- FAB (button) to YouTube Channel
 - YouTube videos in Practice tab
 
 - TabbedActivity
@@ -24,7 +29,6 @@ My Tai Chi Routines
     - use File Name?
     - http://www.uandblog.com/How-to-Create-Video-Streaming-Application-in-Android
 - YouTube videos
-- Tai Chi Poses & Text
 
 Routines
 --------
