@@ -39,7 +39,7 @@ public class PicMove extends Move implements Serializable {
     // Overrides
     @Override
     public Bitmap getBitmap(boolean mirrored) {
-        Bitmap bitmap = BitmapFactory.decodeResource(App.getContext().getResources(), R.drawable.commencing);
+        Bitmap bitmap = BitmapFactory.decodeResource(App.getContext().getResources(), R.drawable.commence);
         /*Bitmap bitmap = Bitmap.createBitmap(BITMAP_PIXELS, BITMAP_PIXELS, Bitmap.Config.ARGB_8888);
 
         Canvas canvas = new Canvas(bitmap);
