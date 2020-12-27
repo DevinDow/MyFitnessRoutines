@@ -10,7 +10,7 @@ import com.devindow.myfitnessroutines.pose.Pose;
 import java.io.Serializable;
 
 /**
- * Abstract class for MoveWithPose, SoccerMove, LadderMove, etc
+ * Abstract class for MoveWithPose, SoccerMove, LadderMove, PicMove, etc
  */
 public abstract class Move implements Serializable {
 
