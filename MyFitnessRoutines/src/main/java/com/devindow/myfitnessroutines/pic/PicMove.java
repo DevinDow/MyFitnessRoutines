@@ -39,20 +39,6 @@ public class PicMove extends Move implements Serializable {
     // Overrides
     @Override
     public Bitmap getBitmap(boolean mirrored) {
-        Bitmap bitmap = BitmapFactory.decodeResource(App.getContext().getResources(), R.drawable.commence);
-        /*Bitmap bitmap = Bitmap.createBitmap(BITMAP_PIXELS, BITMAP_PIXELS, Bitmap.Config.ARGB_8888);
-
-        Canvas canvas = new Canvas(bitmap);
-        drawFrame(canvas, BITMAP_PIXELS);
-        canvas.translate(BITMAP_PIXELS/2, BITMAP_PIXELS-1); // Origin at bottom center
-        canvas.scale(PIXELS_PER_INCH, PIXELS_PER_INCH); // Scale to Inches
-        canvas.scale(1, -1); // up is positive Y
-        canvas.translate(0, Ladder.rungGap/2 + Step.radius); // Origin moved up for starting point
-
-        Ladder.draw(canvas);
-
-        drawSteps(canvas);*/
-
-        return bitmap;
+        return BitmapFactory.decodeResource(App.getContext().getResources(), R.drawable.commence);
     }
 }
