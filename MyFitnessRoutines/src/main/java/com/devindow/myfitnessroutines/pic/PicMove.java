@@ -9,6 +9,7 @@ import com.devindow.myfitnessroutines.R;
 import com.devindow.myfitnessroutines.ladder.Ladder;
 import com.devindow.myfitnessroutines.routine.Category;
 import com.devindow.myfitnessroutines.routine.Move;
+import com.devindow.myfitnessroutines.routine.MoveLibrary;
 import com.devindow.myfitnessroutines.util.Step;
 
 import java.io.Serializable;
@@ -39,6 +40,13 @@ public class PicMove extends Move implements Serializable {
     // Overrides
     @Override
     public Bitmap getBitmap(boolean mirrored) {
-        return BitmapFactory.decodeResource(App.getContext().getResources(), R.drawable.commence);
+        switch (name)
+        {
+            case MoveLibrary.TAICHI_COMMENCING:
+                return BitmapFactory.decodeResource(App.getContext().getResources(), R.drawable.commence);
+
+            default:
+                return Bitmap.createBitmap(200, 200, Bitmap.Config.ARGB_8888);
+        }
     }
 }
