@@ -3,13 +3,12 @@ TODO
 
 My Tai Chi Routines
 -------------------
-- it's for me, not professional for my customers
-    - but I don't mind experimenting with a custom version for Ryan
-        - but I should not overcommit more time than I want to
-
 - Tai Chi Poses & Text
-    - PicMove must use Move.name to find pic (to lower?)
-    - MoveLibrary::generateTaiChiMoves() w/ motions, SampleRoutine::generateShibashi1() w/ benefits
+(drawings at C:\Development\Android\MyFitnessRoutines\MyFitnessRoutines\src\main\res\drawable)
+    - MoveLibrary defines Move Name constants
+    - SampleRoutine::generateTaiChiMoves() & generateShibashi1() use constants
+    - PicMove switches on Move Name constants to select pic
+    - more text for SampleRoutine::generateTaiChiMoves() w/ motions, SampleRoutine::generateShibashi1() w/ benefits
 
 - ALPHA in App Store
 - FAB (button) to YouTube Channel
