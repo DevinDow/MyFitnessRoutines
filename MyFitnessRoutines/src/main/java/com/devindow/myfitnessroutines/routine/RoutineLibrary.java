@@ -3,8 +3,6 @@ package com.devindow.myfitnessroutines.routine;
 import com.devindow.myfitnessroutines.generic.Generic;
 import com.devindow.myfitnessroutines.util.MethodLogger;
 
-import junit.framework.Assert;
-
 import java.util.Dictionary;
 import java.util.Hashtable;
 
@@ -30,7 +28,11 @@ public class RoutineLibrary {
 
 	// Private Static Methods
 	public static void addRoutine(Routine routine) {
-		Assert.assertNull(routines.get(routine.name)); // avoid multiple Moves with same Name/Key
+		// avoid multiple Routines with same Name/Key
+		Routine existingRoutine = routines.get(routine.name);
+		if (existingRoutine != null)
+			throw new AssertionError("multiple Routines with same Name/Key: " + routine.name);
+
 		routines.put(routine.name, routine);
 	}
 

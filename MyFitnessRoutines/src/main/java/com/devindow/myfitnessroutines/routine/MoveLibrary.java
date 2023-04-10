@@ -6,8 +6,6 @@ import com.devindow.myfitnessroutines.ladder.*;
 import com.devindow.myfitnessroutines.soccer.*;
 import com.devindow.myfitnessroutines.util.*;
 
-import junit.framework.Assert;
-
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
@@ -185,7 +183,11 @@ public class MoveLibrary {
 
 	// Private Static Methods
 	private static void addMove(Move move) {
-		Assert.assertNull(moves.get(move.name)); // avoid multiple Moves with same Name/Key
+		// avoid multiple Moves with same Name/Key
+		Move existingMove = moves.get(move.name);
+		if (existingMove != null)
+			throw new AssertionError("multiple Moves with same Name/Key: " + move.name);
+
 		moves.put(move.name, move);
 	}
 
