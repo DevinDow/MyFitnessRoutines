@@ -9,13 +9,12 @@ Android app to guide you through fitness routines.
         - Version in Module's **build.gradle**
             - *versionCode* incremented (every App Store submission must be higher)
             - *versionString* (what's displayed to users)
-        - Generate Signed APK
-        - comment = *versionCode #2 = "0.4-beta"*
+        - Generate Signed AAB then Signed APK (building second type deletes first type)
+        - comment = *versionCode #18 = "v1.0.8"*
 1. Publish GitHub Release
-    - Attach APK(s)
-    - v0.4.1-beta-feature
-    - Mark it as *pre-release*
-1. Upload to App Store
+    - Attach AAB & APK
+    - v1.0.8-feature
+1. Upload AAB to App Store
 1. Reverse-Merge *master* to *develop*
 
 ## Object-Oriented Design
