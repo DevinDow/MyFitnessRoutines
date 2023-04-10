@@ -183,7 +183,7 @@ public class MoveLibrary {
 	public static final String TAICHI_BROADEN_CHEST = "Broaden Chest";
 	public static final String TAICHI_DANCING_WITH_RAINBOWS = "Dancing with Rainbows";
 	public static final String TAICHI_CIRCLING_ARMS = "Circling Arms";
-	public static final String TAICHI_TWIST_WAIST = "Twist Waist & Swing Arms";
+	public static final String TAICHI_SWING_ARMS = "Twist Waist & Swing Arms";
 	public static final String TAICHI_ROWING_BOAT = "Rowing Boat";
 	public static final String TAICHI_HOLDING_BALL = "Holding Ball";
 	public static final String TAICHI_CARRYING_MOON = "Carrying Moon";
@@ -2077,12 +2077,27 @@ public class MoveLibrary {
 
 
 	private static void generateTaiChiMoves() {
-
-		// Commencing
-		{
-			addMove(new PicMove(TAICHI_COMMENCING, Category.TAICHI, "Arms up then down"));
-		}
-
+		addMove(new PicMove(TAICHI_OPENING, Category.TAICHI));
+		addMove(new PicMove(TAICHI_COMMENCING, Category.TAICHI));
+		addMove(new PicMove(TAICHI_BROADEN_CHEST, Category.TAICHI));
+		addMove(new PicMove(TAICHI_DANCING_WITH_RAINBOWS, Category.TAICHI));
+		addMove(new PicMove(TAICHI_CIRCLING_ARMS, Category.TAICHI));
+		addMove(new PicMove(TAICHI_SWING_ARMS, Category.TAICHI));
+		addMove(new PicMove(TAICHI_ROWING_BOAT, Category.TAICHI));
+		addMove(new PicMove(TAICHI_HOLDING_BALL, Category.TAICHI));
+		addMove(new PicMove(TAICHI_CARRYING_MOON, Category.TAICHI));
+		addMove(new PicMove(TAICHI_PUSH_PALM, Category.TAICHI));
+		addMove(new PicMove(TAICHI_CLOUD_HANDS, Category.TAICHI));
+		addMove(new PicMove(TAICHI_SCOOPING_SEA, Category.TAICHI));
+		addMove(new PicMove(TAICHI_PLAYING_WITH_WAVES, Category.TAICHI));
+		addMove(new PicMove(TAICHI_SPREAD_WINGS, Category.TAICHI));
+		addMove(new PicMove(TAICHI_PUNCHING, Category.TAICHI));
+		addMove(new PicMove(TAICHI_FLYING_LIKE_GOOSE, Category.TAICHI));
+		addMove(new PicMove(TAICHI_SPINNING_WHEEL, Category.TAICHI));
+		addMove(new PicMove(TAICHI_BOUNCING_A_BALL, Category.TAICHI));
+		addMove(new PicMove(TAICHI_PRESSING_PALMS, Category.TAICHI));
+		addMove(new PicMove(TAICHI_CLOSING, Category.TAICHI));
+		addMove(new PicMove(TAICHI_RUB_BELLY, Category.TAICHI));
 	}
 
 }

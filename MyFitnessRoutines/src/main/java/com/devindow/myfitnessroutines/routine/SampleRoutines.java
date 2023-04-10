@@ -174,7 +174,7 @@ public class SampleRoutines {
 		routine.tasks.add(new Task(MoveLibrary.TAICHI_BROADEN_CHEST, 45, "for Lungs, Insomnia, Mental Fatigue"));
 		routine.tasks.add(new Task(MoveLibrary.TAICHI_DANCING_WITH_RAINBOWS, 45, "turn & shift weight back with rainbow Arm"));
 		routine.tasks.add(new Task(MoveLibrary.TAICHI_CIRCLING_ARMS, 45, "Hands up front then out"));
-		routine.tasks.add(new Task(MoveLibrary.TAICHI_TWIST_WAIST, 45, "Arm reaches back then pushes through"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_SWING_ARMS, 45, "Arm reaches back then pushes through"));
 		routine.tasks.add(new Task(MoveLibrary.TAICHI_ROWING_BOAT, 45, "Arms overhead then paddle"));
 		routine.tasks.add(new Task(MoveLibrary.TAICHI_HOLDING_BALL, 45, "twist & lift Palm"));
 		routine.tasks.add(new Task(MoveLibrary.TAICHI_CARRYING_MOON, 45, "twist & reach for Moon"));
