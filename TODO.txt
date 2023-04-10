@@ -1,17 +1,24 @@
 TODO
 ----
 
-My Tai Chi Routines
+- PicMove
+    - tall PNGs should be scaled to height so as to not mess up UI
+
+- TabbedActivity
+    - remember which Tab we are on
+
+
+
+Tai Chi Routines
 -------------------
-- Tai Chi Poses & Text
+- Tai Chi Poses & Text (Shibashi1 completed, 24 Forms needs PNGs & Constants like Shibashi1)
 (drawings at C:\Development\Android\MyFitnessRoutines\MyFitnessRoutines\src\main\res\drawable)
     - MoveLibrary defines Move Name constants
     - SampleRoutine::generateTaiChiMoves() & generateShibashi1() use constants
     - PicMove switches on Move Name constants to select pic
     - more text for SampleRoutine::generateTaiChiMoves() w/ motions, SampleRoutine::generateShibashi1() w/ benefits
 
-- TabbedActivity
-    - remember which Tab we are on
+
 
 
 Routines
