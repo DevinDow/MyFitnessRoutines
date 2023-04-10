@@ -177,8 +177,28 @@ public class MoveLibrary {
 	public static final String SOCCER_HAT_DANCE_CIRCLE = "Hat Dance Circle";
 	public static final String SOCCER_2_TOUCHES_THEN_ACROSS = "2 touches then across";
 
-	// Soccer Moves
+	// Tai Chi Moves
+	public static final String TAICHI_OPENING = "Opening";
 	public static final String TAICHI_COMMENCING = "Commencing";
+	public static final String TAICHI_BROADEN_CHEST = "Broaden Chest";
+	public static final String TAICHI_DANCING_WITH_RAINBOWS = "Dancing with Rainbows";
+	public static final String TAICHI_CIRCLING_ARMS = "Circling Arms";
+	public static final String TAICHI_TWIST_WAIST = "Twist Waist & Swing Arms";
+	public static final String TAICHI_ROWING_BOAT = "Rowing Boat";
+	public static final String TAICHI_HOLDING_BALL = "Holding Ball";
+	public static final String TAICHI_CARRYING_MOON = "Carrying Moon";
+	public static final String TAICHI_PUSH_PALM = "Push Palm";
+	public static final String TAICHI_CLOUD_HANDS = "Cloud Hands";
+	public static final String TAICHI_SCOOPING_SEA = "Scooping Sea LEFT";
+	public static final String TAICHI_PLAYING_WITH_WAVES = "Playing with Waves LEFT";
+	public static final String TAICHI_SPREAD_WINGS = "Spread Wings LEFT";
+	public static final String TAICHI_PUNCHING = "Punching";
+	public static final String TAICHI_FLYING_LIKE_GOOSE = "Flying like Goose";
+	public static final String TAICHI_SPINNING_WHEEL = "Spinning Wheel";
+	public static final String TAICHI_BOUNCING_A_BALL = "Bouncing a Ball";
+	public static final String TAICHI_PRESSING_PALMS = "Pressing Palms";
+	public static final String TAICHI_CLOSING = "Closing";
+	public static final String TAICHI_RUB_BELLY = "Rub Belly";
 
 
 	// Private Static Methods

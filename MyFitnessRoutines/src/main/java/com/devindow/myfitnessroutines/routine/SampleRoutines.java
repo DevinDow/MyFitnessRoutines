@@ -169,27 +169,27 @@ public class SampleRoutines {
 	private static void generateShibashi1() {
 		Routine routine = new Routine(RoutineLibrary.SHIBASHI_1, Category.TAICHI, "Tai Chi Qigong Shibashi 1.");
 
-		routine.tasks.add(new Task("Opening", 30, "Arms down, Palms face Thighs"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_OPENING, 30, "Arms down, Palms face Thighs"));
 		routine.tasks.add(new Task(MoveLibrary.TAICHI_COMMENCING, 45, "for Respiration, Blood Pressure, Nerves, Knees"));
-		routine.tasks.add(new Task("Broaden Chest", 45, "for Lungs, Insomnia, Mental Fatigue"));
-		routine.tasks.add(new Task("Dancing with Rainbows", 45, "turn & shift weight back with rainbow Arm"));
-		routine.tasks.add(new Task("Circling Arms", 45, "Hands up front then out"));
-		routine.tasks.add(new Task("Twist Waist & Swing Arms", 45, "Arm reaches back then pushes through"));
-		routine.tasks.add(new Task("Rowing Boat", 45, "Arms overhead then paddle"));
-		routine.tasks.add(new Task("Holding Ball", 45, "twist & lift Palm"));
-		routine.tasks.add(new Task("Carrying Moon", 45, "twist & reach for Moon"));
-		routine.tasks.add(new Task("Push Palm", 45, "turn & push Palm"));
-		routine.tasks.add(new Task("Cloud Hands", 45, "twist leading Backhand"));
-		routine.tasks.add(new Task("Scooping Sea LEFT", 45, "bend at Waist & scoop"));
-		routine.tasks.add(new Task("Playing with Waves LEFT", 45, "push Hands then pull Hands"));
-		routine.tasks.add(new Task("Spread Wings LEFT", 45, "Hands wide then shift & together"));
-		routine.tasks.add(new Task("Punching", 45, "Fists at Waist then punch"));
-		routine.tasks.add(new Task("Flying like Goose", 45, "Arms flap to the side"));
-		routine.tasks.add(new Task("Spinning Wheel", 45, /*Side.BOTH,*/ "circle Arms from Toes to overhead"));
-		routine.tasks.add(new Task("Bouncing a Ball", 45, "raise Hand & opposite Foot"));
-		routine.tasks.add(new Task("Pressing Palms", 45, "Palms up then bring down Palms toward Dantian"));
-		routine.tasks.add(new Task("Closing", 3*60, "hold Chi Ball between relaxed Hands"));
-		routine.tasks.add(new Task("Rub Belly", 30));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_BROADEN_CHEST, 45, "for Lungs, Insomnia, Mental Fatigue"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_DANCING_WITH_RAINBOWS, 45, "turn & shift weight back with rainbow Arm"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_CIRCLING_ARMS, 45, "Hands up front then out"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_TWIST_WAIST, 45, "Arm reaches back then pushes through"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_ROWING_BOAT, 45, "Arms overhead then paddle"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_HOLDING_BALL, 45, "twist & lift Palm"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_CARRYING_MOON, 45, "twist & reach for Moon"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_PUSH_PALM, 45, "turn & push Palm"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_CLOUD_HANDS, 45, "twist leading Backhand"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_SCOOPING_SEA, 45, "bend at Waist & scoop"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_PLAYING_WITH_WAVES, 45, "push Hands then pull Hands"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_SPREAD_WINGS, 45, "Hands wide then shift & together"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_PUNCHING, 45, "Fists at Waist then punch"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_FLYING_LIKE_GOOSE, 45, "Arms flap to the side"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_SPINNING_WHEEL, 45, /*Side.BOTH,*/ "circle Arms from Toes to overhead"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_BOUNCING_A_BALL, 45, "raise Hand & opposite Foot"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_PRESSING_PALMS, 45, "Palms up then bring down Palms toward Dantian"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_CLOSING, 3*60, "hold Chi Ball between relaxed Hands"));
+		routine.tasks.add(new Task(MoveLibrary.TAICHI_RUB_BELLY, 30));
 
 		RoutineLibrary.addRoutine(routine);
 	}
