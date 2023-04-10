@@ -44,10 +44,10 @@ public class GenericAdapter extends ArrayAdapter<Generic> {
 		LayoutInflater inflater = LayoutInflater.from(context);
 		convertView = inflater.inflate(resource, parent, false);
 
-		// GRAY background for paid Routines in free app flavor
+		/*// GRAY background for paid Routines in free app flavor
 		if (BuildConfig.FLAVOR.equals("free") && !generic.isFree) {
 			convertView.setBackgroundColor(Color.LTGRAY);
-		}
+		}*/
 
 		// GREEN background for Routines completed today
 		if (generic.ranRecently) {
