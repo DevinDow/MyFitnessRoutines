@@ -12,9 +12,9 @@ Android app to guide you through fitness routines.
         - Generate Signed AAB then Signed APK (building second type deletes first type)
         - comment = *versionCode #18 = "v1.0.8"*
 1. Publish GitHub Release
-    - Attach AAB & APK
+    - Attach Free-AAB & Full-APK
     - v1.0.8-feature
-1. Upload AAB to App Store
+1. Upload Free-AAB to App Store
 1. Reverse-Merge *master* to *develop*
 
 ## Object-Oriented Design
