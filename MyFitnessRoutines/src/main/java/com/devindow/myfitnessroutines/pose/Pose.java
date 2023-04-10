@@ -4,8 +4,6 @@ import android.graphics.Canvas;
 
 import com.devindow.myfitnessroutines.util.Extents;
 
-import junit.framework.Assert;
-
 import java.io.Serializable;
 
 /**
@@ -27,7 +25,8 @@ public class Pose implements Serializable {
 
 	// Public Properties
 	public Extents getExtents() {
-		Assert.assertNotNull(torso);
+		if (torso == null)
+			throw new AssertionError("torso is NULL");
 
 		Extents extents = torso.getExtents();
 
