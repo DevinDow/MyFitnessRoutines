@@ -17,6 +17,9 @@ Android app to guide you through fitness routines.
 1. Upload Free-AAB to App Store
 1. Reverse-Merge *master* to *develop*
 
+### Plan for using Release and being able to Debug
+Install Free-AAB from App Store, Debug using fullDebug
+
 ## Object-Oriented Design
 ### Generic (abstract for Routine, Video)
 - **name**
