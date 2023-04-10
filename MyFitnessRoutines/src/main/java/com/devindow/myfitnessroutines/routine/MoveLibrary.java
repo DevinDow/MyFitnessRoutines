@@ -1,5 +1,6 @@
 package com.devindow.myfitnessroutines.routine;
 
+import com.devindow.myfitnessroutines.pic.PicMove;
 import com.devindow.myfitnessroutines.pose.*;
 import com.devindow.myfitnessroutines.ladder.*;
 import com.devindow.myfitnessroutines.soccer.*;
@@ -11,6 +12,7 @@ import java.util.Hashtable;
 
 /**
  * Library of Moves
+ * maps a MoveName to a Move object
  */
 public class MoveLibrary {
 
@@ -35,6 +37,7 @@ public class MoveLibrary {
 
 		generateLadderMoves();
 		generateSoccerMoves();
+		generateTaiChiMoves();
 
 		methodLogger.end();
 	}
@@ -173,6 +176,29 @@ public class MoveLibrary {
 	public static final String SOCCER_HAT_DANCE = "Hat Dance";
 	public static final String SOCCER_HAT_DANCE_CIRCLE = "Hat Dance Circle";
 	public static final String SOCCER_2_TOUCHES_THEN_ACROSS = "2 touches then across";
+
+	// Tai Chi Moves
+	public static final String TAICHI_OPENING = "Opening";
+	public static final String TAICHI_COMMENCING = "Commencing";
+	public static final String TAICHI_BROADEN_CHEST = "Broaden Chest";
+	public static final String TAICHI_DANCING_WITH_RAINBOWS = "Dancing with Rainbows";
+	public static final String TAICHI_CIRCLING_ARMS = "Circling Arms";
+	public static final String TAICHI_SWING_ARMS = "Twist Waist & Swing Arms";
+	public static final String TAICHI_ROWING_BOAT = "Rowing Boat";
+	public static final String TAICHI_HOLDING_BALL = "Holding Ball";
+	public static final String TAICHI_CARRYING_MOON = "Carrying Moon";
+	public static final String TAICHI_PUSH_PALM = "Push Palm";
+	public static final String TAICHI_CLOUD_HANDS = "Cloud Hands";
+	public static final String TAICHI_SCOOPING_SEA = "Scooping Sea LEFT";
+	public static final String TAICHI_PLAYING_WITH_WAVES = "Playing with Waves LEFT";
+	public static final String TAICHI_SPREAD_WINGS = "Spread Wings LEFT";
+	public static final String TAICHI_PUNCHING = "Punching";
+	public static final String TAICHI_FLYING_LIKE_GOOSE = "Flying like Goose";
+	public static final String TAICHI_SPINNING_WHEEL = "Spinning Wheel";
+	public static final String TAICHI_BOUNCING_A_BALL = "Bouncing a Ball";
+	public static final String TAICHI_PRESSING_PALMS = "Pressing Palms";
+	public static final String TAICHI_CLOSING = "Closing";
+	public static final String TAICHI_RUB_BELLY = "Rub Belly";
 
 
 	// Private Static Methods
@@ -2047,6 +2073,31 @@ public class MoveLibrary {
 			addMove(move);
 		}
 
+	}
+
+
+	private static void generateTaiChiMoves() {
+		addMove(new PicMove(TAICHI_OPENING, Category.TAICHI));
+		addMove(new PicMove(TAICHI_COMMENCING, Category.TAICHI));
+		addMove(new PicMove(TAICHI_BROADEN_CHEST, Category.TAICHI));
+		addMove(new PicMove(TAICHI_DANCING_WITH_RAINBOWS, Category.TAICHI));
+		addMove(new PicMove(TAICHI_CIRCLING_ARMS, Category.TAICHI));
+		addMove(new PicMove(TAICHI_SWING_ARMS, Category.TAICHI));
+		addMove(new PicMove(TAICHI_ROWING_BOAT, Category.TAICHI));
+		addMove(new PicMove(TAICHI_HOLDING_BALL, Category.TAICHI));
+		addMove(new PicMove(TAICHI_CARRYING_MOON, Category.TAICHI));
+		addMove(new PicMove(TAICHI_PUSH_PALM, Category.TAICHI));
+		addMove(new PicMove(TAICHI_CLOUD_HANDS, Category.TAICHI));
+		addMove(new PicMove(TAICHI_SCOOPING_SEA, Category.TAICHI));
+		addMove(new PicMove(TAICHI_PLAYING_WITH_WAVES, Category.TAICHI));
+		addMove(new PicMove(TAICHI_SPREAD_WINGS, Category.TAICHI));
+		addMove(new PicMove(TAICHI_PUNCHING, Category.TAICHI));
+		addMove(new PicMove(TAICHI_FLYING_LIKE_GOOSE, Category.TAICHI));
+		addMove(new PicMove(TAICHI_SPINNING_WHEEL, Category.TAICHI));
+		addMove(new PicMove(TAICHI_BOUNCING_A_BALL, Category.TAICHI));
+		addMove(new PicMove(TAICHI_PRESSING_PALMS, Category.TAICHI));
+		addMove(new PicMove(TAICHI_CLOSING, Category.TAICHI));
+		addMove(new PicMove(TAICHI_RUB_BELLY, Category.TAICHI));
 	}
 
 }

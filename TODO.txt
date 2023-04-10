@@ -1,30 +1,22 @@
 TODO
 ----
-- it's for me, not professional for my customers
-    - but I don't mind experimenting with a custom version for Ryan
-        - but I should not overcommit more time than I want to
-
-My Tai Chi Routines
--------------------
-- ALPHA in App Store
-- FAB to YouTube Channel
-- YouTube videos in Practice tab
 
 - TabbedActivity
     - remember which Tab we are on
 
-- AWS S3
-    - List Objects in Bucket: https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/java/example_code/s3/src/main/java/aws/example/s3/ListObjects.java
-        - AWS Credentials?
-        - use File Name?
 
-=======
-- Stream Videos
-    - from AWS S3?
-    - use File Name?
-    - http://www.uandblog.com/How-to-Create-Video-Streaming-Application-in-Android
-- YouTube videos
-- Tai Chi Poses & Text
+
+Tai Chi Routines
+-------------------
+- Tai Chi Poses & Text (Shibashi1 completed, 24 Forms needs PNGs & Constants like Shibashi1)
+(drawings at C:\Development\Android\MyFitnessRoutines\MyFitnessRoutines\src\main\res\drawable)
+    - MoveLibrary defines Move Name constants
+    - SampleRoutine::generateTaiChiMoves() & generateShibashi1() use constants
+    - PicMove switches on Move Name constants to select pic
+    - more text for SampleRoutine::generateTaiChiMoves() w/ motions, SampleRoutine::generateShibashi1() w/ benefits
+
+
+
 
 Routines
 --------
