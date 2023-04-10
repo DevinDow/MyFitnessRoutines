@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MyFitnessRoutines.iml" filepath="$PROJECT_DIR$/.idea/modules/MyFitnessRoutines.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MyFitnessRoutines/MyFitnessRoutines.MyFitnessRoutines.iml" filepath="$PROJECT_DIR$/.idea/modules/MyFitnessRoutines/MyFitnessRoutines.MyFitnessRoutines.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MyFitnessRoutines/MyFitnessRoutines.MyFitnessRoutines.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/MyFitnessRoutines/MyFitnessRoutines.MyFitnessRoutines.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MyFitnessRoutines/MyFitnessRoutines.MyFitnessRoutines.main.iml" filepath="$PROJECT_DIR$/.idea/modules/MyFitnessRoutines/MyFitnessRoutines.MyFitnessRoutines.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MyFitnessRoutines/MyFitnessRoutines.MyFitnessRoutines.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/MyFitnessRoutines/MyFitnessRoutines.MyFitnessRoutines.unitTest.iml" />
     </modules>
   </component>
 </project>

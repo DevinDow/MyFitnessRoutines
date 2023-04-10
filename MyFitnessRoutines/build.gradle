@@ -109,6 +109,7 @@ android {
             resValue "string", "app_name", "My Tai Chi Routines"
         }
     }
+    namespace 'com.devindow.myfitnessroutines'
 }
 
 dependencies {
