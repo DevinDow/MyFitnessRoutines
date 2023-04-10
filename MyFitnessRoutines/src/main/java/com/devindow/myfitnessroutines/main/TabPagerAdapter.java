@@ -28,7 +28,7 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
                 return 2;
             case "full":
             case "free":
-                return 4;
+                return 5;
             case "soccer":
                 return 3;
             case "yoga":
@@ -67,6 +67,8 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
                     case 2:
                         return "Agility";
                     case 3:
+                        return "Tai Chi";
+                    case 4:
                         return "Meditation";
                 }
             case "soccer":

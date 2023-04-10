@@ -115,7 +115,11 @@ public class GenericFragment extends Fragment {
                         generics.add(RoutineLibrary.routines.get(RoutineLibrary.LADDER_DRILLS));
                         generics.add(RoutineLibrary.routines.get(RoutineLibrary.SOCCER_TOUCHES));
                         break;
-                    case 3: // Meditation
+                    case 3: // Tai Chi
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.TWENTY_FOUR_FORMS));
+                        generics.add(RoutineLibrary.routines.get(RoutineLibrary.SHIBASHI_1));
+                        break;
+                    case 4: // Meditation
                         generics.add(RoutineLibrary.routines.get(RoutineLibrary.FIVE_MIN_MEDITATION));
                         generics.add(RoutineLibrary.routines.get(RoutineLibrary.TEN_MIN_MEDITATION));
                         generics.add(RoutineLibrary.routines.get(RoutineLibrary.FIFTEEN_MIN_MEDITATION));
